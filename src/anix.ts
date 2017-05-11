@@ -91,14 +91,13 @@ export class AniXClass {
     * kill
     * AniX.kill(a);
     */
-    kill(ele: any, complete?: boolean): string {
+    kill(ele: any, complete?: boolean) {
         ele = getHTMLElement(ele);
         CssX.css3(ele, 'transition', 'none !important');
         CssX.css3(ele, 'transition', 'none');
 
         Dic.get(ele).id && clearTimeout(Dic.get(ele).id);
         Dic.get(ele).event && CssX.removeEventListener(ele, Dic.get(ele).event, Dic.get(ele).handler);
-        return;
     }
 
     getTransform(param: {
@@ -206,7 +205,7 @@ export class AniXClass {
             if (this.useTranstionEvent) {
                 Dic.get(ele).event = CssX.getTranstionEndEvent();
                 Dic.get(ele).fun = args.onComplete;
-                Dic.get(ele).handler = (ele => {
+                Dic.get(ele).handler = ((ele: any) => {
                     Dic.get(ele).fun();
                     CssX.removeEventListener(ele, Dic.get(ele).event, Dic.get(ele).handler);
                 }).bind(null, ele);

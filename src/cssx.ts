@@ -163,7 +163,7 @@ class CssXClass {
         }
     }
 
-    hasClass(ele, className: string): boolean {
+    hasClass(ele: HTMLElement, className: string): any {
         return ele.className.match(new RegExp('(\\s|^)' + className + '(\\s|$)'));
     }
 
@@ -196,5 +196,5 @@ export interface ITransform {
 }
 
 //export instance
-let CssX = new CssXClass();
+let CssX: CssXClass = new CssXClass();
 export { CssX };
