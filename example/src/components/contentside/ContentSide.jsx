@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import { Section1 } from './Section1';
+import { Section2 } from './Section2';
+import { Section3 } from './Section3';
 
 export default class ContentSide extends Component {
 
@@ -9,7 +12,6 @@ export default class ContentSide extends Component {
         { link: "#section4", title: "Future", isActive: false },
     ];
 
-    
     clickHandler(data, index) {
         for (let i = 0; i < this.datas.length; i++)
             this.datas[i].isActive = false;
@@ -27,7 +29,7 @@ export default class ContentSide extends Component {
             this.scrollTo(htmlElement, 500, top);
     }
 
-     getOffsetTop(dom) {
+    getOffsetTop(dom) {
         let top = 0;
         let offsetParent = dom;
 
@@ -39,53 +41,51 @@ export default class ContentSide extends Component {
         return top;
     }
 
-     id;
-     scrollTo(dom, time, top) {
-        var from = dom.scrollTop;
-        var to = top;
-        var t = 1000 / 60;
-        var k = Math.floor(time / t);
-        var d = (to - from) / k;
-        var i = 0;
+    timeoutId;
+    scrollTo(dom, time, top) {
+        let from = dom.scrollTop;
+        let to = top;
+        let t = 1000 / 60;
+        let k = Math.floor(time / t);
+        let d = (to - from) / k;
+        let i = 0;
 
-        clearInterval(this.id);
-        this.id = setInterval(() => {
+        clearInterval(this.timeoutId);
+        this.timeoutId = setInterval(() => {
             dom.scrollTop += d;
             i++;
 
             if (i >= k) {
-                clearInterval(this.id);
+                clearInterval(this.timeoutId);
                 dom.scrollTop = to;
             }
         }, t);
     }
 
-  render() {
-    return (
-    <div class="content-side">
-        <div class="container">
+    render() {
+        return (
+            <div class="content-side">
+                <div class="container">
 
-            <div class="row">
-                <div class="col-md-2 sidebar">
+                    <div class="row">
+                        {/*<div class="col-md-2 sidebar">
                     <ul class="nav nav-pills flex-column">
                         <li class="nav-item pointer" *ngFor="let data of datas;let i=index" (click)="clickHandler(data,i)">
                             <a class="nav-link pointer" [ngClass]="{'active': data.isActive}" [attr.linkto]="data.link">{{data.title}} <span class="sr-only">(current)</span></a>
                         </li>
                     </ul>
+                </div>*/}
+
+                        <div class="col-md-10 clearfix">
+                            <Section1 />
+                            <Section2 />
+                            <Section3 />
+                        </div>
+
+                    </div>
+
                 </div>
-
-
-                <div class="col-md-10 clearfix">
-                    <section1></section1>
-                    <section2></section2>
-                    <section3></section3>
-                    <section4></section4>
-                </div>
-
             </div>
-
-        </div>
-    </div>
-    );
-  }
+        );
+    }
 }

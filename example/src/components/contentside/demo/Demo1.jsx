@@ -13,7 +13,7 @@ export default class Demo1 extends Component {
   });
 }
 `;
-
+    
     animation(refs) {
         let w = Math.min(Util.getWidth() - 80, 500);
 
