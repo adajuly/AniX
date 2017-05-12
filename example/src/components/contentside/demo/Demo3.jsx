@@ -1,54 +1,41 @@
-import { Component } from '@angular/core';
-import { NgxAni } from '../../../../src';
+import React, { Component } from 'react';
+import { Util } from '../../../utils/Util';
+import { Anix } from '../../../../../dist/cjs';
+import './Demo3.css';
 
-@Component({
-    selector: 'demo3',
-    template: `
-    <h4 id="demo3">css transform</h4>
-    <button class="pointer btn btn-primary" (click)="animation(rect)">click animate</button>
-    <div class="rect" #rect></div>
-    <pre><code class="typescript">{{code}}</code></pre>
-    `,
-    styles: ['.rect{background-color:#2233cc}']
-})
+export default class Demo3 extends Component {
 
-export class Demo3Component {
-
-    constructor(private ngxAni: NgxAni) { }
-
-    private code: string = `
-private animation(rect){
+    code = `
+animation(rect){
   let x = Math.random() * 600;
   let rotate = Math.random() * 360;
 
   ////////////////////////two methods////////////////////////
   //1. use prefix
-  this.ngxAni.to(rect, .7, {
+  AniX.to(rect, .7, {
     "transform" : "translate3d(100px, 0, 0) rotate(120deg)",
     "-webkit-transform" : "translate3d(100px, 0, 0) rotate(120deg)",
     "-ms-transform" : "translate3d(100px, 0, 0) rotate(120deg)"
   });
 
   //2. use ngxAni.getTransform
-  this.ngxAni.to(rect, .7, this.ngxAni.getTransform({ rotate: rotate, x: x }));
+  AniX.to(rect, .7, AniX.getTransform({ rotate: rotate, x: x }));
 }
 `;
 
-    private animation(rect) {
-        let w: number = Math.min(this.getWidth() - 145, 600);
-        this.ngxAni.to(rect, .7, this.ngxAni.getTransform({ rotate: Math.random() * 360, x: Math.random() * w }));
+    animation(rect) {
+        let w = Math.min(this.getWidth() - 145, 600);
+        AniX.to(rect, .7, AniX.getTransform({ rotate: Math.random() * 360, x: Math.random() * w }));
     }
 
-    private getRandomColor(): string {
-        return '#' + (function(h) {
-            return new Array(7 - h.length).join("0") + h
-        })((Math.random() * 0x1000000 << 0).toString(16))
+    render() {
+        return (
+            <div>
+                <h4 id="demo3">css transform</h4>
+                <button class="pointer btn btn-primary" onClick={this.animation.bind(this, 'rect')}>click animate</button>
+                <div class="rect" refs="rect"></div>
+                <pre><code class="typescript">{{ code }}</code></pre>
+            </div>
+        );
     }
-
-
-    private getWidth(): number {
-        return document.body.clientWidth|| document.documentElement.clientWidth  || window.screen.availWidth;
-    }
-
-
 }
