@@ -1,32 +1,16 @@
-import { Component, ElementRef } from '@angular/core';
-import { NgxAni } from '../../../../src';
+import React, { Component } from 'react';
+import { Util } from '../../../utils/Util';
+import { Anix } from '../../../../../dist/cjs';
+import './Demo7.css';
 
-@Component({
-    selector: 'demo7',
-    template: `
-    <h4 id="demo7">this.ngxAni.kill</h4>
-    <button class="pointer btn btn-primary" (click)="animation(rect)">click animate</button>
-    <button class="pointer btn btn-primary rbtn" (click)="kill(rect)">kill</button>
-    <div class="rect" #rect></div>
-    <pre><code class="typescript">{{code}}</code></pre>
-    `,
+export default class Demo7 extends Component {
 
-    styles: [
-        '.rbtn{margin-left:15px; background-color:#ff0000; border:0;}',
-        '.rect{background-color:#ffcc22;}'
-    ]
-})
-
-export class Demo7Component {
-
-    constructor(private ngxAni: NgxAni) { }
-
-    private code = `
+    code = `
 this.ngxAni.kill(rect);
 `;
 
-    private animation(rect: ElementRef) {
-        let w: number = Math.min(this.getWidth() - 150, 600);
+    animation(rect) {
+        let w = Math.min(this.getWidth() - 150, 600);
 
         this.ngxAni.fromTo(rect, 5,
             this.ngxAni.getTransform({ x: 0 }),
@@ -34,12 +18,19 @@ this.ngxAni.kill(rect);
         );
     }
 
-    private kill(rect: ElementRef) {
+    kill(rect) {
         this.ngxAni.kill(rect);
     }
 
-    private getWidth(): number {
-        return document.body.clientWidth || document.documentElement.clientWidth || window.screen.availWidth;
+    render() {
+        return (
+            <div>
+                <h4 id="demo7">this.ngxAni.kill</h4>
+    <button class="pointer btn btn-primary" (click)="animation(rect)">click animate</button>
+    <button class="pointer btn btn-primary rbtn" (click)="kill(rect)">kill</button>
+    <div class="rect" #rect></div>
+    <pre><code class="typescript">{{code}}</code></pre>
+            </div>
+        );
     }
-
 }

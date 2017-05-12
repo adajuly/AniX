@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import { Demo1 } from './demo/Demo1';
+import { Demo2 } from './demo/Demo2';
+import { Demo3 } from './demo/Demo3';
 
 export default class Section3 extends Component {
 
@@ -16,14 +19,10 @@ export default class Section3 extends Component {
                     <pre><code class="html">{this.code}</code></pre>
 
                     <div>
-                        <demo1></demo1><hr class="hr" />
-                        <demo2></demo2><hr class="hr" />
-                        <demo3></demo3><hr class="hr" />
-                        <demo4></demo4><hr class="hr" />
-                        <demo5></demo5><hr class="hr" />
-                        <demo6></demo6><hr class="hr" />
-                        <demo7></demo7><hr class="hr" />
-                        <demo8></demo8>
+                        <Demo1/><hr class="hr" />
+                        <Demo2/><hr class="hr" />
+                        <Demo3/><hr class="hr" />
+                        <Demo4/><hr class="hr" />
                     </div>
 
                 </div>
