@@ -1,4 +1,4 @@
-class CssXClass {
+export class CssXClass {
 
     private div: HTMLElement;
     private pfObj: any = {};
@@ -194,6 +194,7 @@ export interface ITransform {
     "-o-transform": string;
     "-moz-transform": string;
 }
+
 
 //export instance
 let CssX: CssXClass = new CssXClass();

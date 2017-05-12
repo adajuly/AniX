@@ -1,6 +1,6 @@
-import { CssX, ITransform } from './cssx';
 import { Dic } from './dic';
 import { EASE, IEase } from './ease';
+import { CssX, ITransform } from './cssx';
 import { getHTMLElement } from './gethtmlelement';
 
 /**
@@ -31,9 +31,7 @@ export class AniXClass {
 
     ease: IEase = EASE;
 
-    constructor() {
-
-    }
+    constructor() { }
 
     get support(): boolean {
         return CssX.hasTransition();
@@ -121,7 +119,8 @@ export class AniXClass {
         if (param.rotate) transform += ` rotate(${param.rotate}deg)`;
 
         if (param.pre) transform = `${param.pre} ` + transform;
-        let css = {
+
+        let css: ITransform = {
             "transform": transform,
             "-webkit-transform": transform,
             "-ms-transform": transform,
@@ -250,6 +249,7 @@ export class AniXClass {
     }
 
 }
+
 
 //export instance
 let AniX = new AniXClass();
