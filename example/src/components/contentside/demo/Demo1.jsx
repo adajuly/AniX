@@ -3,7 +3,7 @@ import { Util } from '../../../utils/Util';
 import { AniX } from '../../../../../dist/cjs';
 import './Demo1.css';
 
-export default class Demo1 extends Component {
+export class Demo1 extends Component {
 
     code = `
  animation(rect){
@@ -15,10 +15,10 @@ export default class Demo1 extends Component {
 }
 `;
     
-    animation(refs) {
+    animation() {
         let w = Math.min(Util.getWidth() - 80, 500);
 
-        AniX.to(refs, .85, {
+        AniX.to(this.refs.rect, .85, {
             width: Math.random() * w + "px",
             height: (Math.random() * 80 + 20) + "px",
             backgroundColor: Util.getRandomColor()
@@ -29,11 +29,11 @@ export default class Demo1 extends Component {
         return (
             <div>
                 <h4 id="demo1">AniX.to(element, time, toArgs)</h4>
-                <button class="pointer btn btn-primary" onClick={this.animation.bind(this, this.ref.rect)}>click animate</button>
-                <div class="container">
-                    <div class="rect" refs="rect"></div>
+                <button className="pointer btn btn-primary" onClick={this.animation.bind(this)}>click animate</button>
+                <div className="container">
+                    <div className="rect" ref="rect"></div>
                 </div>
-                <pre><code class="javascript">{this.code}</code></pre>
+                <pre><code className="javascript">{this.code}</code></pre>
             </div>
         );
     }

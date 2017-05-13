@@ -3,7 +3,7 @@ import { Util } from '../../../utils/Util';
 import { AniX } from '../../../../../dist/cjs';
 import './Demo3.css';
 
-export default class Demo3 extends Component {
+export class Demo3 extends Component {
 
     code = `
 animation(rect){
@@ -23,18 +23,19 @@ animation(rect){
 }
 `;
 
-    animation(rect) {
-        let w = Math.min(this.getWidth() - 145, 600);
-        AniX.to(rect, .7, AniX.getTransform({ rotate: Math.random() * 360, x: Math.random() * w }));
+    animation() {
+        let w = Math.min(Util.getWidth() - 145, 600);
+        AniX.to(this.refs.rect, .7, 
+        AniX.getTransform({ rotate: Math.random() * 360, x: Math.random() * w }));
     }
 
     render() {
         return (
             <div>
                 <h4 id="demo3">css transform</h4>
-                <button class="pointer btn btn-primary" onClick={this.animation.bind(this, this.refs.rect)}>click animate</button>
-                <div class="rect" ref="rect"></div>
-                <pre><code class="javascript">{this.code}</code></pre>
+                <button className="pointer btn btn-primary" onClick={this.animation.bind(this)}>click animate</button>
+                <div className="rect" ref="rect"></div>
+                <pre><code className="javascript">{this.code}</code></pre>
             </div>
         );
     }

@@ -3,7 +3,7 @@ import { Util } from '../../../utils/Util';
 import { AniX } from '../../../../../dist/cjs';
 import './Demo2.css';
 
-export default class Demo2 extends Component {
+export class Demo2 extends Component {
 
     code = `
  animation(rect) {
@@ -20,9 +20,9 @@ export default class Demo2 extends Component {
 }
 `;
 
-    animation(rect) {
+    animation() {
         let w = Util.getWidth() < 500 ? "10px" : "300px";
-        AniX.fromTo(rect, 1,
+        AniX.fromTo(this.refs.rect, 1,
             {
                 width: "100px",
                 marginLeft: "0px",
@@ -38,9 +38,9 @@ export default class Demo2 extends Component {
         return (
             <div>
                 <h4 id="demo2">AniX.fromTo(element, time, fromArgs, toArgs)</h4>
-                <button class="pointer btn btn-primary" onClick={this.animation.bind(this, this.refs.rect)} > click animate</button >
-                <div class="rect" ref='rect'></div>
-                <pre><code class="javascript">{this.code}</code></pre>
+                <button className="pointer btn btn-primary" onClick={this.animation.bind(this)} > click animate</button >
+                <div className="rect" ref='rect'></div>
+                <pre><code className="javascript">{this.code}</code></pre>
             </div>
         );
     }

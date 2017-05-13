@@ -1,24 +1,24 @@
 import React, { Component } from 'react';
 import { Section1 } from './Section1';
 import { Section2 } from './Section2';
-// import { Section3 } from './Section3';
+import { Section3 } from './Section3';
 
 export class ContentSide extends Component {
 
-    datas = [
+    items = [
         { link: "#section1", title: "Overview", isActive: true },
         { link: "#section2", title: "Reference", isActive: false },
         { link: "#section3", title: "API & Demo", isActive: false },
         { link: "#section4", title: "Future", isActive: false },
     ];
 
-    clickHandler(data, index) {
-        for (let i = 0; i < this.datas.length; i++)
-            this.datas[i].isActive = false;
+    clickHandler(item, index) {
+        for (let i = 0; i < this.items.length; i++)
+            this.items[i].isActive = false;
 
-        this.datas[index].isActive = true;
+        this.items[index].isActive = true;
 
-        let dom = document.querySelector(data.link);
+        let dom = document.querySelector(item.link);
         let top = this.getOffsetTop(dom);
         let htmlElement = document.querySelector("html");
 
@@ -33,7 +33,7 @@ export class ContentSide extends Component {
         let top = 0;
         let offsetParent = dom;
 
-        while (offsetParent != null && offsetParent != document.body) {
+        while (offsetParent !== null && offsetParent !== document.body) {
             top += offsetParent.offsetTop || 0;
             offsetParent = offsetParent.offsetParent;
         }
@@ -62,24 +62,36 @@ export class ContentSide extends Component {
         }, t);
     }
 
+    get navlist(){
+        return this.items.map((item,i)=>{
+                                return (
+                                    <li key={i} className="nav-item pointer" onClick={this.clickHandler.bind(this,item,i)}>
+                            <a className="nav-link pointer" className={item.isActive?'active':''}>{item.title} 
+                                <span className="sr-only">(current)</span>
+                                </a>
+                                    </li>
+                                )
+                            })
+    }
+
     render() {
         return (
             <div className="content-side">
                 <div className="container">
 
                     <div className="row">
-                        {/*<div className="col-md-2 sidebar">
+                        <div className="col-md-2 sidebar">
                     <ul className="nav nav-pills flex-column">
-                        <li className="nav-item pointer" *ngFor="let data of datas;let i=index" (click)="clickHandler(data,i)">
-                            <a className="nav-link pointer" [ngclassName]="{'active': data.isActive}" [attr.linkto]="data.link">{{data.title}} <span className="sr-only">(current)</span></a>
-                        </li>
+                        {
+                            this.navlist
+                        }
                     </ul>
-                </div>*/}
+                </div>
 
                         <div className="col-md-10 clearfix">
                             <Section1 />
                             <Section2 />
-                            {/*<Section3 />*/}
+                            <Section3 />
                         </div>
 
                     </div>
