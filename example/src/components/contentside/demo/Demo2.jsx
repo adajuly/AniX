@@ -6,7 +6,7 @@ import './Demo2.css';
 export default class Demo2 extends Component {
 
     code = `
-private animation(rect) {
+ animation(rect) {
     AniX.fromTo(rect, 1,
         {
             width: "100px",

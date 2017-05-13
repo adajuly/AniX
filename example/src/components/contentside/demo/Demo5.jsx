@@ -1,32 +1,13 @@
-import { Component, ViewChild, ElementRef } from '@angular/core';
-import { NgxAni } from '../../../../src';
+import React, { Component } from 'react';
+import { Util } from '../../../utils/Util';
+import { Anix } from '../../../../../dist/cjs';
+import './Demo3.css';
 
-@Component({
-    selector: 'demo5',
-    template: `
-    <h4 id="demo5">ease function</h4>
-    <button class="pointer btn btn-primary" (click)="animation(rect)">click animate</button>
+export default class Demo5 extends Component {
 
-    <select class="form-control select" [(ngModel)]="ease">
-      <option *ngFor="let data of datas">{{data}}</option>
-    </select>
+      ease: string = "easeOutBack";
 
-    <div class="rect" #rect></div>
-    <pre><code class="typescript">{{code}}</code></pre>
-    `,
-    styles: [
-        '.select{width: 160px; display:inline-block; margin-left:20px;}',
-        '.rect{background-color:#8822cc}'
-    ]
-})
-
-export class Demo5Component {
-
-    constructor(private ngxAni: NgxAni) { }
-
-    private ease: string = "easeOutBack";
-
-    private datas = [
+     datas = [
         'linear',
         'easeBasic',
         'easeIn',
@@ -54,8 +35,8 @@ export class Demo5Component {
         'easeInOutBack'
     ];
 
-    private code = `
-private animation(rect){
+     code = `
+ animation(rect){
   this.ngxAni.to(rect, 1, {
       "width": "200px",
       "background-color": "#ffcc00",
@@ -65,7 +46,7 @@ private animation(rect){
 `;
 
     //animation function
-    private animation(rect) {
+     animation(rect) {
         let w: number = Math.min(this.getWidth() - 150, 450);
 
         this.ngxAni.fromTo(rect, .7,
@@ -78,8 +59,20 @@ private animation(rect){
             ));
     }
 
-    private getWidth(): number {
-        return document.body.clientWidth|| document.documentElement.clientWidth  || window.screen.availWidth;
-    }
+    render() {
+        return (
+            <div>
+                <h4 id="demo5">ease function</h4>
+    <button class="pointer btn btn-primary" (click)="animation(rect)">click animate</button>
 
+    <select class="form-control select" [(ngModel)]="ease">
+      <option *ngFor="let data of datas">{{data}}</option>
+    </select>
+
+    <div class="rect" #rect></div>
+    <pre><code class="typescript">{{code}}</code></pre>
+            </div>
+        );
+    }
 }
+
