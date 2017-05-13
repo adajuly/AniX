@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Demo1 } from './demo/Demo1';
 import { Demo2 } from './demo/Demo2';
 import { Demo3 } from './demo/Demo3';
+import { Demo4 } from './demo/Demo4';
 
 export default class Section3 extends Component {
 

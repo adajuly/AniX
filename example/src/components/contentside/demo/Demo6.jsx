@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Util } from '../../../utils/Util';
-import { Anix } from '../../../../../dist/cjs';
+import { AniX } from '../../../../../dist/cjs';
 import './Demo6.css';
 
 export default class Demo6 extends Component {

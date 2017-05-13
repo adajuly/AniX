@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Util } from '../../../utils/Util';
-import { Anix } from '../../../../../dist/cjs';
+import { AniX } from '../../../../../dist/cjs';
 import './Demo2.css';
 
 export default class Demo2 extends Component {
@@ -40,7 +40,7 @@ export default class Demo2 extends Component {
                 <h4 id="demo2">AniX.fromTo(element, time, fromArgs, toArgs)</h4>
                 <button class="pointer btn btn-primary" onClick={this.animation.bind(this, this.refs.rect)} > click animate</button >
                 <div class="rect" ref='rect'></div>
-                <pre><code class="javascript">{{ code }}</code></pre>
+                <pre><code class="javascript">{this.code}</code></pre>
             </div>
         );
     }

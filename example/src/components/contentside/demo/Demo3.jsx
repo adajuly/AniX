@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Util } from '../../../utils/Util';
-import { Anix } from '../../../../../dist/cjs';
+import { AniX } from '../../../../../dist/cjs';
 import './Demo3.css';
 
 export default class Demo3 extends Component {
@@ -34,7 +34,7 @@ animation(rect){
                 <h4 id="demo3">css transform</h4>
                 <button class="pointer btn btn-primary" onClick={this.animation.bind(this, this.refs.rect)}>click animate</button>
                 <div class="rect" ref="rect"></div>
-                <pre><code class="javascript">{{ code }}</code></pre>
+                <pre><code class="javascript">{this.code}</code></pre>
             </div>
         );
     }

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { HeadSide } from './components/headside/HeadSide';
+import { ContentSide } from './components/contentside/ContentSide';
 
 export default class App extends Component {
 
@@ -7,7 +8,7 @@ export default class App extends Component {
     return (
       <div>
         <HeadSide />
-        <content-side></content-side>
+        <ContentSide />
       </div>
     );
   }
