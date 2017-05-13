@@ -34,7 +34,7 @@ animation(rect){
                 <h4 id="demo3">css transform</h4>
                 <button class="pointer btn btn-primary" onClick={this.animation.bind(this, 'rect')}>click animate</button>
                 <div class="rect" refs="rect"></div>
-                <pre><code class="typescript">{{ code }}</code></pre>
+                <pre><code class="javascript">{{ code }}</code></pre>
             </div>
         );
     }
@@ -69,7 +69,7 @@ animation(rect){
 //     </div>
 
 //     <div class="rect" #rect></div>
-//     <pre><code class="typescript">{{code}}</code></pre>
+//     <pre><code class="javascript">{{code}}</code></pre>
 //     `,
 //     styles: [
 //         'span{font-size:16px;padding-left:20px;}',

@@ -35,7 +35,7 @@ this.ngxAni.to($(".child1")[0], 1, {left : "100px"})`
                         </p>
 
                     </div>
-                    <pre><code class="typescript">{this.code}</code></pre>
+                    <pre><code class="javascript">{this.code}</code></pre>
                 </div>
             </div>
         );

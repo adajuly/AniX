@@ -1,52 +1,36 @@
-import { Component, ElementRef } from '@angular/core';
-import { NgxAni } from '../../../../src';
+import React, { Component } from 'react';
+import { Util } from '../../../utils/Util';
+import { AniX } from '../../../../../dist/cjs';
+import './Demo8.css';
 
-@Component({
-    selector: 'demo8',
-    template: `
-    <h4 id="demo8">others</h4>
-    <pre><code class="typescript">{{code}}</code></pre>
-    `,
+export default class Demo8 extends Component {
 
-    styles: [
-        '.rbtn{margin-left:15px; background-color:#ff0000; border:0;}',
-        '.rect{background-color:#ffcc22;}'
-    ]
-})
-
-export class Demo8Component {
-
-    constructor(private ngxAni: NgxAni) { }
-
-    private code = `
+    code = `
 //////////////////// NgxAni ////////////////////
 //use css transtionend event
-this.ngxAni.useTranstionEvent = true;
+AniX.useTranstionEvent = true;
 //Compatible with old browsers, old browsers do not have animation
-this.ngxAni.compatible = true;
+AniX.compatible = true;
 //debug mode
-this.ngxAni.debug = true;
+AniX.debug = true;
 //(readonly) has css Transition?
-console.log(this.ngxani.support);
+console.log(AniX.support);
 
 //////////////////// NgxCss ////////////////////
 //is support css translate3d?
-this.ngxCss.has3d();
+CssX.has3d();
 //get css prefix
-this.ngxCss.getPrefix();
+CssX.getPrefix();
 //set transformOrigin to  center center;
-this.ngxCss.setOriginCenter(ele: HTMLElement);
+CssX.setOriginCenter(ele);
 `;
 
-    private animation(rect: ElementRef) {
-        this.ngxAni.fromTo(rect, 5,
-            this.ngxAni.getTransform({ x: 0 }),
-            this.ngxAni.getTransform({ x: 600 })
+    render() {
+        return (
+            <div>
+                <h4 id="demo8">others</h4>
+                <pre><code class="javascript">{this.code}</code></pre>
+            </div>
         );
     }
-
-    private kill(rect: ElementRef) {
-        this.ngxAni.kill(rect);
-    }
-
 }

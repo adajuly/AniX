@@ -40,7 +40,7 @@ export default class Demo2 extends Component {
                 <h4 id="demo2">AniX.fromTo(element, time, fromArgs, toArgs)</h4>
                 <button class="pointer btn btn-primary" onClick={this.animation.bind(this, 'rect')} > click animate</button >
                 <div class="rect" refs='rect'></div>
-                <pre><code class="typescript">{{ code }}</code></pre>
+                <pre><code class="javascript">{{ code }}</code></pre>
             </div>
         );
     }

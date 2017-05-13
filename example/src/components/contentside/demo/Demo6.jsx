@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Util } from '../../../utils/Util';
 import { Anix } from '../../../../../dist/cjs';
-import './Demo2.css';
+import './Demo6.css';
 
 export default class Demo2 extends Component {
 
@@ -41,7 +41,7 @@ export default class Demo2 extends Component {
     <button class="pointer btn btn-primary" (click)="animation(rect)">click animate</button>
 
     <div class="rect" #rect></div>
-    <pre><code class="typescript">{{code}}</code></pre>
+    <pre><code class="javascript">{{code}}</code></pre>
             </div>
         );
     }

@@ -29,7 +29,7 @@ this.ngxAni.kill(rect);
     <button class="pointer btn btn-primary" (click)="animation(rect)">click animate</button>
     <button class="pointer btn btn-primary rbtn" (click)="kill(rect)">kill</button>
     <div class="rect" #rect></div>
-    <pre><code class="typescript">{{code}}</code></pre>
+    <pre><code class="javascript">{{code}}</code></pre>
             </div>
         );
     }

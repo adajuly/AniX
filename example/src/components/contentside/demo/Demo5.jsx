@@ -47,7 +47,7 @@ export default class Demo5 extends Component {
 
     //animation function
      animation(rect) {
-        let w: number = Math.min(this.getWidth() - 150, 450);
+        let w = Math.min(this.getWidth() - 150, 450);
 
         this.ngxAni.fromTo(rect, .7,
             this.ngxAni.getTransform({ x: 0, rotate: 0, scale: 1 }),
@@ -70,7 +70,7 @@ export default class Demo5 extends Component {
     </select>
 
     <div class="rect" #rect></div>
-    <pre><code class="typescript">{{code}}</code></pre>
+    <pre><code class="javascript">{{code}}</code></pre>
             </div>
         );
     }

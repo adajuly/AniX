@@ -1,2 +1,9 @@
-.select{width: 160px; display:inline-block; margin-left:20px;}
-.rect{background-color:#8822cc}
+.select {
+    width: 160px;
+    display: inline-block;
+    margin-left: 20px;
+}
+
+.rect {
+    background-color: #8822cc
+}

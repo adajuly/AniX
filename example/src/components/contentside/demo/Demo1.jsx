@@ -33,7 +33,7 @@ export default class Demo1 extends Component {
                 <div class="container">
                     <div class="rect" ref="rect"></div>
                 </div>
-                <pre><code class="typescript">{this.code}</code></pre>
+                <pre><code class="javascript">{this.code}</code></pre>
             </div>
         );
     }
