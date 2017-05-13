@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-export default class Section1 extends Component {
+export class Section1 extends Component {
 
     code = `
 //1. import module
@@ -19,7 +19,7 @@ constructor(private ngxAni: NgxAni) { }
 
 //5. use
 //<button (click)="animation(rect)">click animate</button>
-//<div class="rect" #rect></div>
+//<div className="rect" #rect></div>
 private animation(dom: ElementRef) {
   this.ngxAni.to(dom, 1, {
       width: "200px",
@@ -31,31 +31,31 @@ private animation(dom: ElementRef) {
     render() {
         return (
             <div>
-                <div class="section" id="section1">
+                <div className="section" id="section1">
                     <h1>Overview</h1>
                     <hr />
 
-                    <div class="info">
-                        <h4 class="blur">About NgxAni</h4>
+                    <div className="info">
+                        <h4 className="blur">About NgxAni</h4>
                         <p>NgxAni is an animation plugin for AngularJS2+.
 
                 It is very simple and convenient to use. At the same time it has very good compatibility.
                 <br />
-                            NgxAni is written by <span class="color">typescript</span> and can be easily put into your angular2+ project!
+                            NgxAni is written by <span className="color">typescript</span> and can be easily put into your angular2+ project!
 
-                NgxAni is a <span class="color">Service class</span> which do not rely on any class. You can use it in any <span class="color">Component</span> or <span class="color">Directive</span>.
+                NgxAni is a <span className="color">Service className</span> which do not rely on any className. You can use it in any <span className="color">Component</span> or <span className="color">Directive</span>.
                 </p>
                     </div>
 
                     <h3>Quick Start</h3>
                     <p>Install and manage NgxAni with <a href="https://www.npmjs.com/package/ngxani">npm</a>.
             </p>
-                    <pre><code class="javascript">
+                    <pre><code className="javascript">
                         $ npm install ngxani</code></pre>
 
 
                     <p>import and use the NgxAni library.</p>
-                    <pre><code class="ts">{this.code}</code></pre>
+                    <pre><code className="ts">{this.code}</code></pre>
                 </div>
             </div>
         );

@@ -8,7 +8,7 @@ export default class App extends Component {
     return (
       <div>
         <HeadSide />
-        {/*<ContentSide />*/}
+        <ContentSide />
       </div>
     );
   }

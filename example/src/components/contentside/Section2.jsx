@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-export default class Section2 extends Component {
+export class Section2 extends Component {
 
     code = `
 /////////////element can be used in four ways./////////////
@@ -23,19 +23,19 @@ this.ngxAni.to($(".child1")[0], 1, {left : "100px"})`
     render() {
         return (
             <div>
-                <div class="section" id="section2">
+                <div className="section" id="section2">
                     <h1>Reference</h1>
                     <hr />
 
-                    <div class="info">
-                        <h4 class="blur">Features</h4>
+                    <div className="info">
+                        <h4 className="blur">Features</h4>
                         <p>
-                            NgxAni, depends on <span class="color">css transtion</span>. So it can run on all modern browsers.It is faster than the javascript simulation of the animation.<br />
+                            NgxAni, depends on <span className="color">css transtion</span>. So it can run on all modern browsers.It is faster than the javascript simulation of the animation.<br />
                             It is easier to use than the official animation system<a href="https://angular.io/docs/ts/latest/guide/animations.html">https://angular.io/docs/ts/latest/guide/animations.html</a> on the browser.<br />
                         </p>
 
                     </div>
-                    <pre><code class="javascript">{this.code}</code></pre>
+                    <pre><code className="javascript">{this.code}</code></pre>
                 </div>
             </div>
         );

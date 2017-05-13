@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Section1 } from './Section1';
 import { Section2 } from './Section2';
-import { Section3 } from './Section3';
+// import { Section3 } from './Section3';
 
 export class ContentSide extends Component {
 
@@ -64,22 +64,22 @@ export class ContentSide extends Component {
 
     render() {
         return (
-            <div class="content-side">
-                <div class="container">
+            <div className="content-side">
+                <div className="container">
 
-                    <div class="row">
-                        {/*<div class="col-md-2 sidebar">
-                    <ul class="nav nav-pills flex-column">
-                        <li class="nav-item pointer" *ngFor="let data of datas;let i=index" (click)="clickHandler(data,i)">
-                            <a class="nav-link pointer" [ngClass]="{'active': data.isActive}" [attr.linkto]="data.link">{{data.title}} <span class="sr-only">(current)</span></a>
+                    <div className="row">
+                        {/*<div className="col-md-2 sidebar">
+                    <ul className="nav nav-pills flex-column">
+                        <li className="nav-item pointer" *ngFor="let data of datas;let i=index" (click)="clickHandler(data,i)">
+                            <a className="nav-link pointer" [ngclassName]="{'active': data.isActive}" [attr.linkto]="data.link">{{data.title}} <span className="sr-only">(current)</span></a>
                         </li>
                     </ul>
                 </div>*/}
 
-                        <div class="col-md-10 clearfix">
+                        <div className="col-md-10 clearfix">
                             <Section1 />
                             <Section2 />
-                            <Section3 />
+                            {/*<Section3 />*/}
                         </div>
 
                     </div>
