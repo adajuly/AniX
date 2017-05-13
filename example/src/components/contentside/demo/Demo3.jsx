@@ -32,8 +32,8 @@ animation(rect){
         return (
             <div>
                 <h4 id="demo3">css transform</h4>
-                <button class="pointer btn btn-primary" onClick={this.animation.bind(this, 'rect')}>click animate</button>
-                <div class="rect" refs="rect"></div>
+                <button class="pointer btn btn-primary" onClick={this.animation.bind(this, this.refs.rect)}>click animate</button>
+                <div class="rect" ref="rect"></div>
                 <pre><code class="javascript">{{ code }}</code></pre>
             </div>
         );

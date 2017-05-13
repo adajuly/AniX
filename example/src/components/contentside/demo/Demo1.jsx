@@ -29,9 +29,9 @@ export default class Demo1 extends Component {
         return (
             <div>
                 <h4 id="demo1">AniX.to(element, time, toArgs)</h4>
-                <button class="pointer btn btn-primary" onClick={this.animation.bind(this, 'rect')}>click animate</button>
+                <button class="pointer btn btn-primary" onClick={this.animation.bind(this, this.ref.rect)}>click animate</button>
                 <div class="container">
-                    <div class="rect" ref="rect"></div>
+                    <div class="rect" refs="rect"></div>
                 </div>
                 <pre><code class="javascript">{this.code}</code></pre>
             </div>

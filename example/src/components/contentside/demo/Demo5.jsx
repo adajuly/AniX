@@ -5,7 +5,7 @@ import './Demo3.css';
 
 export default class Demo5 extends Component {
 
-      ease: string = "easeOutBack";
+      ease = "easeOutBack";
 
      datas = [
         'linear',
@@ -60,17 +60,20 @@ export default class Demo5 extends Component {
     }
 
     render() {
+        let select = `
+    <select class="form-control select" [(ngModel)]="ease">
+      (datas.forEach(function(value, index, array) {
+            return <option >{value}</option>
+        }))
+    </select>`;
+
         return (
             <div>
                 <h4 id="demo5">ease function</h4>
-    <button class="pointer btn btn-primary" (click)="animation(rect)">click animate</button>
-
-    <select class="form-control select" [(ngModel)]="ease">
-      <option *ngFor="let data of datas">{{data}}</option>
-    </select>
-
-    <div class="rect" #rect></div>
-    <pre><code class="javascript">{{code}}</code></pre>
+                <button class="pointer btn btn-primary" onClick={this.animation.bind(this,this.refs.rect)}>click animate</button>
+                {select}
+                <div class="rect" ref="rect"></div>
+                <pre><code class="javascript">{{code}}</code></pre>
             </div>
         );
     }
