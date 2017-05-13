@@ -1,4 +1,4 @@
-export default class Util {
+export class Util {
 
     static getRandomColor() {
         return '#' + (function (h) {

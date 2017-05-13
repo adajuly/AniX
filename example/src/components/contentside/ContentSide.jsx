@@ -3,7 +3,7 @@ import { Section1 } from './Section1';
 import { Section2 } from './Section2';
 import { Section3 } from './Section3';
 
-export default class ContentSide extends Component {
+export class ContentSide extends Component {
 
     datas = [
         { link: "#section1", title: "Overview", isActive: true },
