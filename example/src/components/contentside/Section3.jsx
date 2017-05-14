@@ -3,6 +3,7 @@ import { Demo1 } from './demo/Demo1';
 import { Demo2 } from './demo/Demo2';
 import { Demo3 } from './demo/Demo3';
 import { Demo4 } from './demo/Demo4';
+import { Demo5 } from './demo/Demo5';
 
 export class Section3 extends Component {
 
@@ -24,6 +25,7 @@ export class Section3 extends Component {
                         <Demo2/><hr className="hr" />
                         <Demo3/><hr className="hr" />
                         <Demo4/><hr className="hr" />
+                        <Demo5/><hr className="hr" />
                     </div>
 
                 </div>

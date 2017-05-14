@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { Util } from '../../../utils/Util';
 import { AniX } from '../../../../../dist/cjs';
-import './Demo3.css';
+import './Demo5.css';
 
-export default class Demo5 extends Component {
+export class Demo5 extends Component {
 
       ease = "easeOutBack";
 
-     datas = [
+     items = [
         'linear',
         'easeBasic',
         'easeIn',
@@ -36,44 +36,48 @@ export default class Demo5 extends Component {
     ];
 
      code = `
- animation(rect){
-  this.ngxAni.to(rect, 1, {
+ animation(){
+  AniX.to(this.refs.rect, 1, {
       "width": "200px",
       "background-color": "#ffcc00",
-      "ease": this.ngxAni.easeOutBack
+      "ease": AniX.easeOutBack
   });
 }
 `;
 
-    //animation function
-     animation(rect) {
-        let w = Math.min(this.getWidth() - 150, 450);
+    change(e){
+        console.log(e);
+    }
 
-        this.ngxAni.fromTo(rect, .7,
-            this.ngxAni.getTransform({ x: 0, rotate: 0, scale: 1 }),
+    //animation function
+     animation() {
+        let w = Math.min(Util.getWidth() - 150, 450);
+
+        AniX.fromTo(this.refs.rect, .7,
+            AniX.getTransform({ x: 0, rotate: 0, scale: 1 }),
             Object.assign(
-                this.ngxAni.getTransform({ x: w, rotate: 180, scale: .4 }),
+                AniX.getTransform({ x: w, rotate: 180, scale: .4 }),
                 {
-                    ease: this.ngxAni[this.ease]
+                    ease: AniX[this.ease]
                 }
             ));
     }
 
-    render() {
-        let select = `
-    <select class="form-control select" [(ngModel)]="ease">
-      (datas.forEach(function(value, index, array) {
-            return <option >{value}</option>
-        }))
-    </select>`;
-
+    render() { 
         return (
             <div>
                 <h4 id="demo5">ease function</h4>
-                <button class="pointer btn btn-primary" onClick={this.animation.bind(this,this.refs.rect)}>click animate</button>
-                {select}
-                <div class="rect" ref="rect"></div>
-                <pre><code class="javascript">{{code}}</code></pre>
+                <button className="pointer btn btn-primary" onClick={this.animation.bind(this)}>click animate</button>
+        <select className="form-control select" onChange={this.change.bind(this)}>
+                {
+                    (this.items.map((item, i)=> {
+                    return (<option key={i} value={item}>{item}</option>)
+                }))
+                }
+        </select>
+                
+                <div className="rect" ref="rect"></div>
+                <pre><code className="javascript">{this.code}</code></pre>
             </div>
         );
     }
