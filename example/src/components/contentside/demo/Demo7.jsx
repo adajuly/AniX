@@ -3,33 +3,33 @@ import { Util } from '../../../utils/Util';
 import { AniX } from '../../../../../dist/cjs';
 import './Demo7.css';
 
-export default class Demo7 extends Component {
+export class Demo7 extends Component {
 
     code = `
-this.ngxAni.kill(rect);
+AniX.kill(rect);
 `;
 
-    animation(refName) {
-        let w = Math.min(this.getWidth() - 150, 600);
+    animation() {
+        let w = Math.min(Util.getWidth() - 150, 600);
 
-        this.ngxAni.fromTo(this.refs.refName, 5,
-            this.ngxAni.getTransform({ x: 0 }),
-            this.ngxAni.getTransform({ x: w })
+        AniX.fromTo(this.refs.rect, 5,
+            AniX.getTransform({ x: 0 }),
+            AniX.getTransform({ x: w })
         );
     }
 
-    kill(rect) {
-        this.ngxAni.kill(rect);
+    kill() {
+        AniX.kill(this.refs.rect);
     }
 
     render() {
         return (
             <div>
-                <h4 id="demo7">this.ngxAni.kill</h4>
-    <button class="pointer btn btn-primary" onClick={this.animation.bind(this,"rect")}>click animate</button>
-    <button class="pointer btn btn-primary rbtn" onClick={this.kill.bind(this,"rect")}>kill</button>
-    <div class="rect" ref="rect"></div>
-    <pre><code class="javascript">{this.code}</code></pre>
+                <h4 id="demo7">AniX.kill</h4>
+    <button className="pointer btn btn-primary" onClick={this.animation.bind(this)}>click animate</button>
+    <button className="pointer btn btn-primary rbtn" onClick={this.kill.bind(this)}>kill</button>
+    <div className="rect" ref="rect"></div>
+    <pre><code className="javascript">{this.code}</code></pre>
             </div>
         );
     }

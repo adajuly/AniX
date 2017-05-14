@@ -46,7 +46,7 @@ export class Demo5 extends Component {
 `;
 
     change(e){
-        console.log(e);
+        this.ease = e.target.value;
     }
 
     //animation function
@@ -58,7 +58,7 @@ export class Demo5 extends Component {
             Object.assign(
                 AniX.getTransform({ x: w, rotate: 180, scale: .4 }),
                 {
-                    ease: AniX[this.ease]
+                    ease: AniX.ease[this.ease]
                 }
             ));
     }
@@ -68,7 +68,7 @@ export class Demo5 extends Component {
             <div>
                 <h4 id="demo5">ease function</h4>
                 <button className="pointer btn btn-primary" onClick={this.animation.bind(this)}>click animate</button>
-        <select className="form-control select" onChange={this.change.bind(this)}>
+        <select className="form-control select" value={this.ease} onChange={this.change.bind(this)}>
                 {
                     (this.items.map((item, i)=> {
                     return (<option key={i} value={item}>{item}</option>)

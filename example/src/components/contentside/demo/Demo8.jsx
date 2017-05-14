@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { AniX } from '../../../../../dist/cjs';
 import './Demo8.css';
 
-export default class Demo8 extends Component {
+export class Demo8 extends Component {
 
     code = `
 //////////////////// NgxAni ////////////////////
@@ -28,7 +28,7 @@ CssX.setOriginCenter(ele);
         return (
             <div>
                 <h4 id="demo8">others</h4>
-                <pre><code class="javascript">{this.code}</code></pre>
+                <pre><code className="javascript">{this.code}</code></pre>
             </div>
         );
     }

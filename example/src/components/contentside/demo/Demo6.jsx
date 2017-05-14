@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { Util } from '../../../utils/Util';
-import { AniX } from '../../../../../dist/cjs';
+import { AniX , CssX} from '../../../../../dist/cjs';
 import './Demo6.css';
 
-export default class Demo6 extends Component {
+export class Demo6 extends Component {
 
     code = `
  /** css style
@@ -21,9 +21,9 @@ animation(rect){
 }
 `;
 
-     animation(rect) {
-        CssX.removeClass(rect, "ani1");
-        AniX.fromTo(rect, 1,
+     animation() {
+        CssX.removeClass(this.refs.rect, "ani1");
+        AniX.fromTo(this.refs.rect, 1,
             { "className": "ani0" },
             { "className": "ani1" }
         );
@@ -34,10 +34,10 @@ animation(rect){
         return (
             <div>
                 <h4 id="demo6">use className</h4>
-    <button class="pointer btn btn-primary" onClick={this.animation.bind(this,this.refs.rect)}>click animate</button>
+    <button className="pointer btn btn-primary" onClick={this.animation.bind(this)}>click animate</button>
 
-    <div class="rect" ref="rect"></div>
-    <pre><code class="javascript">{this.code}</code></pre>
+    <div className="rect" ref="rect"></div>
+    <pre><code className="javascript">{this.code}</code></pre>
             </div>
         );
     }
