@@ -2,8 +2,9 @@ var webpack = require('webpack');
 var path = require("path");
 
 module.exports = {
+
     entry: {
-        app: ["./src/index.ts"]
+        app: [path.resolve(__dirname, "src/index.ts")]
     },
 
     output: {
@@ -13,7 +14,7 @@ module.exports = {
     },
 
     resolve: {
-        extensions: [".webpack.js", ".web.js", ".ts", ".js"]
+        extensions: [".tsx", ".ts", ".js"]
     },
 
     externals: {
@@ -24,7 +25,8 @@ module.exports = {
     module: {
         loaders: [{
             test: /\.tsx?$/,
-            loader: "ts-loader"
+            loader: 'ts-loader',
+            exclude: [/node_modules/, /example/],
         }]
     },
 

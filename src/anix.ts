@@ -64,9 +64,9 @@ export class AniXClass {
             }
 
             //transition += CssX.convertStyleMode(styles[i], "css");
-            transition += ' ' + time + 's';
-            if (args.ease) transition += ' ' + args.ease;
-            if (args.delay) transition += ' ' + args.delay + 's';
+            transition += ` ${time}s`;
+            if (args.ease) transition += ` ${args.ease}`;
+            if (args.delay) transition += ` ${args.delay}s`;
         }
 
         if (this.compatible && !this.support)
@@ -141,6 +141,7 @@ export class AniXClass {
     private start(ele: any, transition: string, time: number, args: { nokill?: boolean;[propName: string]: any; }): string {
         ele = getHTMLElement(ele);
         let id = Dic.setId(ele);
+
         (!args.nokill) && this.kill(ele);
 
         //set ani
