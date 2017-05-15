@@ -105,7 +105,7 @@ export class AniXClass {
         scale?: string | number;
         rotate?: string | number;
         pre?: string | Object;
-        no?: Object;
+        no?: any;
         [propName: string]: any;
     }): ITransform {
         let transform: string = ``;
@@ -239,8 +239,8 @@ export class AniXClass {
     /**
     * get pure style
     */
-    private getPureStyle(args: Object): Object {
-        let obj = {};
+    private getPureStyle(args: any): Object {
+        let obj: any = {};
         for (let key in args) {
             if (this.keyword.indexOf(key) < 0)
                 obj[key] = args[key];

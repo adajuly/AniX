@@ -44,5 +44,5 @@ export class Dic {
         });
     }
 
-    private static map: Object = {};
+    private static map: any = {};
 };

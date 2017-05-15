@@ -29,7 +29,7 @@ export class CssXClass {
     has3d(): boolean {
         let has3d: any;
 
-        let transforms: Object = {
+        let transforms: ITransform2 = {
             'webkitTransform': '-webkit-transform',
             'OTransform': '-o-transform',
             'msTransform': '-ms-transform',
@@ -37,18 +37,17 @@ export class CssXClass {
             'transform': 'transform'
         };
 
-        let el: HTMLElement = document.createElement('p');
-        document.body.insertBefore(el, null);
+        let ele: HTMLElement = document.createElement('p');
+        document.body.insertBefore(ele, null);
 
         for (let t in transforms) {
-            if (el.style[t] !== undefined) {
-                el.style[t] = "translate3d(1px, 1px, 1px)";
-                has3d = window.getComputedStyle(el).getPropertyValue(transforms[t]);
+            if ((<any>ele.style)[t] !== undefined) {
+                (<any>ele.style)[t] = "translate3d(1px, 1px, 1px)";
+                has3d = window.getComputedStyle(ele).getPropertyValue(transforms[t]);
             }
         }
 
-        document.body.removeChild(el);
-
+        document.body.removeChild(ele);
         return (has3d !== undefined && has3d.length > 0 && has3d !== "none");
     }
 
@@ -95,8 +94,7 @@ export class CssXClass {
         return this.pfObj[mode];
     }
 
-
-    css(ele: HTMLElement, props: Object, type?: number) {
+    css(ele: HTMLElement, props: any, type?: number) {
         for (let key in props) {
             if (type == 3)
                 this.css3(ele, key, props[key]);
@@ -109,18 +107,18 @@ export class CssXClass {
         if (style.indexOf('-') > -1)
             style = this.convertStyleMode(style, "js");
 
-        ele.style[style] = value;
+        (<any>ele.style)[style] = value;
     }
 
     css3(ele: HTMLElement, style: string, value: any) {
         style = style.charAt(0).toUpperCase() + style.substr(1);
 
-        ele.style['Webkit' + style] = value;
-        ele.style['Moz' + style] = value;
-        ele.style['ms' + style] = value;
-        ele.style['O' + style] = value;
-        ele.style['o' + style] = value;
-        ele.style['' + style] = value;
+        (<any>ele.style)['Webkit' + style] = value;
+        (<any>ele.style)['Moz' + style] = value;
+        (<any>ele.style)['ms' + style] = value;
+        (<any>ele.style)['O' + style] = value;
+        (<any>ele.style)['o' + style] = value;
+        (<any>ele.style)['' + style] = value;
     }
 
     setOriginCenter(ele: HTMLElement) {
@@ -167,7 +165,7 @@ export class CssXClass {
         return ele.className.match(new RegExp('(\\s|^)' + className + '(\\s|$)'));
     }
 
-    addEventListener(ele: HTMLElement, event: string, handler: any) {
+    addEventListener(ele: any, event: string, handler: any) {
         if (ele['addEventListener'])
             ele['addEventListener'](event, handler, false);
         else if (ele['attachEvent'])
@@ -176,7 +174,7 @@ export class CssXClass {
             ele["on" + event] = handler;
     }
 
-    removeEventListener(ele: HTMLElement, event: string, handler: any) {
+    removeEventListener(ele: any, event: string, handler: any) {
         if (ele['removeEventListener'])
             ele['removeEventListener'](event, handler, false);
         else if (ele['attachEvent'])
@@ -193,6 +191,16 @@ export interface ITransform {
     "-ms-transform": string;
     "-o-transform": string;
     "-moz-transform": string;
+    [prop: string]: any;
+}
+
+export interface ITransform2 {
+    'webkitTransform': string;
+    'OTransform': string;
+    'msTransform': string;
+    'MozTransform': string;
+    'transform': string;
+    [prop: string]: any;
 }
 
 
