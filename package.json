@@ -22,7 +22,7 @@
         "es6": "npm-run-all clean_es6 compile_es6",
         "umd": "npm-run-all clean_umd compile_umd",
         "package": "node .makepackage.js",
-        "publish": "cd ./dist/cjs && npm publish",
+        "pub_anix": "cd ./dist/cjs && npm publish",
         "all": "npm-run-all es6 cjs compile_umd package"
     },
     "dependencies": {},
