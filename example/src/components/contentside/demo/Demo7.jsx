@@ -26,10 +26,10 @@ AniX.kill(rect);
         return (
             <div>
                 <h4 id="demo7">AniX.kill</h4>
-    <button className="pointer btn btn-primary" onClick={this.animation.bind(this)}>click animate</button>
-    <button className="pointer btn btn-primary rbtn" onClick={this.kill.bind(this)}>kill</button>
-    <div className="rect" ref="rect"></div>
-    <pre><code className="javascript">{this.code}</code></pre>
+                <button className="pointer btn btn-primary" onClick={this.animation.bind(this)}>click animate</button>
+                <button className="pointer btn btn-primary rbtn" onClick={this.kill.bind(this)}>kill</button>
+                <div className="rect" ref="rect"></div>
+                <pre><code className="javascript">{this.code}</code></pre>
             </div>
         );
     }

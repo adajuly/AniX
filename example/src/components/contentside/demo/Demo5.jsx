@@ -5,9 +5,9 @@ import './Demo5.css';
 
 export class Demo5 extends Component {
 
-      ease = "easeOutBack";
+    ease = "easeOutBack";
 
-     items = [
+    items = [
         'linear',
         'easeBasic',
         'easeIn',
@@ -35,7 +35,7 @@ export class Demo5 extends Component {
         'easeInOutBack'
     ];
 
-     code = `
+    code = `
  animation(){
   AniX.to(this.refs.rect, 1, {
       "width": "200px",
@@ -45,12 +45,12 @@ export class Demo5 extends Component {
 }
 `;
 
-    change(e){
+    change(e) {
         this.ease = e.target.value;
     }
 
     //animation function
-     animation() {
+    animation() {
         let w = Math.min(Util.getWidth() - 150, 450);
 
         AniX.fromTo(this.refs.rect, .7,
@@ -63,19 +63,19 @@ export class Demo5 extends Component {
             ));
     }
 
-    render() { 
+    render() {
         return (
             <div>
                 <h4 id="demo5">ease function</h4>
                 <button className="pointer btn btn-primary" onClick={this.animation.bind(this)}>click animate</button>
-        <select className="form-control select" value={this.ease} onChange={this.change.bind(this)}>
-                {
-                    (this.items.map((item, i)=> {
-                    return (<option key={i} value={item}>{item}</option>)
-                }))
-                }
-        </select>
-                
+                <select className="form-control select" value={this.ease} onChange={this.change.bind(this)}>
+                    {
+                        (this.items.map((item, i) => {
+                            return (<option key={i} value={item}>{item}</option>)
+                        }))
+                    }
+                </select>
+
                 <div className="rect" ref="rect"></div>
                 <pre><code className="javascript">{this.code}</code></pre>
             </div>

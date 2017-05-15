@@ -62,12 +62,12 @@ export class Demo4 extends Component {
                     <label className="radio">
                         <input type="radio" name="optionsRadios" value="false" onChange={this.changeHandler.bind(this, false)} checked />
                         use settimeout
-      </label>
+                    </label>
 
                     <label className="radio">
                         <input type="radio" name="optionsRadios" value="true" onChange={this.changeHandler.bind(this, true)} />
                         use transtionEvent
-      </label>
+                    </label>
 
                     <span style={{ 'color': '#0275d8' }}>{this.state.stateText}</span>
                 </div>

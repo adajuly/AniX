@@ -18,15 +18,15 @@ animation(rect){
     "-ms-transform" : "translate3d(100px, 0, 0) rotate(120deg)"
   });
 
-  //2. use ngxAni.getTransform
+  //2. use AniX.getTransform
   AniX.to(rect, .7, AniX.getTransform({ rotate: rotate, x: x }));
 }
 `;
 
     animation() {
         let w = Math.min(Util.getWidth() - 145, 600);
-        AniX.to(this.refs.rect, .7, 
-        AniX.getTransform({ rotate: Math.random() * 360, x: Math.random() * w }));
+        AniX.to(this.refs.rect, .7,
+            AniX.getTransform({ rotate: Math.random() * 360, x: Math.random() * w }));
     }
 
     render() {

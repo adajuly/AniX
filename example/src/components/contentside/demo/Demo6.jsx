@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Util } from '../../../utils/Util';
-import { AniX , CssX} from '../../../../../dist/cjs';
+import { AniX, CssX } from '../../../../../dist/cjs';
 import './Demo6.css';
 
 export class Demo6 extends Component {
@@ -21,7 +21,7 @@ animation(rect){
 }
 `;
 
-     animation() {
+    animation() {
         CssX.removeClass(this.refs.rect, "ani1");
         AniX.fromTo(this.refs.rect, 1,
             { "className": "ani0" },
@@ -34,10 +34,10 @@ animation(rect){
         return (
             <div>
                 <h4 id="demo6">use className</h4>
-    <button className="pointer btn btn-primary" onClick={this.animation.bind(this)}>click animate</button>
+                <button className="pointer btn btn-primary" onClick={this.animation.bind(this)}>click animate</button>
 
-    <div className="rect" ref="rect"></div>
-    <pre><code className="javascript">{this.code}</code></pre>
+                <div className="rect" ref="rect"></div>
+                <pre><code className="javascript">{this.code}</code></pre>
             </div>
         );
     }

@@ -5,7 +5,7 @@ import './Demo8.css';
 export class Demo8 extends Component {
 
     code = `
-//////////////////// NgxAni ////////////////////
+//////////////////// AniX ////////////////////
 //use css transtionend event
 AniX.useTranstionEvent = true;
 //Compatible with old browsers, old browsers do not have animation
@@ -15,7 +15,7 @@ AniX.debug = true;
 //(readonly) has css Transition?
 console.log(AniX.support);
 
-//////////////////// NgxCss ////////////////////
+//////////////////// CssX ////////////////////
 //is support css translate3d?
 CssX.has3d();
 //get css prefix

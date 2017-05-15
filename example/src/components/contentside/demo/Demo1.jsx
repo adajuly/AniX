@@ -14,7 +14,7 @@ export class Demo1 extends Component {
   });
 }
 `;
-    
+
     animation() {
         let w = Math.min(Util.getWidth() - 80, 500);
 
