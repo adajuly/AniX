@@ -28,7 +28,12 @@
         }
     </style>
 
+    <script src="./libs/react.min.js"></script>
+    <script src="./libs/react-dom.js"></script>
+    <script src="./libs/browser.min.js"></script>
+
     <script src="./libs/jquery.min.js"></script>
+
     <script src="../dist/jq/anix.jq.js"></script>
     <script src="../dist/umd/anix.umd.js"></script>
 </head>
@@ -38,6 +43,7 @@
     <button class="jq">test anix.jq</button>
     <div class="rect rect1"></div>
     <div class="rect rect2"></div>
+    <div class="react-demo"></div>
 </body>
 
 <script>
@@ -62,6 +68,11 @@
             return new Array(7 - h.length).join("0") + h;
         })((Math.random() * 0x1000000 << 0).toString(16))
     }
+</script>
+
+<script type="text/babel">
+    ReactDOM.render(
+    <h1>Hello, world!</h1>, document.querySelector('react-demo') );
 </script>
 
 </html>
