@@ -1,7 +1,9 @@
 import { AniX } from '../';
+declare var jQuery: any;
+declare var Zepto: any;
 
 (function ($) {
-    
+
     $.fn.to = function (time: number, args: {
         ease?: string;
         delay?: number;
@@ -18,12 +20,12 @@ import { AniX } from '../';
         return AniX.kill(this, complete);
     };
 
-    $.fn.getTransform = function (param) {
+    $.fn.getTransform = function (param: any) {
         return AniX.getTransform(param);
     };
 
-    $.fn.hasTransition = function (param) {
+    $.fn.hasTransition = function () {
         return AniX.support;
     };
 
-})(window['jQuery'] || window['Zepto']);
+})(jQuery || Zepto);

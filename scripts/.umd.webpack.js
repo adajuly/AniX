@@ -1,15 +1,15 @@
-var webpack = require('webpack');
-var path = require("path");
+let path = require("path");
+let webpack = require('webpack');
 
 module.exports = {
 
     entry: {
-        app: [path.resolve(__dirname, "src/index.ts")]
+        app: [path.resolve(__dirname, "../src/index.ts")]
     },
 
     output: {
-        path: path.resolve(__dirname, "dist/jq"),
-        filename: "anix.jq.js",
+        path: path.resolve(__dirname, "../dist/umd"),
+        filename: "anix.umd.js",
         libraryTarget: "umd"
     },
 
