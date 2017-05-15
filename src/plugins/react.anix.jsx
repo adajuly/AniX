@@ -1,23 +1,42 @@
-import React from 'react';
-import TransitionGroup from './TransitionGroup';
+import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
 
-export default function Tween({ children, style, ...props }) {
-  return (
-    <TransitionGroup
-      styles={[
-        {
-          key: '0',
-          style,
-        },
-      ]}
-      {...props}
-    >
-      {styles => children(styles[0].style)}
-    </TransitionGroup>
-  );
+export class anix extends Component {
+
+  componentWillEnter(done) {
+    if (animUtil.isEnterSupported(this.props)) {
+      this.anix('enter', done);
+    } else {
+      done();
+    }
+  }
+
+  componentWillAppear(done) {
+    if (animUtil.isAppearSupported(this.props)) {
+      this.anix('appear', done);
+    } else {
+      done();
+    }
+  }
+
+  componentWillLeave(done) {
+    if (animUtil.isLeaveSupported(this.props)) {
+      this.anix('leave', done);
+    } else {
+      done();
+    }
+  }
+
+  anix() {
+    const node = ReactDOM.findDOMNode(this);
+  }
+
+  render() {
+    return this.props.children;
+  }
+
+  static propTypes = {
+    children: PropTypes.any,
+  }
+
 }
-
-Tween.propTypes = {
-  children: React.PropTypes.func,
-  style: React.PropTypes.object, // eslint-disable-line react/forbid-prop-types
-};
