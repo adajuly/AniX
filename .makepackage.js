@@ -2,7 +2,6 @@ let pkg = require('./package.json');
 let fs = require('fs');
 let path = require('path');
 
-
 delete pkg.scripts;
 
 let cjsPkg = Object.assign({}, pkg, {

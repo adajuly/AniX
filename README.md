@@ -22,12 +22,14 @@ import and use the AniX library.
 import { AniX } from 'anix';
 
 //2. use
-//<button (click)="animation(rect)">click animate</button>
-//<div class="rect" #rect></div>
-private animation(dom: ElementRef) {
+animation() {
   this.AniX.to(dom, 1, {
       width: "200px",
-      height: "100px"
+      height: "100px",
+      delay: .5,
+      onComplete: ()=>{
+      		alert("over");
+      }
   });
 }
 ```
@@ -37,7 +39,7 @@ private animation(dom: ElementRef) {
 ```
 npm start
 ```
-view on http://localhost:4200/
+view on http://localhost:3000/
 
 ## License
 
