@@ -4,7 +4,7 @@ import { AniX } from '../../../../../dist/cjs/';
 import './Demo4.css';
 
 export class Demo4 extends Component {
-    
+
     constructor(props) {
         super(props);
         this.data = [
@@ -12,14 +12,14 @@ export class Demo4 extends Component {
             { 'link': '/edit', 'name': '填写基本信息' }
         ];
 
-        this.state = { 'stateText':'STATE : NONE!'};
+        this.state = { 'stateText': 'STATE : NONE!' };
     }
 
-     changeHandler(use) {
+    changeHandler(use) {
         AniX.useTranstionEvent = use;
     }
 
-     code = `
+    code = `
  animation(rect){
   //Whether to use the native transtionend event - there are compatibility issues
   //the default is use setTimeout
@@ -36,8 +36,8 @@ export class Demo4 extends Component {
 }
 `;
 
-     animation() {
-        this.setState({'stateText':"STATE : running"});
+    animation() {
+        this.setState({ 'stateText': "STATE : running" });
 
         let scale = Math.random() * 1.2;
         let rotate = Math.random() * 400;
@@ -48,7 +48,7 @@ export class Demo4 extends Component {
             "-ms-transform": `scale(${scale}) rotate(${rotate}deg)`,
             "background-color": Util.getRandomColor(),
             "onComplete": () => {
-                this.setState({'stateText':"STATE : COMPLETED!"});
+                this.setState({ 'stateText': "STATE : COMPLETED!" });
             }
         });
     }
@@ -56,24 +56,24 @@ export class Demo4 extends Component {
     render() {
         return (
             <div>
-                    <h4 id="demo4">onComplete event</h4>
-    <button className="pointer btn btn-primary" onClick={this.animation.bind(this)}>click animate</button>
-    <div>
-      <label className="radio">
-        <input type="radio" name="optionsRadios" value="false" onChange={this.changeHandler.bind(this,false)} checked />
-        use settimeout
+                <h4 id="demo4">onComplete event</h4>
+                <button className="pointer btn btn-primary" onClick={this.animation.bind(this)}>click animate</button>
+                <div>
+                    <label className="radio">
+                        <input type="radio" name="optionsRadios" value="false" onChange={this.changeHandler.bind(this, false)} checked />
+                        use settimeout
       </label>
 
-      <label className="radio">
-        <input type="radio" name="optionsRadios" value="true" onChange={this.changeHandler.bind(this,true)}/>
-        use transtionEvent
+                    <label className="radio">
+                        <input type="radio" name="optionsRadios" value="true" onChange={this.changeHandler.bind(this, true)} />
+                        use transtionEvent
       </label>
 
-    <span style={{'color':'#0275d8'}}>{this.state.stateText}</span>
-    </div>
+                    <span style={{ 'color': '#0275d8' }}>{this.state.stateText}</span>
+                </div>
 
-    <div className="rect" ref="rect"></div>
-    <pre><code className="javascript">{this.code}</code></pre>
+                <div className="rect" ref="rect"></div>
+                <pre><code className="javascript">{this.code}</code></pre>
             </div>
         );
     }
