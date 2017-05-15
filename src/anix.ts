@@ -101,6 +101,7 @@ export class AniXClass {
     getTransform(param: {
         x?: string | number;
         y?: string | number;
+        z?: string | number;
         scale?: string | number;
         rotate?: string | number;
         pre?: string | Object;

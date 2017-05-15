@@ -4,13 +4,13 @@ let path = require('path');
 
 delete pkg.scripts;
 
-let cjsPkg = Object.assign({}, pkg, {
+let newPkg = Object.assign({}, pkg, {
     name: 'anix',
     main: 'index.js',
     typings: 'index.d.ts'
 });
 
-let url = 'dist/cjs/';
+let url = 'dist/anix/';
 
-fs.writeFileSync(url + 'package.json', JSON.stringify(cjsPkg, null, 2));
+fs.writeFileSync(url + 'package.json', JSON.stringify(newPkg, null, 2));
 fs.writeFileSync(url + 'README.md', fs.readFileSync('./README.md').toString());
