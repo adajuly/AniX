@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>test AniX</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <style>
+        body {
+            font-family: Monospace;
+            background-color: #fff;
+            margin: 0px;
+            padding: 30px;
+            overflow: hidden;
+        }
+        
+        .rect {
+            width: 200px;
+            height: 200px;
+            margin: 30px;
+            left: 0px;
+            position: relative;
+            background-color: #ffcc00;
+        }
+        
+        .rect2 {
+            background-color: #ff0000;
+        }
+    </style>
+
+    <script src="./libs/jquery.min.js"></script>
+    <script src="../dist/jq/anix.jq.js"></script>
+    <script src="../dist/umd/anix.umd.js"></script>
+</head>
+
+<body>
+    <button class="umd">test anix.umd</button>
+    <button class="jq">test anix.jq</button>
+    <div class="rect rect1"></div>
+    <div class="rect rect2"></div>
+</body>
+
+<script>
+    $('.umd').click(function() {
+        AniX.to(document.querySelector('.rect1'), .5, {
+            'left': Math.random() * $(window).width() + 'px',
+            'background-color': getRandomColor()
+        });
+    });
+
+    $('.jq').click(function() {
+        $('.rect2').to(.5, {
+            'left': Math.random() * $(window).width() + 'px',
+            'background-color': getRandomColor()
+        });
+
+        console.log($.AniX.compatible);
+    });
+
+    function getRandomColor() {
+        return '#' + (function(h) {
+            return new Array(7 - h.length).join("0") + h;
+        })((Math.random() * 0x1000000 << 0).toString(16))
+    }
+</script>
+
+</html>

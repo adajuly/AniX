@@ -3,6 +3,9 @@ declare var jQuery: any;
 declare var Zepto: any;
 
 (function ($) {
+    $.extend({
+        AniX: AniX
+    })
 
     $.fn.to = function (time: number, args: {
         ease?: string;
