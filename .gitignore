@@ -2,3 +2,6 @@ node_modules
 build
 dist/anix
 dist/react
+npm-debug.log
+
+*.log
