@@ -48,7 +48,9 @@ export class Anix extends Component {
 
     if (this.appear) {
       for (let key in children) {
-        this.animate(children[key], this.appear);
+        setTimeout(()=>{
+          this.animate(this.refs[key], this.appear);
+        },0);
       }
     }
   }
@@ -137,15 +139,19 @@ export class Anix extends Component {
     if (props.from && props.to) {
       AniX.fromTo(node, time, props.from, props.to);
     } else {
+      console.log(time,getPureProps(props));
       AniX.to(node, time, getPureProps(props));
     }
   }
 
   render() {
-    let childrenWithProps = React.Children.map(this.props.children, (child) => React.cloneElement(child));
-    console.log(childrenWithProps, this.props.children, this.props.children);
-    
-    return <div>{childrenWithProps}</div>;
+    return (
+    <div>
+      {React.Children.map(this.props.children, (element, index) => {
+        return React.cloneElement(element, { ref: index });
+      })}
+    </div>
+    );
   }
 }
 

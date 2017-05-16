@@ -36,9 +36,10 @@ export class Demo1 extends Component {
                     <div className="rect" ref="rect"></div>
                 </div>
                 <pre><code className="javascript">{this.code}</code></pre>
-
-                <Anix appear={{ width:'20px', time:.5 }}>
-                    
+                
+                <Anix ani={{ width:'20px', time:2.5, appear:true ,backgroundColor:'#ffcc22' }}>
+                    <div className="rect"></div>
+                    <div className="rect"></div>
                 </Anix>
             </div>
         );
