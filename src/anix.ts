@@ -187,7 +187,9 @@ export class AniXClass {
         }
     }
 
-    //get style key name
+    /**
+    * get style key name
+    */
     private getPureStyleKeys(args: {
         all?: any;
         css?: any;

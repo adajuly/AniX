@@ -1,10 +1,26 @@
+/**
+* AniX JQuery Plugins
+* 
+  $('.class1').to(.5, {
+      'left': Math.random() * $(window).width() + 'px',
+      'background-color': getRandomColor(),
+      'ease': $.ease.easeOutCubic
+  });
+
+  $('h2').fromTo(.5, {color:'#ffcc00'}, {color:'#000'});
+* 
+* @tiptext
+*
+*/
+
 import { AniX } from '../';
 declare var jQuery: any;
 declare var Zepto: any;
 
 (function ($) {
     $.extend({
-        AniX: AniX
+        AniX: AniX,
+        ease: AniX.ease
     })
 
     $.fn.to = function (time: number, args: {
