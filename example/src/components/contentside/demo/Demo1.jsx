@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { Util } from '../../../utils/Util';
 import { AniX } from '../../../../../dist/anix';
-import { anix } from './index.jsx';
+import { Anix } from './react.anix.jsx';
+
 import './Demo1.css';
 
 export class Demo1 extends Component {
@@ -35,6 +36,10 @@ export class Demo1 extends Component {
                     <div className="rect" ref="rect"></div>
                 </div>
                 <pre><code className="javascript">{this.code}</code></pre>
+
+                <Anix appear={{ width:'20px', time:.5 }}>
+                    
+                </Anix>
             </div>
         );
     }

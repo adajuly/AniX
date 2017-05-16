@@ -24,9 +24,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
-import { AniX } from '../';
-
-export * from '../';
+import { AniX } from '../../../../../dist/anix';
 
 export class Anix extends Component {
 
@@ -37,7 +35,7 @@ export class Anix extends Component {
     this.disAppear = null;
     this.normal = null;
   }
-  
+
 
   componentWillMount() {
     this.appear = this.getAppear();
@@ -46,7 +44,7 @@ export class Anix extends Component {
   }
 
   componentDidMount() {
-    let children = this.state.children;
+    let children = this.props.children;
 
     if (this.appear) {
       for (let key in children) {
@@ -144,7 +142,10 @@ export class Anix extends Component {
   }
 
   render() {
-    return this.props.children;
+    let childrenWithProps = React.Children.map(this.props.children, (child) => React.cloneElement(child));
+    console.log(childrenWithProps, this.props.children, this.props.children);
+    
+    return <div>{childrenWithProps}</div>;
   }
 }
 
