@@ -2,6 +2,7 @@ import { Dic } from './dic';
 import { EASE, IEase } from './ease';
 import { CssX, ITransform } from './cssx';
 import { getHTMLElement } from './gethtmlelement';
+import { getTransform, InputValue } from './gettransform';
 
 /**
 * AniX
@@ -98,44 +99,8 @@ export class AniXClass {
         Dic.get(ele).event && CssX.removeEventListener(ele, Dic.get(ele).event, Dic.get(ele).handler);
     }
 
-    getTransform(param: {
-        x?: string | number;
-        y?: string | number;
-        z?: string | number;
-        scale?: string | number;
-        rotate?: string | number;
-        pre?: string | Object;
-        no?: any;
-        [propName: string]: any;
-    }): ITransform {
-        let transform: string = ``;
-
-        if (param.x !== undefined || param.y !== undefined) {
-            let x = typeof param.x == "string" ? param.x : (param.x || 0) + 'px';
-            let y = typeof param.y == "string" ? param.y : (param.y || 0) + 'px';
-            transform += ` translate(${x}, ${y})`;
-        }
-
-        if (param.scale) transform += ` scale(${param.scale}, ${param.scale})`;
-        if (param.rotate) transform += ` rotate(${param.rotate}deg)`;
-
-        if (param.pre) transform = `${param.pre} ` + transform;
-
-        let css: ITransform = {
-            "transform": transform,
-            "-webkit-transform": transform,
-            "-ms-transform": transform,
-            "-o-transform": transform,
-            "-moz-transform": transform
-        };
-
-        if (param.no) {
-            for (let key in param.no) {
-                css[key] = param.no[key];
-            }
-        }
-
-        return css;
+    getTransform(param: InputValue): ITransform {
+        return getTransform(param);
     }
 
     private start(ele: any, transition: string, time: number, args: { nokill?: boolean;[propName: string]: any; }): string {

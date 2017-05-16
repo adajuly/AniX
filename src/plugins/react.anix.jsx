@@ -12,7 +12,7 @@ export class anix extends Component {
   }
 
   componentWillAppear(done) {
-    if (animUtil.isAppearSupported(this.props)) {
+    if (this.props.appear) {
       this.anix('appear', done);
     } else {
       done();
