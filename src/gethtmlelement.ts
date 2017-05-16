@@ -4,8 +4,8 @@ let getHTMLElement = (ele: {
     nativeElement?: any;
     [propName: string]: any;
 }) => {
-    if (!ele) throw "ele is null";
-
+    if (!ele) throw "AniX Error :: element is null!";
+    
     if (ele.nodeName)
         return ele;
     else if (ele.jquery)

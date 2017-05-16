@@ -103,6 +103,10 @@ export class AniXClass {
         return getTransform(param);
     }
 
+    get(param: InputValue): ITransform {
+        return getTransform(param);
+    }
+    
     private start(ele: any, transition: string, time: number, args: { nokill?: boolean;[propName: string]: any; }): string {
         ele = getHTMLElement(ele);
         let id = Dic.setId(ele);

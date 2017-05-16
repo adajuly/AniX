@@ -43,7 +43,6 @@ export function getTransform(param: InputValue): ITransform {
         transform += ` perspective(${param.perspective})`;
     }
 
-
     /** pre */
     if (param.pre) transform = `${param.pre} ` + transform;
 
@@ -63,6 +62,7 @@ export function getTransform(param: InputValue): ITransform {
 
     return css;
 }
+
 
 export interface InputValue {
     x?: string | number;
