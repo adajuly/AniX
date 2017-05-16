@@ -29,16 +29,31 @@ export * from '../';
 
 export class anix extends Component {
 
+  constructor(props) {
+    super(props);
+
+    this.appear = null;
+    this.disAppear = null;
+    this.normal = null;
+  }
+  
+
+  componentWillMount() {
+    this.appear = this.getAppear();
+    this.disAppear = this.getDisAppear();
+    this.normal = this.getNormal();
+  }
+
   componentDidMount() {
     let children = this.state.children;
-    let appear = this.getAppear();
 
-    if (appear) {
+    if (this.appear) {
       for (let key in children) {
-        this.animate(children[key], appear);
+        this.animate(children[key], this.appear);
       }
     }
   }
+
 
   /** get appear conf */
   getAppear() {
@@ -54,7 +69,7 @@ export class anix extends Component {
     }
 
     if (this.props.ani && (this.props.ani.appear || this.props.ani.play === 'appear')) {
-      appear = this.props.appear;
+      appear = this.props.ani;
     }
 
     if (this.props.appear) {
@@ -63,6 +78,32 @@ export class anix extends Component {
 
     return appear;
   }
+
+
+  /** get normal conf */
+  getNormal() {
+    let normal = [];
+
+    if (this.props.anis) {
+      for (let i = 0; i < this.props.anis.length; i++) {
+        let ani = this.props.anis[i];
+
+        if (!(ani.appear || ani.play === 'appear') && !ani.disAppear || ani.play === 'disAppear') {
+          normal.push(ani);
+        }
+      }
+    }
+
+    if (this.props.ani
+      && !(this.props.ani.appear || this.props.ani.play === 'appear')
+      && !(this.props.ani.disAppear || this.props.ani.play === 'disAppear')
+    ) {
+      normal.push(this.props.ani);
+    }
+
+    return normal;
+  }
+
 
   /** get disAppear conf */
   getDisAppear() {
@@ -78,7 +119,7 @@ export class anix extends Component {
     }
 
     if (this.props.ani && (this.props.ani.disAppear || this.props.ani.play === 'disAppear')) {
-      disAppear = this.props.disAppear;
+      disAppear = this.props.ani;
     }
 
     if (this.props.disAppear) {
@@ -87,6 +128,7 @@ export class anix extends Component {
 
     return disAppear;
   }
+
 
   /** animate */
   animate(child, props) {
@@ -104,6 +146,7 @@ export class anix extends Component {
     return this.props.children;
   }
 }
+
 
 anix.propTypes = {
   children: PropTypes.any,
