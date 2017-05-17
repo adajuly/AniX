@@ -88,7 +88,7 @@ export class ContentSide extends Component {
                             </ul>
                         </div>
 
-                        <div className="col-md-10 clearfix">
+                        <div className="col-md-10">
                             <Section1 />
                             <Section2 />
                             <Section3 />
