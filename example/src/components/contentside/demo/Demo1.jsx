@@ -9,21 +9,24 @@ export class Demo1 extends Component {
 
 
     constructor(props) {
-    super(props);
+        super(props);
 
 
-    this.state={
-      show:false
+        this.state = {
+            play: false,
+            anix: true
+        }
+
+        this.anis = [{
+            time: 2,
+            from: { width: '220px', backgroundColor: '#000' },
+            to: { width: '20px', backgroundColor: '#ffcc22' },
+            name: 'play',
+            appear: true
+        }]
+
     }
 
-    this.anis=[{
-        time:2,
-        from:{ width:'220px', backgroundColor:'#000' },
-        to:{ width:'20px',backgroundColor:'#ffcc22' },
-        play:this.state.show
-    }]
-  }
-  
 
     code = `
  animation(rect){
@@ -44,9 +47,12 @@ export class Demo1 extends Component {
         //     backgroundColor: Util.getRandomColor()
         // });
 
-        this.setState({
-            show:true
-        })
+        this.setState({ play: true, anix: !this.state.anix });
+    }
+
+    child() {
+        let div = this.state.anix ? (<div className="rect">222</div>) : (<div>xxxxx</div>);
+        return div;
     }
 
     render() {
@@ -59,10 +65,10 @@ export class Demo1 extends Component {
                 </div>
                 <pre><code className="javascript">{this.code}</code></pre>
 
-                <Anix anis={this.anis}>
-                    <div className="rect"></div>
-                    <div className="rect"></div>
+                <Anix play={this.state.play} anis={this.anis}>
+                    {this.child()}
                 </Anix>
+
             </div>
         );
     }

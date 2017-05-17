@@ -30,34 +30,50 @@ export class Anix extends Component {
 
   constructor(props) {
     super(props);
+
+    this.oldCache = {};
   }
 
+  children() {
+    return Array.isArray(this.props.children) ? this.props.children : [this.props.children];
+  }
 
   componentWillMount() {
     this.appear = this.getAppear();
     this.disAppear = this.getDisAppear();
     this.normal = this.getNormal();
+
+    this.normal.map(ani => prexifAniObj(ani));
+    this.oldCache.play = this.props.play;
+
   }
 
   componentDidMount() {
-    let children = this.props.children;
+    this.appear && this.animateAllChild(this.appear);
+  }
 
-    if (this.appear) {
-      for (let key in children) {
-        this.animate(this.refs[key], this.appear);
-      }
+  componentDidUpdate(nextProps) {
+    console.log(2222, nextProps.children);
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.play && this.oldCache.play != nextProps.play) {
+      this.normal.map((ani, i) => {
+        if (ani.name === 'play') {
+          this.animateAllChild(ani);
+        }
+      });
     }
+
+    this.oldCache.play = nextProps.play;
   }
 
-  componentWillUpdate(nextProps,prevState){
-    console.log(2,nextProps.anis[0],this.normal[0],prevState);
-  }
+  animateAllChild(ani) {
+    let children = this.children();
 
-  componentWillReceiveProps(nextProps){
-    console.log(1,nextProps.anis[0],this.normal[0]);
-  }
-  componentDidUpdate(prevProps,prevState){
-    console.log(3,prevProps.anis[0],this.normal[0],prevState);
+    for (let key in children) {
+      this.animate(this.refs[key], ani);
+    }
   }
 
 
@@ -144,33 +160,38 @@ export class Anix extends Component {
     if (props.from && props.to) {
       AniX.fromTo(node, time, props.from, props.to);
     } else {
-      setTimeout(()=>{
-        AniX.to(node, time, getPureProps(props));
-      },1);
+      setTimeout(() => { AniX.to(node, time, getPureProps(props)); }, 1);
     }
   }
 
   render() {
+    console.log(this.props.children);
     return (
-    <div>
-      {React.Children.map(this.props.children, (element, index) => {
-        return React.cloneElement(element, { ref: index });
-      })}
-    </div>
+      <div>
+        {React.Children.map(this.props.children, (element, index) => {
+          return React.cloneElement(element, { ref: index });
+        })}
+      </div>
     );
   }
 }
-
 
 Anix.propTypes = {
   children: PropTypes.any,
   anis: PropTypes.array,
   ani: PropTypes.object,
   appear: PropTypes.object,
-  disAppear: PropTypes.object
+  disAppear: PropTypes.object,
+  play: PropTypes.any
 }
 
 
+/** prefix function */
+function prexifAniObj(ani) {
+  if (!ani.name) ani.name = 'play';
+}
+
+/** get pure props */
 let keywords = ['time', 'play', 'appear', 'disAppear'];
 function getPureProps(props) {
   let newProps = {};
