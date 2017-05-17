@@ -9,8 +9,7 @@ import '../css/normalize.css';
 import '../css/solarized-dark.css';
 import '../css/styles.css';
 
-ReactDOM.render(
 
-    <
+ReactDOM.render( <
     App / > , document.getElementById('root')
 );
