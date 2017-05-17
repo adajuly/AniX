@@ -62,16 +62,16 @@ export class ContentSide extends Component {
         }, t);
     }
 
-    get navlist(){
-        return this.items.map((item,i)=>{
-                                return (
-                                <li key={i} className="nav-item pointer" onClick={this.clickHandler.bind(this,item,i)}>
-                                    <a className="nav-link pointer" className={item.isActive?'active':''}>{item.title} 
-                                        <span className="sr-only">(current)</span>
-                                    </a>
-                                </li>
-                                )
-                            })
+    get navlist() {
+        return this.items.map((item, i) => {
+            return (
+                <li key={i} className="nav-item pointer" onClick={this.clickHandler.bind(this, item, i)}>
+                    <a className="nav-link pointer" className={item.isActive ? 'active' : ''}>{item.title}
+                        <span className="sr-only">(current)</span>
+                    </a>
+                </li>
+            )
+        })
     }
 
     render() {
@@ -81,12 +81,12 @@ export class ContentSide extends Component {
 
                     <div className="row">
                         <div className="col-md-2 sidebar">
-                    <ul className="nav nav-pills flex-column">
-                        {
-                            this.navlist
-                        }
-                    </ul>
-                </div>
+                            <ul className="nav nav-pills flex-column">
+                                {
+                                    this.navlist
+                                }
+                            </ul>
+                        </div>
 
                         <div className="col-md-10 clearfix">
                             <Section1 />
