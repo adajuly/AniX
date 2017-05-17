@@ -7,6 +7,24 @@ import './Demo1.css';
 
 export class Demo1 extends Component {
 
+
+    constructor(props) {
+    super(props);
+
+
+    this.state={
+      show:false
+    }
+
+    this.anis=[{
+        time:2,
+        from:{ width:'220px', backgroundColor:'#000' },
+        to:{ width:'20px',backgroundColor:'#ffcc22' },
+        play:this.state.show
+    }]
+  }
+  
+
     code = `
  animation(rect){
   AniX.to(rect, 1, {
@@ -18,13 +36,17 @@ export class Demo1 extends Component {
 `;
 
     animation() {
-        let w = Math.min(Util.getWidth() - 80, 500);
+        // let w = Math.min(Util.getWidth() - 80, 500);
 
-        AniX.to(this.refs.rect, .85, {
-            width: Math.random() * w + "px",
-            height: (Math.random() * 80 + 20) + "px",
-            backgroundColor: Util.getRandomColor()
-        });
+        // AniX.to(this.refs.rect, .85, {
+        //     width: Math.random() * w + "px",
+        //     height: (Math.random() * 80 + 20) + "px",
+        //     backgroundColor: Util.getRandomColor()
+        // });
+
+        this.setState({
+            show:true
+        })
     }
 
     render() {
@@ -36,8 +58,8 @@ export class Demo1 extends Component {
                     <div className="rect" ref="rect"></div>
                 </div>
                 <pre><code className="javascript">{this.code}</code></pre>
-                
-                <Anix ani={{ width:'20px', time:2.5, appear:true ,backgroundColor:'#ffcc22' }}>
+
+                <Anix anis={this.anis}>
                     <div className="rect"></div>
                     <div className="rect"></div>
                 </Anix>

@@ -30,10 +30,6 @@ export class Anix extends Component {
 
   constructor(props) {
     super(props);
-
-    this.appear = null;
-    this.disAppear = null;
-    this.normal = null;
   }
 
 
@@ -48,11 +44,20 @@ export class Anix extends Component {
 
     if (this.appear) {
       for (let key in children) {
-        setTimeout(()=>{
-          this.animate(this.refs[key], this.appear);
-        },0);
+        this.animate(this.refs[key], this.appear);
       }
     }
+  }
+
+  componentWillUpdate(nextProps,prevState){
+    console.log(2,nextProps.anis[0],this.normal[0],prevState);
+  }
+
+  componentWillReceiveProps(nextProps){
+    console.log(1,nextProps.anis[0],this.normal[0]);
+  }
+  componentDidUpdate(prevProps,prevState){
+    console.log(3,prevProps.anis[0],this.normal[0],prevState);
   }
 
 
@@ -139,8 +144,9 @@ export class Anix extends Component {
     if (props.from && props.to) {
       AniX.fromTo(node, time, props.from, props.to);
     } else {
-      console.log(time,getPureProps(props));
-      AniX.to(node, time, getPureProps(props));
+      setTimeout(()=>{
+        AniX.to(node, time, getPureProps(props));
+      },1);
     }
   }
 

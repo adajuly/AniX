@@ -65,11 +65,11 @@ export class ContentSide extends Component {
     get navlist(){
         return this.items.map((item,i)=>{
                                 return (
-                                    <li key={i} className="nav-item pointer" onClick={this.clickHandler.bind(this,item,i)}>
-                            <a className="nav-link pointer" className={item.isActive?'active':''}>{item.title} 
-                                <span className="sr-only">(current)</span>
-                                </a>
-                                    </li>
+                                <li key={i} className="nav-item pointer" onClick={this.clickHandler.bind(this,item,i)}>
+                                    <a className="nav-link pointer" className={item.isActive?'active':''}>{item.title} 
+                                        <span className="sr-only">(current)</span>
+                                    </a>
+                                </li>
                                 )
                             })
     }

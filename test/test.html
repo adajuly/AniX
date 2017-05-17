@@ -14,6 +14,10 @@
             overflow: hidden;
         }
         
+        .container {
+            margin: 10px;
+        }
+        
         .rect {
             width: 200px;
             height: 200px;
@@ -41,9 +45,12 @@
 <body>
     <button class="umd">test anix.umd</button>
     <button class="jq">test anix.jq</button>
-    <div class="rect rect1"></div>
-    <div class="rect rect2"></div>
-    <div class="react-demo"></div>
+    <button class="append">test anix.jq append</button>
+
+    <div class="container">
+        <div class="rect rect1"></div>
+        <div class="rect rect2"></div>
+    </div>
 </body>
 
 <script>
@@ -61,6 +68,16 @@
         });
 
         console.log($.AniX.compatible);
+    });
+
+    $('.append').click(function() {
+        $('.rectx').remove();
+        $('<div class="rect rectx"></div>')
+            .appendTo('.container')
+            .to(.5, {
+                'left': Math.random() * $(window).width() + 'px',
+                'background-color': getRandomColor()
+            });
     });
 
     function getRandomColor() {
