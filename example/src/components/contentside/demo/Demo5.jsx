@@ -65,16 +65,18 @@ AniX.to(dom, 1, {
         return (
             <div>
                 <h4 id="demo5">ease function</h4>
-                <button className="pointer btn btn-primary" onClick={this.animation.bind(this)}>click animate</button>
-                <select className="form-control select" value={this.ease} onChange={this.change.bind(this)}>
+                <div>
+                    <button className="pointer btn btn-primary fleft" onClick={this.animation.bind(this)}>click animate</button>
+                    <select className="form-control select fleft nselect" value={this.ease} onChange={this.change.bind(this)}>
                     {
                         (this.items.map((item, i) => {
                             return (<option key={i} value={item}>{item}</option>)
                         }))
                     }
-                </select>
+                    </select>
+                </div>
 
-                <div className="rect" ref="rect"></div>
+                <div className="rect clearfix" ref="rect"></div>
                 <pre><code className="javascript">{this.code}</code></pre>
             </div>
         );

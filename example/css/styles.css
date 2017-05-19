@@ -16,6 +16,14 @@ html {
     cursor: pointer;
 }
 
+.fleft {
+    float: left;
+}
+
+.nselect {
+    width: 200px;
+}
+
 button {
     border: 0;
     outline: no;
