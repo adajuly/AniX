@@ -35,7 +35,7 @@ AniX.to(dom, .7, AniX.get({ z:100, scaleX:2}));
             <div>
                 <h4 id="demo3">css transform</h4>
                 <button className="pointer btn btn-primary" onClick={this.animation.bind(this)}>click animate</button>
-                <div className="rect" ref="rect"></div>
+                <div className="rect color3" ref="rect"></div>
                 <pre><code className="javascript">{this.code}</code></pre>
             </div>
         );

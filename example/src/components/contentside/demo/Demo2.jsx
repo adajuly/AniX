@@ -38,7 +38,7 @@ AniX.fromTo(dom, 1,
             <div>
                 <h4 id="demo2">AniX.fromTo(element, time, fromArgs, toArgs)</h4>
                 <button className="pointer btn btn-primary" onClick={this.animation.bind(this)} > click animate</button >
-                <div className="rect" ref='rect'></div>
+                <div className="rect color2" ref='rect'></div>
                 <pre><code className="javascript">{this.code}</code></pre>
             </div>
         );

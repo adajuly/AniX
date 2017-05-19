@@ -70,7 +70,7 @@ AniX.to(dom, 1, {
                     <span style={{ 'color': '#0275d8' }}>{this.state.stateText}</span>
                 </div>
 
-                <div className="rect" ref="rect"></div>
+                <div className="rect color4" ref="rect"></div>
                 <pre><code className="javascript">{this.code}</code></pre>
             </div>
         );

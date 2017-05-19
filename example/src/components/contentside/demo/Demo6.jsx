@@ -34,7 +34,7 @@ AniX.to(dom, 1, { "className": "ani1" });
                 <h4 id="demo6">use className</h4>
                 <button className="pointer btn btn-primary" onClick={this.animation.bind(this)}>click animate</button>
 
-                <div className="rect" ref="rect"></div>
+                <div className="rect color6" ref="rect"></div>
                 <pre><code className="javascript">{this.code}</code></pre>
             </div>
         );

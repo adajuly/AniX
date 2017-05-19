@@ -76,7 +76,7 @@ AniX.to(dom, 1, {
                     </select>
                 </div>
 
-                <div className="rect clearfix" ref="rect"></div>
+                <div className="rect color5 clearfix" ref="rect"></div>
                 <pre><code className="javascript">{this.code}</code></pre>
             </div>
         );
