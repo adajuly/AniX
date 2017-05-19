@@ -11,8 +11,9 @@ AniX.to(dom, 1, {
     width: "200px",
     height: "100px"
 });
-
 `;
+    code1=`
+$ npm install anix`;
 
     render() {
         return (
@@ -36,8 +37,7 @@ AniX.to(dom, 1, {
                     <h3>Quick Start</h3>
                     <p>Install and manage AniX with <a href="https://www.npmjs.com/package/anix">npm</a>.
             </p>
-                    <pre><code className="javascript">
-                        $ npm install anix</code></pre>
+                    <pre><code className="javascript">{this.code1}</code></pre>
 
 
                     <p>import and use the AniX library.</p>

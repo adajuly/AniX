@@ -10,9 +10,6 @@ import { Demo8 } from './demo/Demo8';
 
 export class Section3 extends Component {
 
-    code = `
-<button className="pointer btn btn-primary" (click)="animation(rect)">click animate</button>
-<div className="rect" #rect></div>`;
 
     render() {
         return (
@@ -20,8 +17,6 @@ export class Section3 extends Component {
                 <div className="section" id="section3">
                     <h1>API and Demo</h1>
                     <hr />
-                    <p>The following example is used in this way</p>
-                    <pre><code className="html">{this.code}</code></pre>
 
                     <div>
                         <Demo1/><hr className="hr" />

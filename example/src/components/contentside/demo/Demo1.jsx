@@ -29,7 +29,7 @@ export class Demo1 extends Component {
 
 
     code = `
-AniX.to(rect, 1, {
+AniX.to(dom, 1, {
     width: Math.random() * 500 + "px",
     height: (Math.random() * 60 + 40) + "px",
     backgroundColor: this.getRandomColor()
