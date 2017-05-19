@@ -36,13 +36,11 @@ export class Demo5 extends Component {
     ];
 
     code = `
- animation(){
-  AniX.to(this.refs.rect, 1, {
-      "width": "200px",
-      "background-color": "#ffcc00",
-      "ease": AniX.easeOutBack
-  });
-}
+AniX.to(dom, 1, {
+    "width": "200px",
+    "background-color": "#ffcc00",
+    "ease": AniX.ease.easeOutBack
+});
 `;
 
     change(e) {

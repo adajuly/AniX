@@ -16,6 +16,7 @@ AniX.debug = true;
 console.log(AniX.support);
 
 //////////////////// CssX ////////////////////
+import { CssX } from 'anix';
 //is support css translate3d?
 CssX.has3d();
 //get css prefix

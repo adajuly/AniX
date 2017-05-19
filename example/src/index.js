@@ -10,6 +10,4 @@ import '../css/solarized-dark.css';
 import '../css/styles.css';
 
 
-ReactDOM.render( <
-    App / > , document.getElementById('root')
-);
+ReactDOM.render( < App / > , document.getElementById('root'));

@@ -20,20 +20,18 @@ export class Demo4 extends Component {
     }
 
     code = `
- animation(rect){
-  //Whether to use the native transtionend event - there are compatibility issues
-  //the default is use setTimeout
-  AniX.useTranstionEvent = true or false;
+//Whether to use the native transtionend event - there are compatibility issues
+//the default is use setTimeout
+AniX.useTranstionEvent = true or false;
 
-  AniX.to(rect, 1, {
-      "width": "200px",
-      "background-color": "#ffcc00",
-      "onComplete": () => {
-          //STATE : COMPLETED!
-          console.log("STATE : COMPLETED!");
-      }
-  });
-}
+AniX.to(dom, 1, {
+    "width": "200px",
+    "background-color": "#ffcc00",
+    "onComplete": () => {
+        //STATE : COMPLETED!
+        console.log("STATE : COMPLETED!");
+    }
+});
 `;
 
     animation() {

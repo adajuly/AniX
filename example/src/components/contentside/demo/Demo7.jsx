@@ -6,7 +6,7 @@ import './Demo7.css';
 export class Demo7 extends Component {
 
     code = `
-AniX.kill(rect);
+AniX.kill(dom);
 `;
 
     animation() {

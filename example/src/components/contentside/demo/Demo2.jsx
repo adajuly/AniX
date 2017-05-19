@@ -6,18 +6,17 @@ import './Demo2.css';
 export class Demo2 extends Component {
 
     code = `
- animation(rect) {
-    AniX.fromTo(rect, 1,
-        {
-            width: "100px",
-            marginLeft: "0px",
-            backgroundColor: this.getRandomColor()
-        }, {
-            width: "300px",
-            marginLeft: "100px",
-            backgroundColor: this.getRandomColor()
-        });
-}
+AniX.fromTo(dom, 1,
+    {
+        width: "100px",
+        marginLeft: "0px",
+        backgroundColor: this.getRandomColor()
+    }, {
+        width: "300px",
+        marginLeft: "100px",
+        backgroundColor: this.getRandomColor()
+    }
+);
 `;
 
     animation() {

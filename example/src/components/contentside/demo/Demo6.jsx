@@ -16,9 +16,7 @@ export class Demo6 extends Component {
 }
 */
 
-animation(rect){
-  AniX.to(rect, 1, { "className": "ani1" });
-}
+AniX.to(dom, 1, { "className": "ani1" });
 `;
 
     animation() {

@@ -6,21 +6,22 @@ import './Demo3.css';
 export class Demo3 extends Component {
 
     code = `
-animation(rect){
-  let x = Math.random() * 600;
-  let rotate = Math.random() * 360;
+let x = Math.random() * 600;
+let rotate = Math.random() * 360;
 
-  ////////////////////////two methods////////////////////////
-  //1. use prefix
-  AniX.to(rect, .7, {
+////////////////////////two methods////////////////////////
+//1. use prefix
+AniX.to(dom, .7, {
     "transform" : "translate3d(100px, 0, 0) rotate(120deg)",
     "-webkit-transform" : "translate3d(100px, 0, 0) rotate(120deg)",
     "-ms-transform" : "translate3d(100px, 0, 0) rotate(120deg)"
-  });
+});
 
-  //2. use AniX.getTransform
-  AniX.to(rect, .7, AniX.getTransform({ rotate: rotate, x: x }));
-}
+//2-1. use AniX.get
+AniX.to(dom, .7, AniX.get({ rotate: rotate, x: x }));
+
+//2-2. use transform 3d
+AniX.to(dom, .7, AniX.get({ z:100, scaleX:2}));
 `;
 
     animation() {

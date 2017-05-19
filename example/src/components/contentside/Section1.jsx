@@ -3,29 +3,15 @@ import React, { Component } from 'react';
 export class Section1 extends Component {
 
     code = `
-//1. import module
-import { NgxAniModule } from 'anix';
-
-//2. set ngModule
-@NgModule({
-    imports: [BrowserModule, NgxAniModule]
-    ... ...
-
-//3. import service
+//1. import AniX
 import { AniX } from 'anix';
 
-//4. constructor
-constructor(private AniX: AniX) { }
+//2. AniX.to
+AniX.to(dom, 1, {
+    width: "200px",
+    height: "100px"
+});
 
-//5. use
-//<button (click)="animation(rect)">click animate</button>
-//<div className="rect" #rect></div>
-private animation(dom: ElementRef) {
-  AniX.to(dom, 1, {
-      width: "200px",
-      height: "100px"
-  });
-}
 `;
 
     render() {

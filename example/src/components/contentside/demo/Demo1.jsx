@@ -29,13 +29,11 @@ export class Demo1 extends Component {
 
 
     code = `
- animation(rect){
-  AniX.to(rect, 1, {
-      width: Math.random() * 500 + "px",
-      height: (Math.random() * 60 + 40) + "px",
-      backgroundColor: this.getRandomColor()
-  });
-}
+AniX.to(rect, 1, {
+    width: Math.random() * 500 + "px",
+    height: (Math.random() * 60 + 40) + "px",
+    backgroundColor: this.getRandomColor()
+});
 `;
 
     animation() {
