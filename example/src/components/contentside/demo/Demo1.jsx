@@ -37,19 +37,19 @@ AniX.to(dom, 1, {
 `;
 
     animation() {
-        // let w = Math.min(Util.getWidth() - 80, 500);
+        let w = Math.min(Util.getWidth() - 80, 500);
 
-        // AniX.to(this.refs.rect, .85, {
-        //     width: Math.random() * w + "px",
-        //     height: (Math.random() * 80 + 20) + "px",
-        //     backgroundColor: Util.getRandomColor()
-        // });
+        AniX.to(this.refs.rect, .85, {
+            width: Math.random() * w + "px",
+            height: (Math.random() * 80 + 20) + "px",
+            backgroundColor: Util.getRandomColor()
+        });
 
         this.setState({ play: true, anix: !this.state.anix });
     }
 
     child() {
-        let div = this.state.anix ? (<div className="rect">222</div>) : (<div>xxxxx</div>);
+        let div = this.state.anix ? (<div key='1' className="rect">222</div>) : (<div key='2' >xxxxx</div>);
         return div;
     }
 
@@ -63,9 +63,9 @@ AniX.to(dom, 1, {
                 </div>
                 <pre><code className="javascript">{this.code}</code></pre>
 
-                <Anix play={this.state.play} anis={this.anis}>
+                {/*<Anix play={this.state.play} anis={this.anis}>
                     {this.child()}
-                </Anix>
+                </Anix>*/}
 
             </div>
         );

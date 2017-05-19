@@ -58,7 +58,7 @@ AniX.to(dom, 1, {
                 <button className="pointer btn btn-primary" onClick={this.animation.bind(this)}>click animate</button>
                 <div>
                     <label className="radio">
-                        <input type="radio" name="optionsRadios" value="false" onChange={this.changeHandler.bind(this, false)} checked />
+                        <input type="radio" name="optionsRadios" value="false" onChange={this.changeHandler.bind(this, false)} defaultChecked={true} />
                         use settimeout
                     </label>
 

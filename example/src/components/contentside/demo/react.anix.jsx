@@ -45,7 +45,6 @@ export class Anix extends Component {
 
     this.normal.map(ani => prexifAniObj(ani));
     this.oldCache.play = this.props.play;
-
   }
 
   componentDidMount() {
@@ -54,6 +53,10 @@ export class Anix extends Component {
 
   componentDidUpdate(nextProps) {
     console.log(2222, nextProps.children);
+
+    this.normal.map((ani, i) => {
+        this.animateAllChild(ani);
+      });
   }
 
   componentWillReceiveProps(nextProps) {

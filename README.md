@@ -22,16 +22,14 @@ import and use the AniX library.
 import { AniX } from 'anix';
 
 //2. use
-animation() {
-  this.AniX.to(dom, 1, {
-      width: "200px",
-      height: "100px",
-      delay: .5,
-      onComplete: ()=>{
-      		alert("over");
-      }
-  });
-}
+AniX.to(dom, 1, {
+    width: "200px",
+    height: "100px",
+    delay: .5,
+    onComplete: ()=>{
+      	alert("over");
+    }
+});
 ```
 
 ## Examples

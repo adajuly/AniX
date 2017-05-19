@@ -27,6 +27,8 @@ export class ContentSide extends Component {
 
         if (navigator.userAgent.toLowerCase().indexOf('firefox') > -1)
             this.scrollTo(htmlElement, 500, top);
+
+        this.setState({});
     }
 
     getOffsetTop(dom) {
@@ -66,7 +68,7 @@ export class ContentSide extends Component {
         return this.items.map((item, i) => {
             return (
                 <li key={i} className="nav-item pointer" onClick={this.clickHandler.bind(this, item, i)}>
-                    <a className="nav-link pointer" className={item.isActive ? 'active' : ''}>{item.title}
+                    <a className={item.isActive ? 'nav-link pointer active' : 'nav-link pointer'}>{item.title}
                         <span className="sr-only">(current)</span>
                     </a>
                 </li>

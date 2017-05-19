@@ -122,3 +122,19 @@ pre code {
     -webkit-transform: translate3d(200px, 0, 0) rotateY(720deg) scale(1.5);
     -ms-transform: translate3d(200px, 0, 0) rotateY(720deg) scale(1.5);
 }
+
+.nav-item {
+    margin-bottom: 5px;
+}
+
+.nav-pills .nav-link {
+    border-radius: .25rem;
+    width: 140px;
+}
+
+.nav-pills .nav-item.show .nav-link,
+.nav-pills .nav-link.active {
+    color: #fff;
+    cursor: default;
+    background-color: #0275d8
+}
