@@ -1,0 +1,141 @@
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+html {
+    font-size: 14px;
+}
+
+.clearfix {
+    clear: both;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.fleft {
+    float: left;
+}
+
+.nselect {
+    width: 200px;
+}
+
+button {
+    border: 0;
+    outline: no;
+}
+
+pre {
+    padding: 0;
+}
+
+span {
+    padding: 0;
+    font-size: inherit;
+}
+
+.rect {
+    width: 100px;
+    height: 100px;
+    background-color: #ff0000;
+    margin: 10px;
+}
+
+@media screen and (max-width: 760px) {
+    .content-side {
+        margin-top: 10px;
+    }
+    .section {
+        margin-bottom: 10px;
+    }
+}
+
+@media screen and (min-width: 761px) {
+    .content-side {
+        margin-top: 50px;
+    }
+    .section {
+        margin-bottom: 30px;
+    }
+}
+
+.head-side {
+    overflow: hidden;
+    width: 100%;
+    padding: 50px 30px;
+    color: #fff;
+    background: url(../assets/bg.jpg) repeat;
+    background-position: top;
+}
+
+.head-side h1 {
+    font-size: 3.5rem;
+}
+
+.head-side h4 {
+    font-weight: 300;
+}
+
+.head-side button {
+    cursor: pointer;
+    width: 130px;
+    height: 36px;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    border-radius: 5px;
+}
+
+.info {
+    border-color: #bce8f1;
+    background-color: #f4f8fa;
+    margin: 20px 0;
+    padding: 20px;
+    width: 100%;
+    overflow: hidden;
+    border-left: 3px solid #bce8f1;
+}
+
+.blur {
+    color: #34789a;
+}
+
+pre code {
+    font-size: 13px!important;
+    padding: 0 20px 20px 20px!important;
+}
+
+.ani0 {
+    border-radius: 0%;
+    transform: translate3d(0, 0, 0) rotateY(0) scale(1);
+    -webkit-transform: translate3d(0, 0, 0) rotateY(0) scale(1);
+    -ms-transform: translate3d(0, 0, 0) rotateY(0) scale(1);
+}
+
+.ani1 {
+    background-color: #ff0000 !important;
+    border-radius: 100%;
+    transform: translate3d(200px, 0, 0) rotateY(720deg) scale(1.5);
+    -webkit-transform: translate3d(200px, 0, 0) rotateY(720deg) scale(1.5);
+    -ms-transform: translate3d(200px, 0, 0) rotateY(720deg) scale(1.5);
+}
+
+.nav-item {
+    margin-bottom: 5px;
+}
+
+.nav-pills .nav-link {
+    border-radius: .25rem;
+    width: 140px;
+}
+
+.nav-pills .nav-item.show .nav-link,
+.nav-pills .nav-link.active {
+    color: #fff;
+    cursor: default;
+    background-color: #0275d8
+}

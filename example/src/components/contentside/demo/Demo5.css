@@ -1,0 +1,9 @@
+.select {
+    width: 160px;
+    display: inline-block;
+    margin-left: 20px;
+}
+
+.color5 {
+    background-color: #6f599c !important;
+}
