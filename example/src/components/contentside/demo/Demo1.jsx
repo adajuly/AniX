@@ -49,7 +49,7 @@ AniX.to(dom, 1, {
     }
 
     child() {
-        let div = this.state.anix ? (<div key='1' className="rect">222</div>) : (<div key='2' >xxxxx</div>);
+        let div = this.state.anix ? (<div key='1' className="rect">222</div>) : undefined;
         return div;
     }
 
@@ -63,9 +63,9 @@ AniX.to(dom, 1, {
                 </div>
                 <pre><code className="javascript">{this.code}</code></pre>
 
-                {/*<Anix play={this.state.play} anis={this.anis}>
+                {<Anix play={this.state.play} anis={this.anis}>
                     {this.child()}
-                </Anix>*/}
+                </Anix>}
 
             </div>
         );

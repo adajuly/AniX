@@ -64,6 +64,7 @@ span {
 }
 
 .head-side {
+    overflow: hidden;
     width: 100%;
     padding: 50px 30px;
     color: #fff;

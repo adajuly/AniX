@@ -52,9 +52,10 @@ export class Anix extends Component {
   }
 
   componentDidUpdate(nextProps) {
-    console.log(2222, nextProps.children);
+    console.log(2222, nextProps.children,this.normal);
 
     this.normal.map((ani, i) => {
+      console.log(111111,ani);
         this.animateAllChild(ani);
       });
   }
