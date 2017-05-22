@@ -30,12 +30,13 @@ export class Anix extends Component {
 
   constructor(props) {
     super(props);
-    this.oldCache = {};
-  }
 
-  getChildren(children) {
-    children = children || this.props.children;
-    return Array.isArray(children) ? children : [children];
+    this.oldCache = {};
+
+    this.prevChildren = [];
+    this.currChildren = [];
+    this.appearChildren = [];
+    this.disAppearChildren = [];
   }
 
   componentWillMount() {
@@ -48,16 +49,34 @@ export class Anix extends Component {
   }
 
   componentDidMount() {
-    
+    this.currChildren = this.getChildren();
+    __cloneArray(this.prevChildren, this.currChildren);
     //this.appear && this.anixChildren(this.appear);
   }
 
   componentWillReceiveProps(nextProps) {
-    let currentChildren = this.getChildren();
-    
+    this.currChildren = this.getChildren();
     this.normalAniPlay(nextProps);
+
+    __cloneArray(this.prevChildren, this.currChildren);
   }
 
+  compareChildren() {
+    for (let i = 0; i < this.currChildren.length; i++) {
+      
+    }
+  }
+
+  getChildren(children) {
+    children = children || this.props.children;
+    return Array.isArray(children) ? children : [children];
+  }
+
+  ////////////////////////////////////////////////////////////////////////////////////////
+  //
+  //  animation
+  //
+  ////////////////////////////////////////////////////////////////////////////////////////
   normalAniPlay(nextProps) {
     if (nextProps.play && this.oldCache.play != nextProps.play) {
       this.normal.map((ani, i) => {
@@ -214,4 +233,13 @@ function __getPureProps(props) {
   }
 
   return newProps;
+}
+
+function __cloneArray(arr1, arr2) {
+  arr1.length = 0;
+  for (let i = 0; i < arr2.length; i++) {
+    arr1.push(arr2[i]);
+  }
+
+  return arr1;
 }
