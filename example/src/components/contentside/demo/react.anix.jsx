@@ -30,12 +30,12 @@ export class Anix extends Component {
 
   constructor(props) {
     super(props);
-
     this.oldCache = {};
   }
 
-  children() {
-    return Array.isArray(this.props.children) ? this.props.children : [this.props.children];
+  getChildren(children) {
+    children = children || this.props.children;
+    return Array.isArray(children) ? children : [children];
   }
 
   componentWillMount() {
@@ -43,28 +43,26 @@ export class Anix extends Component {
     this.disAppear = this.getDisAppear();
     this.normal = this.getNormal();
 
-    this.normal.map(ani => prexifAniObj(ani));
+    this.normal.map(ani => __prefixAniObj(ani));
     this.oldCache.play = this.props.play;
   }
 
   componentDidMount() {
-    this.appear && this.animateAllChild(this.appear);
-  }
-
-  componentDidUpdate(nextProps) {
-    console.log(2222, nextProps.children,this.normal);
-
-    this.normal.map((ani, i) => {
-      console.log(111111,ani);
-        this.animateAllChild(ani);
-      });
+    
+    //this.appear && this.anixChildren(this.appear);
   }
 
   componentWillReceiveProps(nextProps) {
+    let currentChildren = this.getChildren();
+    
+    this.normalAniPlay(nextProps);
+  }
+
+  normalAniPlay(nextProps) {
     if (nextProps.play && this.oldCache.play != nextProps.play) {
       this.normal.map((ani, i) => {
         if (ani.name === 'play') {
-          this.animateAllChild(ani);
+          this.anixChildren(ani);
         }
       });
     }
@@ -72,15 +70,31 @@ export class Anix extends Component {
     this.oldCache.play = nextProps.play;
   }
 
-  animateAllChild(ani) {
-    let children = this.children();
+  anixChildren(ani, children) {
+    children = this.getChildren(children);
 
     for (let key in children) {
-      this.animate(this.refs[key], ani);
+      this.anix(this.refs[key], ani);
     }
   }
 
+  /** anix */
+  anix(child, props) {
+    let node = ReactDOM.findDOMNode(child);
+    let time = props.time || 0.5;
 
+    if (props.from && props.to) {
+      AniX.fromTo(node, time, props.from, props.to);
+    } else {
+      setTimeout(() => AniX.to(node, time, __getPureProps(props)), 1);
+    }
+  }
+
+  ////////////////////////////////////////////////////////////////////////////////////////
+  //
+  //  get ani props
+  //
+  ////////////////////////////////////////////////////////////////////////////////////////
   /** get appear conf */
   getAppear() {
     let appear;
@@ -155,21 +169,7 @@ export class Anix extends Component {
     return disAppear;
   }
 
-
-  /** animate */
-  animate(child, props) {
-    let node = ReactDOM.findDOMNode(child);
-    let time = props.time || 0.5;
-
-    if (props.from && props.to) {
-      AniX.fromTo(node, time, props.from, props.to);
-    } else {
-      setTimeout(() => { AniX.to(node, time, getPureProps(props)); }, 1);
-    }
-  }
-
   render() {
-    console.log(this.props.children);
     return (
       <div>
         {React.Children.map(this.props.children, (element, index) => {
@@ -189,15 +189,19 @@ Anix.propTypes = {
   play: PropTypes.any
 }
 
-
+////////////////////////////////////////////////////////////////////////////////////////
+//
+//  Utils
+//
+////////////////////////////////////////////////////////////////////////////////////////
 /** prefix function */
-function prexifAniObj(ani) {
+function __prefixAniObj(ani) {
   if (!ani.name) ani.name = 'play';
 }
 
 /** get pure props */
 let keywords = ['time', 'play', 'appear', 'disAppear'];
-function getPureProps(props) {
+function __getPureProps(props) {
   let newProps = {};
   for (let key in props) {
     if (keywords.indexOf(key) < 0) {
