@@ -56,25 +56,38 @@ export class Anix extends Component {
 
   componentWillReceiveProps(nextProps) {
     this.compareChildren(nextProps);
-    this.aniPlayAppearAndDisAppear(nextProps);
     this.aniPlayNormal(nextProps);
+  }
+
+  componentDidUpdate() {
+    this.aniPlayAppearAndDisAppear();
   }
 
   compareChildren(nextProps) {
     this.currChildren = this.getChildren(nextProps.children);
     this.prevChildren = this.getChildren(this.props.children);
 
-    this.appearChildren = this.currChildren.filter(cItem => !this.prevChildren.find(pItem => pItem.key === cItem.key));
-    this.disAppearChildren = this.prevChildren.filter(pItem => !this.currChildren.find(cItem => cItem.key === pItem.key));
+    this.appearChildren.length = 0;
+    this.currChildren.map((cItem, index) => {
+      if (!this.prevChildren.find(pItem => pItem.key === cItem.key)) {
+        this.appearChildren.push(index)
+      }
+    });
+
+    this.disAppearChildren.length = 0;
+    this.prevChildren.map((pItem, index) => {
+      if (!this.currChildren.find(cItem => cItem.key === pItem.key)) {
+        this.disAppearChildren.push(index)
+      }
+    });
+
+    //this.appearChildren = this.currChildren.filter(cItem => !this.prevChildren.find(pItem => pItem.key === cItem.key));
+    //this.disAppearChildren = this.prevChildren.filter(pItem => !this.currChildren.find(cItem => cItem.key === pItem.key));
   }
 
   aniPlayAppearAndDisAppear() {
     this.appear && this.anixChildren(this.appear, this.appearChildren);
-  }
-
-  getChildren(children) {
-    children = children || this.props.children;
-    return Array.isArray(children) ? children : [children];
+    this.disAppear && this.anixChildren(this.disAppear, this.disAppearChildren);
   }
 
   ////////////////////////////////////////////////////////////////////////////////////////
@@ -94,15 +107,15 @@ export class Anix extends Component {
     this.oldCache.play = nextProps.play;
   }
 
-  anixChildren(ani, children) {
-    children = this.getChildren(children);
-    children.map(child => this.anix(child, ani));
-
+  anixChildren(ani, refs) {
+    console.log(refs);
+    if (refs.length)
+      refs.map(ref => this.anix(this.refs[ref], ani));
   }
 
   /** anix */
   anix(child, props) {
-    console.log(child,this.refs);
+    console.log(child, this.refs);
 
     let node = ReactDOM.findDOMNode(child);
     let time = props.time || 0.5;
@@ -203,6 +216,11 @@ export class Anix extends Component {
         }
       </div>
     );
+  }
+
+  getChildren(children) {
+    children = children || this.props.children;
+    return Array.isArray(children) ? children : [children];
   }
 }
 
