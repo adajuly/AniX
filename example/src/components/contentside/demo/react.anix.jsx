@@ -59,28 +59,17 @@ export class Anix extends Component {
     this.aniPlayAppearAndDisAppear(nextProps);
     this.aniPlayNormal(nextProps);
   }
-  
+
   compareChildren(nextProps) {
     this.currChildren = this.getChildren(nextProps.children);
     this.prevChildren = this.getChildren(this.props.children);
-    
-    
-    this.appearChildren = this.currChildren.filter(
-      cItem => !this.prevChildren.find(
-        pItem => pItem.key === cItem.key
-      )
-    );
 
-    this.disAppearChildren = this.prevChildren.filter(
-      pItem => !this.currChildren.find(
-        cItem => cItem.key === pItem.key
-      ));
+    this.appearChildren = this.currChildren.filter(cItem => !this.prevChildren.find(pItem => pItem.key === cItem.key));
+    this.disAppearChildren = this.prevChildren.filter(pItem => !this.currChildren.find(cItem => cItem.key === pItem.key));
   }
 
-  aniPlayAppearAndDisAppear(){
-    if(this.appear){
-      this.anixChildren(this.appear,this.appearChildren);
-    }
+  aniPlayAppearAndDisAppear() {
+    this.appear && this.anixChildren(this.appear, this.appearChildren);
   }
 
   getChildren(children) {
@@ -107,15 +96,14 @@ export class Anix extends Component {
 
   anixChildren(ani, children) {
     children = this.getChildren(children);
-    children.map((child)=>{
-      this.anix(child, ani);
-    });
-    
+    children.map(child => this.anix(child, ani));
+
   }
 
   /** anix */
   anix(child, props) {
-    console.log(child);
+    console.log(child,this.refs);
+
     let node = ReactDOM.findDOMNode(child);
     let time = props.time || 0.5;
 
@@ -208,9 +196,11 @@ export class Anix extends Component {
   render() {
     return (
       <div>
-        {React.Children.map(this.props.children, (element, index) => {
-          return React.cloneElement(element, { ref: index });
-        })}
+        {
+          React.Children.map(this.props.children, (child, index) => {
+            return React.cloneElement(child, { ref: index });
+          })
+        }
       </div>
     );
   }
