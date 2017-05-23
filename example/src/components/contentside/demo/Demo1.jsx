@@ -14,7 +14,8 @@ export class Demo1 extends Component {
 
         this.state = {
             play: false,
-            anix: true
+            anix: true,
+            current:3
         }
 
         this.anis = [{
@@ -45,15 +46,24 @@ AniX.to(dom, 1, {
             backgroundColor: Util.getRandomColor()
         });
 
-        this.setState({ play: true, anix: !this.state.anix });
-    }
-
-    child() {
-        let div = this.state.anix ? (<div key='1' className="rect">222</div>) : undefined;
-        return div;
+        this.setState({ play: true, anix: !this.state.anix,current:this.state.current+(this.state.anix?-2:2) });
     }
 
     render() {
+        var children = [];
+        var pos = 0;
+        var colors = ['red', 'gray', 'blue'];
+        for (var i = 0; i < this.state.current; i++) {
+            var style = {
+                left: pos * 128,
+                background: colors[i % colors.length]
+            };
+            pos++;
+           
+            children.push(<div key={'a'+i} className="rect" style={style}>{i}</div>);
+        }
+
+        
         return (
             <div>
                 <h4 id="demo1">AniX.to(element, time, toArgs)</h4>
@@ -63,9 +73,10 @@ AniX.to(dom, 1, {
                 </div>
                 <pre><code className="javascript">{this.code}</code></pre>
 
-                {<Anix play={this.state.play} anis={this.anis}>
-                    {this.child()}
-                </Anix>}
+
+                <Anix play={this.state.play} anis={this.anis}>
+                    {children}
+                </Anix>
 
             </div>
         );

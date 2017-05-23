@@ -55,15 +55,31 @@ export class Anix extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    this.currChildren = this.getChildren();
-    this.normalAniPlay(nextProps);
+    this.compareChildren(nextProps);
+    this.aniPlayAppearAndDisAppear(nextProps);
+    this.aniPlayNormal(nextProps);
+  }
+  
+  compareChildren(nextProps) {
+    this.currChildren = this.getChildren(nextProps.children);
+    this.prevChildren = this.getChildren(this.props.children);
+    
+    
+    this.appearChildren = this.currChildren.filter(
+      cItem => !this.prevChildren.find(
+        pItem => pItem.key === cItem.key
+      )
+    );
 
-    __cloneArray(this.prevChildren, this.currChildren);
+    this.disAppearChildren = this.prevChildren.filter(
+      pItem => !this.currChildren.find(
+        cItem => cItem.key === pItem.key
+      ));
   }
 
-  compareChildren() {
-    for (let i = 0; i < this.currChildren.length; i++) {
-      
+  aniPlayAppearAndDisAppear(){
+    if(this.appear){
+      this.anixChildren(this.appear,this.appearChildren);
     }
   }
 
@@ -77,7 +93,7 @@ export class Anix extends Component {
   //  animation
   //
   ////////////////////////////////////////////////////////////////////////////////////////
-  normalAniPlay(nextProps) {
+  aniPlayNormal(nextProps) {
     if (nextProps.play && this.oldCache.play != nextProps.play) {
       this.normal.map((ani, i) => {
         if (ani.name === 'play') {
@@ -91,14 +107,15 @@ export class Anix extends Component {
 
   anixChildren(ani, children) {
     children = this.getChildren(children);
-
-    for (let key in children) {
-      this.anix(this.refs[key], ani);
-    }
+    children.map((child)=>{
+      this.anix(child, ani);
+    });
+    
   }
 
   /** anix */
   anix(child, props) {
+    console.log(child);
     let node = ReactDOM.findDOMNode(child);
     let time = props.time || 0.5;
 
