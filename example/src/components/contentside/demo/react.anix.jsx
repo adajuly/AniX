@@ -57,12 +57,17 @@ export class Anix extends Component {
     //this.appear && this.anixChildren(this.appear);
   }
 
+  componentDidUpdate(prevProps, prevState) {
+    if (prevProps.children !== this.props.children) {
+      this.aniPlayAppearAndDisAppear();
+    }
+  }
+
   componentWillReceiveProps(nextProps) {
     let allChildren = this.mergeChildren(this.props.children, nextProps.children);
     this.setState({ children: allChildren });
     this.compareChildren(nextProps, allChildren);
     this.aniPlayNormal(nextProps);
-    setTimeout(() => { this.aniPlayAppearAndDisAppear(); }, 0)
 
     this.nextProps = nextProps;
   }
