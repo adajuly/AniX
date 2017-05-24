@@ -31,6 +31,10 @@ export class Anix extends Component {
   constructor(props) {
     super(props);
 
+    this.state={
+      children:this.getChildren(this.props.children)
+    }
+
     this.oldCache = {};
 
     this.prevChildren = [];
@@ -55,6 +59,7 @@ export class Anix extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
+    this.setState({ children: this.getChildren(this.mergeChildren(nextProps.children))});
     this.compareChildren(nextProps);
     this.aniPlayNormal(nextProps);
   }
@@ -63,23 +68,37 @@ export class Anix extends Component {
     this.aniPlayAppearAndDisAppear();
   }
 
+  mergeChildren(nextChildren,c2){
+    if(this.disAppear){
+      return this.props.children 
+    }else{
+      return nextChildren;
+    }
+  }
+
   compareChildren(nextProps) {
     this.currChildren = this.getChildren(nextProps.children);
     this.prevChildren = this.getChildren(this.props.children);
 
     this.appearChildren.length = 0;
-    this.currChildren.map((cItem, index) => {
+    if(this.appear)
+    {
+      this.currChildren.map((cItem, index) => {
       if (!this.prevChildren.find(pItem => pItem.key === cItem.key)) {
-        this.appearChildren.push(index)
+        this.appearChildren.push(index);
       }
     });
+    }
 
     this.disAppearChildren.length = 0;
-    this.prevChildren.map((pItem, index) => {
+    if(this.disAppear)
+    {
+      this.prevChildren.map((pItem, index) => {
       if (!this.currChildren.find(cItem => cItem.key === pItem.key)) {
         this.disAppearChildren.push(index)
       }
-    });
+      });
+    }
 
     //this.appearChildren = this.currChildren.filter(cItem => !this.prevChildren.find(pItem => pItem.key === cItem.key));
     //this.disAppearChildren = this.prevChildren.filter(pItem => !this.currChildren.find(cItem => cItem.key === pItem.key));
@@ -207,10 +226,13 @@ export class Anix extends Component {
   }
 
   render() {
+    let children = this.state.children;
+    
+
     return (
       <div>
         {
-          React.Children.map(this.props.children, (child, index) => {
+          children.map((child, index) =>{
             return React.cloneElement(child, { ref: index });
           })
         }
