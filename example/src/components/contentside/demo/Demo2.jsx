@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Util } from '../../../utils/Util';
-import { AniX } from '../../../../../dist/anix';
+import { AniX } from '../../../../../dist/umd/anix.umd';
 import './Demo2.css';
 
 export class Demo2 extends Component {

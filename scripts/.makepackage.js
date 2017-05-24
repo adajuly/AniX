@@ -7,9 +7,6 @@ delete pkg.scripts;
 let configs = [{
     name: 'anix',
     path: './dist/anix/'
-}, {
-    name: 'react-anix',
-    path: './dist/react/'
 }];
 
 for (let i = 0; i < configs.length; i++) {
