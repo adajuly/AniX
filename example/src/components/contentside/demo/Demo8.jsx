@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { AniX } from '../../../../../dist/anix';
 import './Demo8.css';
 
 export class Demo8 extends Component {

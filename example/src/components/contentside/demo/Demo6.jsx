@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Util } from '../../../utils/Util';
 import { AniX, CssX } from '../../../../../dist/anix';
 import './Demo6.css';
 

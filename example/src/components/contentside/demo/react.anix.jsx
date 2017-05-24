@@ -31,16 +31,15 @@ export class Anix extends Component {
   constructor(props) {
     super(props);
 
-    this.state={
-      children:this.getChildren(this.props.children)
+    this.state = {
+      children: this.getChildren(this.props.children)
     }
 
     this.oldCache = {};
 
-    this.prevChildren = [];
-    this.currChildren = [];
     this.appearChildren = [];
     this.disAppearChildren = [];
+    this.nextProps = null;
   }
 
   componentWillMount() {
@@ -53,60 +52,74 @@ export class Anix extends Component {
   }
 
   componentDidMount() {
-    this.currChildren = this.getChildren();
-    __cloneArray(this.prevChildren, this.currChildren);
     //this.appear && this.anixChildren(this.appear);
   }
 
   componentWillReceiveProps(nextProps) {
-    this.setState({ children: this.getChildren(this.mergeChildren(nextProps.children))});
+    this.setState({ children: this.mergeChildren(this.props.children, nextProps.children) });
     this.compareChildren(nextProps);
     this.aniPlayNormal(nextProps);
+
+    this.nextProps = nextProps;
   }
 
   componentDidUpdate() {
     this.aniPlayAppearAndDisAppear();
   }
 
-  mergeChildren(nextChildren,c2){
-    if(this.disAppear){
-      return this.props.children 
-    }else{
-      return nextChildren;
+  mergeChildren(prevChildren, nextChildren) {
+    if (this.disAppear) {
+      let children = [];
+      prevChildren = this.getChildren(prevChildren);
+      nextChildren = this.getChildren(nextChildren);
+      __cloneArray(children, prevChildren);
+
+      nextChildren.map(child => {
+        if (!prevChildren.find(nChild => nChild.key === child.key)) {
+          children.push(child);
+        }
+      });
+
+      return children;
+    } else {
+      return this.getChildren(nextChildren);
     }
   }
 
   compareChildren(nextProps) {
-    this.currChildren = this.getChildren(nextProps.children);
-    this.prevChildren = this.getChildren(this.props.children);
+    let nextChildren;
+    let prevChildren;
 
     this.appearChildren.length = 0;
-    if(this.appear)
-    {
-      this.currChildren.map((cItem, index) => {
-      if (!this.prevChildren.find(pItem => pItem.key === cItem.key)) {
-        this.appearChildren.push(index);
-      }
-    });
-    }
-
     this.disAppearChildren.length = 0;
-    if(this.disAppear)
-    {
-      this.prevChildren.map((pItem, index) => {
-      if (!this.currChildren.find(cItem => cItem.key === pItem.key)) {
-        this.disAppearChildren.push(index)
-      }
+
+    if (this.appear) {
+      nextChildren = this.state.children;
+      prevChildren = this.getChildren(this.props.children);
+
+      nextChildren.map((cItem, index) => {
+        if (!prevChildren.find(pItem => pItem.key === cItem.key)) {
+          this.appearChildren.push(index);
+        }
       });
     }
 
-    //this.appearChildren = this.currChildren.filter(cItem => !this.prevChildren.find(pItem => pItem.key === cItem.key));
-    //this.disAppearChildren = this.prevChildren.filter(pItem => !this.currChildren.find(cItem => cItem.key === pItem.key));
+    if (this.disAppear) {
+      nextChildren = this.getChildren(nextProps.children);
+      prevChildren = this.state.children;
+
+      prevChildren.map((pItem, index) => {
+        if (!nextChildren.find(cItem => cItem.key === pItem.key)) {
+          this.disAppearChildren.push(index)
+        }
+      });
+    }
+
   }
 
   aniPlayAppearAndDisAppear() {
-    this.appear && this.anixChildren(this.appear, this.appearChildren);
-    this.disAppear && this.anixChildren(this.disAppear, this.disAppearChildren);
+    this.appear && this.anixChildren(this.appear, this.appearChildren, 'appear');
+    this.disAppear && this.anixChildren(this.disAppear, this.disAppearChildren, 'disAppear');
   }
 
   ////////////////////////////////////////////////////////////////////////////////////////
@@ -126,24 +139,51 @@ export class Anix extends Component {
     this.oldCache.play = nextProps.play;
   }
 
-  anixChildren(ani, refs) {
-    console.log(refs);
-    if (refs.length)
-      refs.map(ref => this.anix(this.refs[ref], ani));
+  anixChildren(ani, refs, type) {
+    refs.length && refs.map((ref, index) => {
+      if (type == 'disAppear' && index >= refs.length - 1)
+        this.anix(this.refs[ref], ani, 'complete');
+      else
+        this.anix(this.refs[ref], ani);
+    });
   }
 
   /** anix */
-  anix(child, props) {
-    console.log(child, this.refs);
-
-    let node = ReactDOM.findDOMNode(child);
+  anix(element, props, complete) {
+    let node = ReactDOM.findDOMNode(element);
     let time = props.time || 0.5;
 
     if (props.from && props.to) {
-      AniX.fromTo(node, time, props.from, props.to);
+      AniX.fromTo(node, time, props.from, this.getPureProps(props.to, complete));
     } else {
-      setTimeout(() => AniX.to(node, time, __getPureProps(props)), 1);
+      setTimeout(() => AniX.to(node, time, this.getPureProps(props, complete)), 1);
     }
+  }
+
+  getPureProps(props, complete) {
+    let newProps = {};
+
+    for (let key in props) {
+      if (__keywords.indexOf(key) < 0) {
+        if (key === 'ease') {
+          newProps['ease'] = AniX.ease[props[key]];
+        } else {
+          newProps[key] = props[key];
+        }
+      }
+    }
+
+    if (complete) {
+      let onComplete = newProps['onComplete'];
+      newProps['onComplete'] = () => {
+        onComplete && onComplete.call(null);
+        setTimeout(() => {
+          this.setState({ children: this.getChildren(this.nextProps.children) });
+        }, 10);
+      }
+    }
+
+    return newProps;
   }
 
   ////////////////////////////////////////////////////////////////////////////////////////
@@ -227,12 +267,12 @@ export class Anix extends Component {
 
   render() {
     let children = this.state.children;
-    
+
 
     return (
       <div>
         {
-          children.map((child, index) =>{
+          children.map((child, index) => {
             return React.cloneElement(child, { ref: index });
           })
         }
@@ -266,21 +306,7 @@ function __prefixAniObj(ani) {
 }
 
 /** get pure props */
-let keywords = ['time', 'play', 'appear', 'disAppear'];
-function __getPureProps(props) {
-  let newProps = {};
-  for (let key in props) {
-    if (keywords.indexOf(key) < 0) {
-      if (key === 'ease') {
-        newProps['ease'] = AniX.ease[props[key]];
-      } else {
-        newProps[key] = props[key];
-      }
-    }
-  }
-
-  return newProps;
-}
+let __keywords = ['time', 'play', 'appear', 'disAppear'];
 
 function __cloneArray(arr1, arr2) {
   arr1.length = 0;
