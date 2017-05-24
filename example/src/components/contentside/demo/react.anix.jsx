@@ -26,6 +26,8 @@ import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import { AniX } from '../../../../../dist/anix';
 
+let __keywords = ['time', 'play', 'appear', 'disAppear'];
+
 export class Anix extends Component {
 
   constructor(props) {
@@ -56,15 +58,13 @@ export class Anix extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    this.setState({ children: this.mergeChildren(this.props.children, nextProps.children) });
-    this.compareChildren(nextProps);
+    let allChildren = this.mergeChildren(this.props.children, nextProps.children);
+    this.setState({ children: allChildren });
+    this.compareChildren(nextProps, allChildren);
     this.aniPlayNormal(nextProps);
+    setTimeout(() => { this.aniPlayAppearAndDisAppear(); }, 0)
 
     this.nextProps = nextProps;
-  }
-
-  componentDidUpdate() {
-    this.aniPlayAppearAndDisAppear();
   }
 
   mergeChildren(prevChildren, nextChildren) {
@@ -86,7 +86,7 @@ export class Anix extends Component {
     }
   }
 
-  compareChildren(nextProps) {
+  compareChildren(nextProps, allChildren) {
     let nextChildren;
     let prevChildren;
 
@@ -94,7 +94,7 @@ export class Anix extends Component {
     this.disAppearChildren.length = 0;
 
     if (this.appear) {
-      nextChildren = this.state.children;
+      nextChildren = allChildren;
       prevChildren = this.getChildren(this.props.children);
 
       nextChildren.map((cItem, index) => {
@@ -106,7 +106,7 @@ export class Anix extends Component {
 
     if (this.disAppear) {
       nextChildren = this.getChildren(nextProps.children);
-      prevChildren = this.state.children;
+      prevChildren = allChildren;
 
       prevChildren.map((pItem, index) => {
         if (!nextChildren.find(cItem => cItem.key === pItem.key)) {
@@ -128,7 +128,7 @@ export class Anix extends Component {
   //
   ////////////////////////////////////////////////////////////////////////////////////////
   aniPlayNormal(nextProps) {
-    if (nextProps.play && this.oldCache.play != nextProps.play) {
+    if (nextProps.play && this.oldCache.play !== nextProps.play) {
       this.normal.map((ani, i) => {
         if (ani.name === 'play') {
           this.anixChildren(ani);
@@ -141,7 +141,7 @@ export class Anix extends Component {
 
   anixChildren(ani, refs, type) {
     refs.length && refs.map((ref, index) => {
-      if (type == 'disAppear' && index >= refs.length - 1)
+      if (type === 'disAppear' && index >= refs.length - 1)
         this.anix(this.refs[ref], ani, 'complete');
       else
         this.anix(this.refs[ref], ani);
@@ -304,9 +304,6 @@ Anix.propTypes = {
 function __prefixAniObj(ani) {
   if (!ani.name) ani.name = 'play';
 }
-
-/** get pure props */
-let __keywords = ['time', 'play', 'appear', 'disAppear'];
 
 function __cloneArray(arr1, arr2) {
   arr1.length = 0;
