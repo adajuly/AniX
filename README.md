@@ -1,5 +1,4 @@
 # AniX
----
 
 The Simplest Animation Plugin for react.
 
@@ -18,6 +17,7 @@ $ npm install anix --save-dev
 
 import { AniX } from 'anix';
 ```
+[![rc-animate](https://nodei.co/npm/anix.png)](https://npmjs.org/package/anix)
 
 #### the umd version [anix.umd.js](https://github.com/a-jie/AniX/blob/master/dist/umd/anix.umd.js)
 
@@ -31,8 +31,6 @@ import { AniX } from 'anix';
 <script src="./js/jquery.js" type="text/javascript"></script>
 <script src="./js/anix.jq.ts" type="text/javascript"></script>
 ```
-
-[![rc-animate](https://nodei.co/npm/anix.png)](https://npmjs.org/package/anix)
 
 ## Usage
 
