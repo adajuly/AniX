@@ -7,7 +7,7 @@ AniX is an animation plugin for react.
 
 It is very simple and convenient to use. At the same time it has very good compatibility.   
 
-## Install or Include
+## Install and Include
 
 #### Install and manage with npm.
 
@@ -34,7 +34,7 @@ import { AniX } from 'anix';
 
 ## Usage
 
-import and use the AniX library.
+use the pure AniX library.
 
 ```
 AniX.to(dom, 1, {
@@ -55,12 +55,54 @@ $('.con').css({'left':'0px'}).to(.5, {
 });
 ```
 
-## Examples
+## Documentation
+vist on [https://a-jie.github.io/AniX/](https://a-jie.github.io/AniX/)
+
+#### the jquery plugin anix.jq.js Api
+```
+//AniX.to
+$(..).to(time: number, args: {ease?:string; delay?:number; [propName:string]:any;})
+
+//AniX.fromTo
+$(..).to(time: number, fromArgs: Object, toArgs: Object)
+
+//AniX.kill
+$(..).kill(complete?: boolean)
+
+//AniX.get
+$(..).getTransform(param: any)
+
+//AniX.ease
+$.ease.easeOut
+```
+
+
+## Test and Build
+
+#### build all task
+```
+npm install
+npm run all
+```
+
+#### build jq and umd
+```
+npm run jq
+npm run umd
+```
+
+#### test and build example (the document page) made by [create-react-app](https://github.com/facebookincubator/create-react-app)
 
 ```
+cd ./example
+npm install
 npm start
+npm run build
 ```
 view on http://localhost:3000/
+
+#### debug the test page
+view the ./test/test.html
 
 ## License
 
