@@ -17,7 +17,7 @@ $ npm install anix --save-dev
 
 import { AniX } from 'anix';
 ```
-[![rc-animate](https://nodei.co/npm/anix.png)](https://npmjs.org/package/anix)
+[![anix](https://nodei.co/npm/anix.png)](https://npmjs.org/package/anix)
 
 #### the umd version [anix.umd.js](https://github.com/a-jie/AniX/blob/master/dist/umd/anix.umd.js)
 
