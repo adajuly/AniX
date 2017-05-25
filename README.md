@@ -1,6 +1,6 @@
 # AniX
 
-The Simplest Animation Plugin for react.
+Super easy and flexible transitions animation tools.
 
 ## Overview
 AniX is an animation plugin for react.   
