@@ -28,23 +28,28 @@ declare var Zepto: any;
         delay?: number;
         [propName: string]: any;
     }) {
-        return AniX.to(this, time, args);
+        this.each((i: number, ele: any) => AniX.to(ele, time, args));
+        return this;
     };
 
     $.fn.fromTo = function (time: number, fromArgs: Object, toArgs: Object) {
-        return AniX.fromTo(this, time, fromArgs, toArgs);
+        this.each((i: number, ele: any) => AniX.fromTo(ele, time, fromArgs, toArgs));
+        return this;
     };
 
     $.fn.kill = function (complete?: boolean) {
-        return AniX.kill(this, complete);
+        this.each((i: number, ele: any) => AniX.kill(ele, complete));
+        return this;
     };
 
     $.fn.getTransform = function (param: any) {
-        return AniX.getTransform(param);
+        AniX.getTransform(param);
+        return this;
     };
 
     $.fn.hasTransition = function () {
-        return AniX.support;
+        AniX.support;
+        return this;
     };
 
 })(jQuery || Zepto);

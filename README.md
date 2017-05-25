@@ -1,4 +1,5 @@
 # AniX
+---
 
 The Simplest Animation Plugin for react.
 
@@ -7,28 +8,52 @@ AniX is an animation plugin for react.
 
 It is very simple and convenient to use. At the same time it has very good compatibility.   
 
-## Install and Usage
-Quick Start
-Install and manage AniX with npm.
+## Install or Include
+
+#### Install and manage with npm.
 
 ```
-$ npm install anix --save
+$ npm install anix --save-dev
+...
+
+import { AniX } from 'anix';
 ```
+
+#### the umd version [anix.umd.js](https://github.com/a-jie/AniX/blob/master/dist/umd/anix.umd.js)
+
+```
+<script src="./js/anix.umd.ts" type="text/javascript"></script>
+```
+
+#### jquery plugin [anix.jq.js](https://github.com/a-jie/AniX/blob/master/dist/jq/anix.jq.js)
+
+```
+<script src="./js/jquery.js" type="text/javascript"></script>
+<script src="./js/anix.jq.ts" type="text/javascript"></script>
+```
+
+[![rc-animate](https://nodei.co/npm/anix.png)](https://npmjs.org/package/anix)
+
+## Usage
 
 import and use the AniX library.
 
 ```
-//1. import module
-import { AniX } from 'anix';
-
-//2. use
 AniX.to(dom, 1, {
     width: "200px",
     height: "100px",
-    delay: .5,
-    onComplete: ()=>{
+    delay: 0.5,
+    onComplete: function(){
       	alert("over");
     }
+});
+```
+use jquery plugin [anix.jq.js](https://github.com/a-jie/AniX/blob/master/dist/jq/anix.jq.js)
+
+```
+$('.con').css({'left':'0px'}).to(.5, {
+    'left': Math.random() * $(window).width() + 'px',
+    'background-color': getRandomColor()
 });
 ```
 

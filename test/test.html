@@ -27,6 +27,15 @@
             background-color: #ffcc00;
         }
         
+        .rect0 {
+            width: 100px;
+            height: 100px;
+            margin: 30px;
+            left: 0px;
+            position: relative;
+            background-color: #999;
+        }
+        
         .rect2 {
             background-color: #ff0000;
         }
@@ -45,8 +54,10 @@
     <button class="umd">test anix.umd</button>
     <button class="jq">test anix.jq</button>
     <button class="append">test anix.jq append</button>
+    <button class="allclass">test anix.jq allclass</button>
 
     <div class="container">
+        <div class="rect0"></div>
         <div class="rect rect1"></div>
         <div class="rect rect2"></div>
     </div>
@@ -54,7 +65,7 @@
 
 <script>
     $('.umd').click(function() {
-        AniX.to(document.querySelector('.rect1'), .5, {
+        AniX.to(document.querySelector('.rect0'), .5, {
             'left': Math.random() * $(window).width() + 'px',
             'background-color': getRandomColor()
         });
@@ -65,8 +76,6 @@
             'left': Math.random() * $(window).width() + 'px',
             'background-color': getRandomColor()
         });
-
-        console.log($.AniX.compatible);
     });
 
     $('.append').click(function() {
@@ -77,6 +86,15 @@
                 'left': Math.random() * $(window).width() + 'px',
                 'background-color': getRandomColor()
             });
+    });
+
+    $('.allclass').click(function() {
+        var size = Math.random() * 200 + 'px';
+        $('.rect').to(.5, {
+            'width': size,
+            'height': size,
+            'background-color': getRandomColor()
+        });
     });
 
     function getRandomColor() {

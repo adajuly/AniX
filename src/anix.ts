@@ -94,7 +94,7 @@ export class AniXClass {
         ele = getHTMLElement(ele);
         CssX.css3(ele, 'transition', 'none !important');
         CssX.css3(ele, 'transition', 'none');
-
+        
         Dic.get(ele).id && clearTimeout(Dic.get(ele).id);
         Dic.get(ele).event && CssX.removeEventListener(ele, Dic.get(ele).event, Dic.get(ele).handler);
     }
