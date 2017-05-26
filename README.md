@@ -1,11 +1,14 @@
 # AniX
 
-Super easy and flexible transitions animation tools.
+Super easy and lightweight transitions animation library。
 
 ## Overview
-AniX is an animation plugin for react.   
+AniX is a lightweight and easy-to-use animation library with excellent performance and good compatibility for modern browsers.  
 
-It is very simple and convenient to use. At the same time it has very good compatibility.   
+It uses the native **css transition** attribute, better than js simulation animation performance. And can use hardware acceleration.  
+
+AniX is less than **10k** in size, and it does not change your coding habit as much as possible.
+There are multiple versions of the AniX option, umd version, jquery version and react version...
 
 ## Install and Include
 
@@ -19,13 +22,13 @@ import { AniX } from 'anix';
 ```
 [![anix](https://nodei.co/npm/anix.png)](https://npmjs.org/package/anix)
 
-#### the umd version [anix.umd.js](https://github.com/a-jie/AniX/blob/master/dist/umd/anix.umd.js)
+#### The umd version [anix.umd.js](https://github.com/a-jie/AniX/blob/master/dist/umd/anix.umd.js). Check out the [UMD](https://github.com/umdjs/umd) repository for more details.
 
 ```
 <script src="./js/anix.umd.ts" type="text/javascript"></script>
 ```
 
-#### jquery plugin [anix.jq.js](https://github.com/a-jie/AniX/blob/master/dist/jq/anix.jq.js)
+#### jQuery plugin [anix.jq.js](https://github.com/a-jie/AniX/blob/master/dist/jq/anix.jq.js), that supports chain syntax.
 
 ```
 <script src="./js/jquery.js" type="text/javascript"></script>
@@ -81,6 +84,7 @@ $.ease.easeOut
 
 #### build all task
 ```
+git clone git@github.com:a-jie/AniX.git
 npm install
 npm run all
 ```
