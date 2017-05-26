@@ -13,7 +13,7 @@ export class HeadSide extends Component {
                 <div className="container">
                     <div className="col-md-9" style={{'marginBottom':'20px'}}>
                         <h1>AniX</h1>
-                        <h4>The Simplest Animation Plugin for react.</h4>
+                        <h4>Super easy and lightweight transitions animation library.</h4>
                     </div>
 
                     <button className="btn btn-primary" onClick={this.clickHandler.bind(this,'https://github.com/a-jie/AniX')}>Github</button>

@@ -24,14 +24,15 @@ $ npm install anix`;
 
                     <div className="info">
                         <h4 className="blur">About AniX</h4>
-                        <p>AniX is an animation plugin for AngularJS2+.
+                        <p>
+                        AniX is a lightweight and easy-to-use animation library with excellent performance and good compatibility for modern browsers. <br/> </p>
 
-                It is very simple and convenient to use. At the same time it has very good compatibility.
-                <br />
-                            AniX is written by <span className="color">typescript</span> and can be easily put into your angular2+ project!
+                        <p>It uses the native <b>css transition</b> attribute, better than js simulation animation performance. And can use hardware acceleration. <br/> </p>
+ 
+                        <p>AniX is less than <b>10k</b> in size, and it does not change your coding habit as much as possible.<br/>
+                        There are multiple versions of the AniX option, <a href="https://github.com/a-jie/AniX/blob/master/dist/umd/anix.umd.js">umd version</a>, <a href="https://github.com/a-jie/AniX/blob/master/dist/jq/anix.jq.js">jQuery version</a> and <a href="https://github.com/a-jie/react-anix">react version</a>...
 
-                AniX is a <span className="color">Service className</span> which do not rely on any className. You can use it in any <span className="color">Component</span> or <span className="color">Directive</span>.
-                </p>
+                        </p>
                     </div>
 
                     <h3>Quick Start</h3>
