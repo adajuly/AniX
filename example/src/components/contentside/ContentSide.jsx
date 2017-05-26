@@ -7,9 +7,9 @@ export class ContentSide extends Component {
 
     items = [
         { link: "#section1", title: "Overview", isActive: true },
-        { link: "#section2", title: "Reference", isActive: false },
-        { link: "#section3", title: "API & Demo", isActive: false },
-        { link: "#section4", title: "Future", isActive: false },
+        { link: "#section15", title: "Quick Start", isActive: false },
+        { link: "#section2", title: "Other Versions", isActive: false },
+        { link: "#section3", title: "API & Demo", isActive: false }
     ];
 
     clickHandler(item, index) {
