@@ -67,7 +67,7 @@ vist on [https://a-jie.github.io/AniX/](https://a-jie.github.io/AniX/)
 $(..).to(time: number, args: {ease?:string; delay?:number; [propName:string]:any;})
 
 //AniX.fromTo
-$(..).to(time: number, fromArgs: Object, toArgs: Object)
+$(..).fromTo(time: number, fromArgs: Object, toArgs: Object)
 
 //AniX.kill
 $(..).kill(complete?: boolean)
