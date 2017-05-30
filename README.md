@@ -14,23 +14,23 @@ There are multiple versions of the AniX option, [umd version](https://github.com
 
 #### Install and manage with npm.
 
-```
+```bash
 $ npm install anix --save-dev
-...
-
+```
+```js
 import { AniX } from 'anix';
 ```
 [![anix](https://nodei.co/npm/anix.png)](https://npmjs.org/package/anix)
 
 #### The umd version [anix.umd.js](https://github.com/a-jie/AniX/blob/master/dist/umd/anix.umd.js). Check out the [UMD](https://github.com/umdjs/umd) repository for more details.
 
-```
+```html
 <script src="./js/anix.umd.ts" type="text/javascript"></script>
 ```
 
 #### jQuery plugin [anix.jq.js](https://github.com/a-jie/AniX/blob/master/dist/jq/anix.jq.js), that supports chain syntax.
 
-```
+```html
 <script src="./js/jquery.js" type="text/javascript"></script>
 <script src="./js/anix.jq.ts" type="text/javascript"></script>
 ```
@@ -39,7 +39,7 @@ import { AniX } from 'anix';
 
 use the pure AniX library.
 
-```
+```js
 AniX.to(dom, 1, {
     width: "200px",
     height: "100px",
@@ -51,7 +51,7 @@ AniX.to(dom, 1, {
 ```
 use jquery plugin [anix.jq.js](https://github.com/a-jie/AniX/blob/master/dist/jq/anix.jq.js)
 
-```
+```js
 $('.con').css({'left':'0px'}).to(.5, {
     'left': Math.random() * $(window).width() + 'px',
     'background-color': getRandomColor()
@@ -62,7 +62,7 @@ $('.con').css({'left':'0px'}).to(.5, {
 vist on [https://a-jie.github.io/AniX/](https://a-jie.github.io/AniX/)
 
 #### the jquery plugin [anix.jq.js](https://github.com/a-jie/AniX/blob/master/dist/jq/anix.jq.js)
-```
+```js
 //AniX.to
 $(..).to(time: number, args: {ease?:string; delay?:number; [propName:string]:any;})
 
@@ -80,7 +80,7 @@ $.ease.easeOut
 ```
 
 #### about the React version [react-anix](https://github.com/a-jie/react-anix)
-```
+```js
 //1. import module
 import { Anix } from 'react-anix';
 
@@ -91,10 +91,10 @@ import { Anix } from 'react-anix';
     { time: .5, from: { width: '0px' }, to: { width: '350px', background: color, delay: .1 }, appear: true }
   ]}
 	
-  or 
+  // or 
   ani={{ left:'20px', time:.5, delay: 1 }}
   
-  or 
+  // or 
   appear={{ left:'20px', time:.5 }}
   
   control animation play
@@ -108,21 +108,21 @@ import { Anix } from 'react-anix';
 ## Test and Build
 
 #### build all task
-```
+```bash
 git clone git@github.com:a-jie/AniX.git
 npm install
 npm run all
 ```
 
 #### build jq and umd
-```
+```bash
 npm run jq
 npm run umd
 ```
 
 #### test and build example (the document page) made by [create-react-app](https://github.com/facebookincubator/create-react-app)
 
-```
+```bash
 cd ./example
 npm install
 npm start
