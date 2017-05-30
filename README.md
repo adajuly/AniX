@@ -61,7 +61,7 @@ $('.con').css({'left':'0px'}).to(.5, {
 ## Documentation
 vist on [https://a-jie.github.io/AniX/](https://a-jie.github.io/AniX/)
 
-### the jquery plugin anix.jq.js
+#### the jquery plugin [anix.jq.js](https://github.com/a-jie/AniX/blob/master/dist/jq/anix.jq.js)
 ```
 //AniX.to
 $(..).to(time: number, args: {ease?:string; delay?:number; [propName:string]:any;})
@@ -79,7 +79,7 @@ $(..).getTransform(param: any)
 $.ease.easeOut
 ```
 
-### about the React version react-anix
+#### about the React version [react-anix](https://github.com/a-jie/react-anix)
 ```
 //1. import module
 import { Anix } from 'react-anix';
