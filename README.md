@@ -61,7 +61,7 @@ $('.con').css({'left':'0px'}).to(.5, {
 ## Documentation
 vist on [https://a-jie.github.io/AniX/](https://a-jie.github.io/AniX/)
 
-#### the jquery plugin anix.jq.js Api
+### the jquery plugin anix.jq.js
 ```
 //AniX.to
 $(..).to(time: number, args: {ease?:string; delay?:number; [propName:string]:any;})
@@ -77,6 +77,31 @@ $(..).getTransform(param: any)
 
 //AniX.ease
 $.ease.easeOut
+```
+
+### about the React version react-anix
+```
+//1. import module
+import { Anix } from 'react-anix';
+
+<Anix 
+  anis = {[
+    { left: '120px', background: '#000', time: .5 },
+    { background: color, width: 0, time: .5, onComplete: this.aniComplete.bind(this), disAppear: true },
+    { time: .5, from: { width: '0px' }, to: { width: '350px', background: color, delay: .1 }, appear: true }
+  ]}
+	
+  or 
+  ani={{ left:'20px', time:.5, delay: 1 }}
+  
+  or 
+  appear={{ left:'20px', time:.5 }}
+  
+  control animation play
+  play={this.state.play}
+  >
+  ...
+  </Anix>
 ```
 
 
