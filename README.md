@@ -1,6 +1,6 @@
 # AniX
 
-Super easy and lightweight transitions animation library。
+Super easy and lightweight transitions animation library.
 
 ## Overview
 AniX is a lightweight and easy-to-use animation library with excellent performance and good compatibility for modern browsers.  
