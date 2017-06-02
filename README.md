@@ -104,6 +104,33 @@ import { Anix } from 'react-anix';
   </Anix>
 ```
 
+#### about the Angular version [ngxAni](https://github.com/a-jie/NgxAni)
+```js
+//1. import module
+import { NgxAniModule } from 'ngxani';
+
+//2. set ngModule
+@NgModule({
+    imports: [BrowserModule, NgxAniModule]
+    ... ...
+
+//3. import service
+import { NgxAni } from 'ngxani';
+
+//4. constructor
+constructor(private ngxAni: NgxAni) { }
+
+//5. use
+//<button (click)="animation(rect)">click animate</button>
+//<div class="rect" #rect></div>
+private animation(dom: ElementRef) {
+  this.ngxAni.to(dom, 1, {
+      width: "200px",
+      height: "100px"
+  });
+}
+```
+
 
 ## Test and Build
 
