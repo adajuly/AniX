@@ -23,6 +23,8 @@ declare var Zepto: any;
         ease: AniX.ease
     })
 
+    $.AniX = AniX;
+
     $.fn.to = function (time: number, args: {
         ease?: string;
         delay?: number;
@@ -43,8 +45,7 @@ declare var Zepto: any;
     };
 
     $.fn.getTransform = function (param: any) {
-        AniX.getTransform(param);
-        return this;
+        return AniX.getTransform(param);
     };
 
     $.fn.hasTransition = function () {

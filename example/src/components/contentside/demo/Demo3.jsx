@@ -22,6 +22,12 @@ AniX.to(dom, .7, AniX.get({ rotate: rotate, x: x }));
 
 //2-2. use transform 3d
 AniX.to(dom, .7, AniX.get({ z:100, scaleX:2}));
+
+//2-3. use normal
+AniX.to(dom, .7, AniX.get({ x:100, y:20 , normal: { opacity:.5, background:'#000' } }));
+
+//2-4. use pre
+AniX.to(dom, .7, AniX.get({ x:100, y:20 , pre: { scale:'(2, 0.5)'} }));
 `;
 
     animation() {
