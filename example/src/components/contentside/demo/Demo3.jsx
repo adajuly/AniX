@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Util } from '../../../utils/Util';
 import { AniX } from '../../../../../dist/umd/anix.umd';
 import './Demo3.css';
+import ppo from 'ppo';
 
 export class Demo3 extends Component {
 
@@ -17,23 +18,26 @@ AniX.to(dom, .7, {
     "-ms-transform" : "translate3d(100px, 0, 0) rotate(120deg)"
 });
 
-//2-1. use AniX.get
+//2. use x/y/z/scale/scaleY/scaleZ/rotate 
+AniX.to(dom, .7, { x: 20, y: 10, onComplete:()=>{} });
+//or
+AniX.to(dom, .7, { scale: 1.2, width: '100px' });
+
+//3-1. use AniX.get
 AniX.to(dom, .7, AniX.get({ rotate: rotate, x: x }));
 
-//2-2. use transform 3d
-AniX.to(dom, .7, AniX.get({ z:100, scaleX:2}));
-
-//2-3. use normal
+//3-2. use normal
 AniX.to(dom, .7, AniX.get({ x:100, y:20 , normal: { opacity:.5, background:'#000' } }));
-
-//2-4. use pre
-AniX.to(dom, .7, AniX.get({ x:100, y:20 , pre: { scale:'(2, 0.5)'} }));
 `;
 
     animation() {
         let w = Math.min(Util.getWidth() - 145, 600);
         AniX.to(this.refs.rect, .7,
-            AniX.getTransform({ rotate: Math.random() * 360, x: Math.random() * w }));
+            { 
+                rotate: ppo.randomFromA2B(0, 360), 
+                x: ppo.randomFromA2B(0, w),
+                scale: ppo.randomFromA2B(.3, 1.5)
+            });
     }
 
     render() {

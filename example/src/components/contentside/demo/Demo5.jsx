@@ -52,13 +52,9 @@ AniX.to(dom, 1, {
         let w = Math.min(Util.getWidth() - 150, 450);
 
         AniX.fromTo(this.refs.rect, .7,
-            AniX.getTransform({ x: 0, rotate: 0, scale: 1 }),
-            Object.assign(
-                AniX.getTransform({ x: w, rotate: 180, scale: .4 }),
-                {
-                    ease: AniX.ease[this.ease]
-                }
-            ));
+                { x: 0, rotate: 0, scale: 1 },
+                { x: w, rotate: 180, scale: .4, ease: AniX.ease[this.ease]}
+            );
     }
 
     render() {

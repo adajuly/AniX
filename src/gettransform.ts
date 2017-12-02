@@ -1,5 +1,12 @@
 import { CssX, ITransform } from './cssx';
 
+const KEYWORDS: string[] = [
+    'x', 'y', 'z',
+    'scaleX', 'scaleY', 'scaleZ', 'scale',
+    'rotateX', 'rotateY', 'rotateZ', 'rotate',
+    'skewX', 'skewY'
+];
+
 export function getTransform(param: InputValue): ITransform {
     let transform: string = ``;
 
@@ -63,7 +70,6 @@ export function getTransform(param: InputValue): ITransform {
     return css;
 }
 
-
 export interface InputValue {
     x?: string | number;
     y?: string | number;
@@ -85,6 +91,19 @@ export interface InputValue {
     pre?: string | Object;
     normal?: any;
     [propName: string]: any;
+}
+
+export function isTransformStyle(key: string): boolean {
+    return KEYWORDS.indexOf(key) > -1;
+}
+
+export function hasTransformStyle(args: any): boolean {
+    let has: boolean = false;
+    for (let key in args) {
+        if (isTransformStyle(key)) has = true;
+    }
+
+    return has;
 }
 
 function getPX(param: any, key: string) {

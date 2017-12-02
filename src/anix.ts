@@ -2,7 +2,7 @@ import { Dic } from './dic';
 import { EASE, IEase } from './ease';
 import { CssX, ITransform } from './cssx';
 import { getHTMLElement } from './gethtmlelement';
-import { getTransform, InputValue } from './gettransform';
+import { getTransform, InputValue, isTransformStyle, hasTransformStyle } from './gettransform';
 
 /**
 * AniX
@@ -23,7 +23,7 @@ import { getTransform, InputValue } from './gettransform';
 
 export class AniXClass {
 
-    private keyword: string[] = ['nokill', 'ease', 'delay', 'all', 'class', 'onStart', 'onUpdate', 'onComplete'];
+    private KEYWORDS: string[] = ['nokill', 'ease', 'delay', 'all', 'class', 'onStart', 'onUpdate', 'onComplete'];
     private anis: any = {};
 
     useTranstionEvent: boolean = false;
@@ -47,6 +47,7 @@ export class AniXClass {
         delay?: number;
         [propName: string]: any;
     }): string {
+        args = this.pretreatment(args);
         let transition: string = '';
         let styles: string[] = this.getPureStyleKeys(args);
 
@@ -57,8 +58,8 @@ export class AniXClass {
 
             if (/transform/ig.test(style)) {
                 if (!/transform/ig.test(transition)) {
-                    var prefix = CssX.getPrefix(2);
-                    transition += prefix + 'transform';
+                    let prefix = CssX.getPrefix(2);
+                    transition += `${prefix}transform`;
                 }
             } else {
                 transition += CssX.convertStyleMode(styles[i], "css");
@@ -82,6 +83,8 @@ export class AniXClass {
     */
     fromTo(ele: any, time: number, fromArgs: Object, toArgs: Object) {
         this.kill(ele);
+
+        fromArgs = this.pretreatment(fromArgs);
         this.setStyle(ele, fromArgs);
         setTimeout(() => { this.to(ele, time, toArgs) }, 22.2);
     }
@@ -94,7 +97,7 @@ export class AniXClass {
         ele = getHTMLElement(ele);
         CssX.css3(ele, 'transition', 'none !important');
         CssX.css3(ele, 'transition', 'none');
-        
+
         Dic.get(ele).id && clearTimeout(Dic.get(ele).id);
         Dic.get(ele).event && CssX.removeEventListener(ele, Dic.get(ele).event, Dic.get(ele).handler);
     }
@@ -106,7 +109,7 @@ export class AniXClass {
     get(param: InputValue): ITransform {
         return getTransform(param);
     }
-    
+
     private start(ele: any, transition: string, time: number, args: { nokill?: boolean;[propName: string]: any; }): string {
         ele = getHTMLElement(ele);
         let id = Dic.setId(ele);
@@ -117,7 +120,6 @@ export class AniXClass {
         CssX.css3(ele, 'transition', transition);
         this.setStyle(ele, args);
         this.addCallback(ele, time, args);
-
         this.debug && console.trace(ele, ele.__nxid, transition);
 
         return id;
@@ -150,10 +152,12 @@ export class AniXClass {
         [propName: string]: any;
     }) {
         ele = getHTMLElement(ele);
-        //add style
-        CssX.css(ele, this.getPureStyle(args));
-        //add class
-        args.className && CssX.addClass(ele, args.className);
+        
+        if (!isNull(args)) {
+            CssX.css(ele, this.getNormalStyles(args));
+            //add class
+            args.className && CssX.addClass(ele, args.className);
+        }
     }
 
     /**
@@ -199,28 +203,60 @@ export class AniXClass {
     }): string[] {
         if (args.all || args.css || args.className) return ['all'];
 
-        let keys = [];
-        for (let key in args) {
-            if (this.keyword.indexOf(key) < 0)
-                keys.push(key);
-        }
+        let keys: string[] = [];
+        this.each(args, key => keys.push(key));
 
         return keys;
     }
 
     /**
-    * get pure style
+    * get pure css2 style
     */
-    private getPureStyle(args: any): Object {
-        let obj: any = {};
-        for (let key in args) {
-            if (this.keyword.indexOf(key) < 0)
-                obj[key] = args[key];
-        }
+    private getNormalStyles(args: any): Object {
+        let styles: any = {};
+        this.each(args, key => styles[key] = args[key]);
 
-        return obj;
+        return styles;
     }
 
+    private notKeyWords(key: string): boolean {
+        return this.KEYWORDS.indexOf(key) < 0;
+    }
+
+    private each(args: any, func: (k: string) => void) {
+        for (let key in args) {
+            if (this.notKeyWords(key)) func(key);;
+        }
+    }
+
+    private pretreatment(args: any): Object {
+        let cArgs: any = {};
+
+        let transformArgs: any = {};
+        for (let key in args) {
+            if (!isTransformStyle(key))
+                cArgs[key] = args[key];
+            else
+                transformArgs[key] = args[key];
+        }
+
+        if (!isNull(transformArgs)) cArgs = { ...cArgs, ...getTransform(transformArgs) };
+
+        return cArgs;
+    }
+
+}
+
+
+let isNull = (styles: any) => {
+    if (!styles) return true;
+
+    let index: number = 0;
+    for (let key in styles) {
+        index++;
+    }
+
+    return index == 0;
 }
 
 

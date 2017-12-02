@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Section1 } from './Section1';
 import { Section2 } from './Section2';
 import { Section3 } from './Section3';
+import ppo from 'ppo';
 
 export class ContentSide extends Component {
 
@@ -23,11 +24,12 @@ export class ContentSide extends Component {
         let htmlElement = document.querySelector("html");
 
         top = Math.max(0, top - 50);
-        this.scrollTo(document.body, 500, top);
-
-        if (navigator.userAgent.toLowerCase().indexOf('firefox') > -1)
+       
+        if (ppo.ua('l').indexOf('firefox') > -1||ppo.ua('l').indexOf('chrome') > -1)
             this.scrollTo(htmlElement, 500, top);
-
+        else
+            this.scrollTo(document.body, 500, top);
+            
         this.setState({});
     }
 

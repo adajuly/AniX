@@ -41,9 +41,8 @@ AniX.to(dom, 1, {
         let rotate = Math.random() * 400;
 
         AniX.to(this.refs.rect, 1, {
-            "transform": `scale(${scale}) rotate(${rotate}deg)`,
-            "-webkit-transform": `scale(${scale}) rotate(${rotate}deg)`,
-            "-ms-transform": `scale(${scale}) rotate(${rotate}deg)`,
+            scale: scale,
+            rotate: rotate,
             "background-color": Util.getRandomColor(),
             "onComplete": () => {
                 this.setState({ 'stateText': "STATE : COMPLETED!" });
