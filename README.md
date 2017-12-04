@@ -43,7 +43,9 @@ use the pure AniX library.
 AniX.to(dom, 1, {
     width: "200px",
     height: "100px",
-    delay: 0.5,
+    x: 300,
+    scale: 2,
+    delay: 0.5,
     onComplete: function(){
       	alert("over");
     }
