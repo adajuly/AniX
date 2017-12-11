@@ -8,7 +8,7 @@ AniX is a lightweight and easy-to-use animation library with excellent performan
 
 It uses the native **css transition** attribute, better than js simulation animation performance. And can use hardware acceleration.  
 
-AniX is less than **10k** in size, and it does not change your coding habit as much as possible.
+AniX is less than **3k(gzip)** in size, and it does not change your coding habit as much as possible.
 There are multiple versions of the AniX option, [umd version](https://raw.githubusercontent.com/a-jie/AniX/master/dist/umd/anix.umd.js), [jQuery version](https://raw.githubusercontent.com/a-jie/AniX/master/dist/jq/anix.jq.js), [Angular version](https://github.com/a-jie/NgxAni), [React version](https://github.com/a-jie/react-anix) and [Vue version](https://github.com/GeoffZhu/vue-anix)...
 
 ## Install and Include
@@ -49,6 +49,16 @@ AniX.to(dom, 1, {
     delay: 0.5,
     onComplete: function(){
       	alert("over");
+    }
+});
+
+// or 
+AniX.to(dom, 1, {
+    "width": "200px",
+    "background-color": "#ffcc00",
+    "onComplete": () => {
+        //STATE : COMPLETED!
+        console.log("STATE : COMPLETED!");
     }
 });
 ```
