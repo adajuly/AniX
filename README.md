@@ -10,6 +10,8 @@ It uses the native **css transition** attribute, better than js simulation anima
 
 AniX only less than **3k(gzip)** in size. It achieves almost the same effect as any other huge library of animations.
 
+View demo, please click [here](https://a-jie.github.io/AniX/).
+
 ## Install and Include
 
 #### Install and Import anix.
