@@ -12,6 +12,8 @@ AniX only less than **3k(gzip)** in size. It achieves almost the same effect as 
 
 View demo, please click [here](https://a-jie.github.io/AniX/).
 
+![code](https://github.com/a-jie/AniX/blob/master/logo/code.png?raw=true)
+
 ## Install and Include
 
 #### Install and Import anix.

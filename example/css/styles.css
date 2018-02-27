@@ -2,10 +2,20 @@ html,
 body {
     width: 100%;
     height: 100%;
+    font-family: Helvetica, Tahoma, Arial;
 }
 
 html {
     font-size: 14px;
+}
+
+.t1{
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.t3{
+    font-weight: 100;
 }
 
 .clearfix {
