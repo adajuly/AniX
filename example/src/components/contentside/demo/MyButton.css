@@ -1,0 +1,34 @@
+.mybutton{
+    width:130px;
+    height:40px;
+    float: left;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 10px;
+    cursor: pointer;
+    background: #39a0ff;
+    border-radius: 4px;
+    position: relative;
+    overflow: hidden;
+}
+
+.mybutton-txt{
+    width:100%;
+    height:100%;
+    position: absolute;
+    z-index: 9;
+    top:0;
+    left: 0;
+    text-align:center;
+    line-height: 40px;
+}
+
+.mybutton-bg{
+    width:100%;
+    height:100%;
+    position: absolute;
+    z-index: 0;
+    top:0;
+    left: 0;
+    background: #bbb;
+}

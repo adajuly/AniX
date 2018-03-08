@@ -1,0 +1,32 @@
+.tips-con{
+  position: absolute;
+  z-index: 999;
+  opacity: 0;
+  width: 260px;
+  height: 50px;
+  line-height: 50px;
+  border-radius: 10px;
+  pointer-events: none;
+  text-align: center;
+  color:#fff;
+  font-size: 18px;
+  clear: both;
+  background: #ff0000;
+}
+
+.tips-sq{
+  pointer-events: none;
+  width: 16px;
+  height: 16px;
+  background: #ff0000;
+  left:50%;
+  top: 40px;
+  margin-left: -7px;
+
+  position: absolute;
+  transform:rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+}

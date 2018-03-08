@@ -45,6 +45,7 @@ AniX.to(dom, 1, {
 
     change(e) {
         this.ease = e.target.value;
+        this.setState({});
     }
 
     //animation function

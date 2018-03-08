@@ -27,7 +27,7 @@ CssX.setOriginCenter(ele);
     render() {
         return (
             <div>
-                <h4 id="demo8">others</h4>
+                <h4 id="demo8">other api</h4>
                 <pre><code className="javascript">{this.code}</code></pre>
             </div>
         );
