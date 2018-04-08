@@ -25,7 +25,7 @@ $.ease.easeOut
             <div>
                 <div className="section" id="section2">
                     <h1>Other Versions</h1>
-                    <hr />
+                    <hr className="hr dashed-hr" />
 
                     <div className="info">
                         <h4 className="blur">JQuery Version - anix.jq.js</h4>

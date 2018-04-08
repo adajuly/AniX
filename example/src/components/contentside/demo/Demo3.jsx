@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Button from '../Button';
 import { Util } from '../../../utils/Util';
 import { AniX } from '../../../../../dist/umd/anix.umd';
 import './Demo3.css';
@@ -44,7 +45,7 @@ AniX.to(dom, .7, AniX.get({ x:100, y:20 , normal: { opacity:.5, background:'#000
         return (
             <div>
                 <h4 id="demo3">css transform</h4>
-                <button className="pointer btn btn-primary" onClick={this.animation.bind(this)}>click animate</button>
+                <Button onClick={this.animation.bind(this)}>click animate</Button>
                 <div className="rect color3" ref="rect"></div>
                 <pre><code className="javascript">{this.code}</code></pre>
             </div>

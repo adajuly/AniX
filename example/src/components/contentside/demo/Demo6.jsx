@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Button from '../Button';
 import { AniX, CssX } from '../../../../../dist/umd/anix.umd';
 import './Demo6.css';
 
@@ -31,7 +32,7 @@ AniX.to(dom, 1, { "className": "ani1" });
         return (
             <div>
                 <h4 id="demo6">use className</h4>
-                <button className="pointer btn btn-primary" onClick={this.animation.bind(this)}>click animate</button>
+                <Button onClick={this.animation.bind(this)}>click animate</Button>
 
                 <div className="rect color6" ref="rect"></div>
                 <pre><code className="javascript">{this.code}</code></pre>

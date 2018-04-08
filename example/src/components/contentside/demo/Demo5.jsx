@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Button from '../Button';
 import { Util } from '../../../utils/Util';
 import { AniX } from '../../../../../dist/umd/anix.umd';
 import './Demo5.css';
@@ -63,7 +64,7 @@ AniX.to(dom, 1, {
             <div>
                 <h4 id="demo5">ease function</h4>
                 <div>
-                    <button className="pointer btn btn-primary" onClick={this.animation.bind(this)}>click animate</button>
+                    <Button onClick={this.animation.bind(this)}>click animate</Button>
                     <select className="form-control select nselect" style={{display:'inline'}} value={this.ease} onChange={this.change.bind(this)}>
                     {
                         (this.items.map((item, i) => {

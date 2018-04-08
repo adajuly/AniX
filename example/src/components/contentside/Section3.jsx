@@ -16,16 +16,16 @@ export class Section3 extends Component {
             <div>
                 <div className="section" id="section3">
                     <h1>API and Demo</h1>
-                    <hr />
+                    <hr className="hr dashed-hr" />
 
                     <div>
-                        <Demo1/><hr className="hr" />
-                        <Demo2/><hr className="hr" />
-                        <Demo3/><hr className="hr" />
-                        <Demo4/><hr className="hr" />
-                        <Demo5/><hr className="hr" />
-                        <Demo6/><hr className="hr" />
-                        <Demo7/><hr className="hr" />
+                        <Demo1/><hr className="hr dashed-hr" />
+                        <Demo2/><hr className="hr dashed-hr" />
+                        <Demo3/><hr className="hr dashed-hr" />
+                        <Demo4/><hr className="hr dashed-hr" />
+                        <Demo5/><hr className="hr dashed-hr" />
+                        <Demo6/><hr className="hr dashed-hr" />
+                        <Demo7/><hr className="hr dashed-hr" />
                         <Demo8/>
                     </div>
 

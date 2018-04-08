@@ -5,6 +5,10 @@ body {
     font-family: Helvetica, Tahoma, Arial;
 }
 
+h1,h2,h3,h4{
+    color:rgb(29, 137, 255);
+}
+
 html {
     font-size: 14px;
 }
@@ -62,6 +66,16 @@ span {
     .section {
         margin-bottom: 10px;
     }
+    .sec-title{
+        font-size: 13px;
+        display: none;
+    }
+    .top-logo{
+        display: none;
+    }
+    .fir-title{
+        display: block;
+    }
 }
 
 @media screen and (min-width: 761px) {
@@ -71,6 +85,9 @@ span {
     .section {
         margin-bottom: 30px;
     }
+    .fir-title{
+        display: none;
+    }
 }
 
 .head-side {
@@ -78,8 +95,8 @@ span {
     width: 100%;
     padding: 50px 30px;
     color: #fff;
-    background: url(../assets/bg.jpg) repeat;
-    background-position: top;
+    background: #4285f4 url(../assets/bg.jpg) repeat-x center -65px;
+    background-position: center 100%;
 }
 
 .head-side h1 {
@@ -101,17 +118,17 @@ span {
 }
 
 .info {
-    border-color: #bce8f1;
-    background-color: #f4f8fa;
+    border-color: rgb(29, 137, 255);
+    background-color: rgb(250, 250, 250);
     margin: 20px 0;
     padding: 20px;
     width: 100%;
     overflow: hidden;
-    border-left: 3px solid #bce8f1;
+    border-left: 3px solid rgb(29, 137, 255);
 }
 
 .blur {
-    color: #34789a;
+    color: rgb(29, 137, 255);
 }
 
 pre code {
@@ -158,4 +175,55 @@ pre code {
 .sec-sub-con{
     position: relative;
     float: left;
+}
+
+.btns{
+    outline: 0;
+    font-weight: 100 !important;
+}
+
+.dashed-hr{
+    margin: 15px 0;
+    border-width: 0;
+    border-style: dashed;
+    border-bottom-width: 1px;
+    color:rgb(29, 137, 255);
+}
+
+.rect-blue{
+    background-color: #1d89ff;
+}
+
+.white{
+    color:white;
+}
+
+pre{
+    box-shadow: 0 0 20px rgba(0,0,0,0.3);
+    border: 0;
+}
+
+.cons{
+    height: 120px;
+    width: 100%;
+}
+
+.bottom{
+    margin-top: 40px;
+    height: 50px;
+    background: #eee;
+    color:#bbb;
+    text-align: center;
+    font-size: 11px;
+    line-height: 50px;
+    clear: both;
+}
+
+.top-logo{
+    background: url(../assets/logos.png) no-repeat;
+    background-size: contain;
+    background-position: center center;
+    height: 163px;
+    width:400px;
+    margin: 0 auto;
 }

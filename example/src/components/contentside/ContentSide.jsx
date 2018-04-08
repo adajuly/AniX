@@ -25,12 +25,12 @@ export class ContentSide extends Component {
         let htmlElement = document.querySelector("html");
 
         top = Math.max(0, top - 50);
-       
-        if (ppo.ua('l').indexOf('firefox') > -1||ppo.ua('l').indexOf('chrome') > -1)
+
+        if (ppo.ua('l').indexOf('firefox') > -1 || ppo.ua('l').indexOf('chrome') > -1)
             this.scrollTo(htmlElement, 500, top);
         else
             this.scrollTo(document.body, 500, top);
-            
+
         this.setState({});
     }
 
@@ -87,9 +87,7 @@ export class ContentSide extends Component {
                     <div className="row">
                         <div className="col-md-2 sidebar">
                             <ul className="nav nav-pills flex-column">
-                                {
-                                    this.navlist
-                                }
+                                {this.navlist}
                             </ul>
                         </div>
 
@@ -99,9 +97,11 @@ export class ContentSide extends Component {
                             <Section3 />
                             <Section4 />
                         </div>
-
                     </div>
+                </div>
 
+                <div className="col-md-12 bottom">
+                    AniX - Super easy and lightweight css animation library.
                 </div>
             </div>
         );

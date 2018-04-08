@@ -29,7 +29,7 @@ export class Section4 extends Component {
             <div>
                 <div className="section" id="section2">
                     <h1>Demo Case</h1>
-                    <hr />
+                    <hr className="hr dashed-hr" />
 
                     <div className="sec-con">
                         <h4 className="blur">interactive button</h4>

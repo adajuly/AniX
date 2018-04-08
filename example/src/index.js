@@ -8,6 +8,7 @@ import 'bootstrap/dist/css/bootstrap-theme.css';
 import '../css/normalize.css';
 import '../css/solarized-dark.css';
 import '../css/styles.css';
+import '../css/style-addon.css';
 
 
 ReactDOM.render( < App / > , document.getElementById('root'));

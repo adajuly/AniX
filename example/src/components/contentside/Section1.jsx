@@ -28,8 +28,7 @@ AniX.to(dom, 1, {
             <div>
                 <div className="section" id="section1">
                     <h1>Overview</h1>
-                    <hr />
-                    <img src='https://raw.githubusercontent.com/a-jie/AniX/master/logo/logo.png'/>
+                    <hr className="hr dashed-hr" />
                     
                     <div className="info">
                         <h4 className="blur">About AniX</h4>
@@ -46,13 +45,13 @@ AniX.to(dom, 1, {
 
                     <h3 id="section15">Quick Start</h3>
                     <p>Install and manage AniX with <a href="https://www.npmjs.com/package/anix">npm</a>.</p>
-                    <pre><code className="javascript">{this.code1}</code></pre>
+                    <pre><code className="html">{this.code1}</code></pre>
 
                     <p>Include the umd version <a href="https://github.com/a-jie/AniX/blob/master/dist/umd/anix.umd.js">anix.umd.js</a></p>
-                    <pre><code className="javascript">{this.code2}</code></pre>
+                    <pre><code className="html">{this.code2}</code></pre>
 
                     <p>Include jquery plugin <a href="https://github.com/a-jie/AniX/blob/master/dist/jq/anix.jq.js">anix.jq.js</a></p>
-                    <pre><code className="javascript">{this.code3}</code></pre>
+                    <pre><code className="html">{this.code3}</code></pre>
 
                     <p>import and use the AniX library.</p>
                     <pre><code className="ts">{this.code4}</code></pre>

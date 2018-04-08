@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Button from '../Button';
 import { Util } from '../../../utils/Util';
 import { AniX } from '../../../../../dist/umd/anix.umd';
 import './Demo4.css';
@@ -54,7 +55,8 @@ AniX.to(dom, 1, {
         return (
             <div>
                 <h4 id="demo4">onComplete event</h4>
-                <button className="pointer btn btn-primary" onClick={this.animation.bind(this)}>click animate</button>
+                <Button onClick={this.animation.bind(this)}>click animate</Button>
+
                 <div>
                     <label className="radio">
                         <input type="radio" name="optionsRadios" value="false" onChange={this.changeHandler.bind(this, false)} defaultChecked={true} />
