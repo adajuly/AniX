@@ -133,4 +133,4 @@ There are other versions here, of course, they are not necessary. [Angular versi
 
 ## License
 
-[The BSD License](https://opensource.org/licenses/BSD-3-Clause).
+[The MIT License](https://opensource.org/licenses/MIT).
