@@ -82,7 +82,7 @@ export class ContentSide extends Component {
     render() {
         return (
             <div className="content-side">
-                <div className="container">
+                <div className="container" style={{ height: 'auto' }}>
 
                     <div className="row">
                         <div className="col-md-2 sidebar">
