@@ -80,31 +80,30 @@ $('.demo').css({'left':'0px'}).to(.5, {
 
 ```js
 class MyComponent extends React.Component {
-  constructor(props) {
-    super(props);
-    this.myRef = React.createRef();
-    this.clickHandler = this.clickHandler.bind(this);
-  }
-  
-  clickHandler(e){
-    const node = this.myRef.current;
-    
-  	// animation
-  	AniX.to(node, 1, {
-    	x: 300,
-    	y: 10,
-    	scale: 2
-    });
-  }
-  
-  render() {
-    return (
-	    <div>
-	    	<div ref={this.myRef} />
-	    	<button onClick={this.clickHandler}></button>
-	    </div>
-    );
-  }
+    constructor(props) {
+        super(props);
+        this.myRef = React.createRef();
+        this.clickHandler = this.clickHandler.bind(this);
+    }
+
+    clickHandler(e) {
+        const node = this.myRef.current;
+        // animation
+        AniX.to(node, 1, {
+            x: 300,
+            y: 10,
+            scale: 2
+        });
+    }
+
+    render() {
+        return (
+            <div>
+                <div ref={this.myRef} />
+                <button onClick={this.clickHandler}></button>
+            </div>
+        );
+    }
 }
 ```
 
