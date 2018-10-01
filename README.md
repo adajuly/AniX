@@ -87,7 +87,8 @@ class MyComponent extends React.Component {
   }
   
   clickHandler(e){
-  	const node = this.myRef.current;
+    const node = this.myRef.current;
+    
   	// animation
   	AniX.to(node, 1, {
     	x: 300,
