@@ -25,8 +25,6 @@ $ npm install anix --save-dev
 import { AniX } from 'anix';
 ```
 
-[![anix](https://nodei.co/npm/anix.png)](https://npmjs.org/package/anix)
-
 #### Use the umd version [anix.umd.js](https://github.com/a-jie/AniX/blob/master/dist/umd/anix.umd.js). Check out the [UMD](https://github.com/umdjs/umd) repository for more details.
 
 ```html
