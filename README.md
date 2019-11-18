@@ -105,6 +105,15 @@ class MyComponent extends React.Component {
 }
 ```
 
+## Why?
+There are a lot of animation libraries Why use AniX?
+
+* First of all, it is very small and 3kb (gzip) is very suitable for use on the mobile page (because there is a requirement for size).
+
+* Secondly, Anix directly uses native css animation properties, which is very high performance.
+
+* And I can only say that it is very simple to use, and there is really no learning cost. 
+
 ## Documentation
 
 #### General documents please visit [https://a-jie.github.io/AniX/](https://a-jie.github.io/AniX/)
