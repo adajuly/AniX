@@ -112,7 +112,7 @@ There are a lot of animation libraries Why use AniX?
 
 * Secondly, Anix directly uses native css animation properties, which is very high performance.
 
-* And I can only say that it is very simple to use, and there is really no learning cost. 
+* Good compatibility, after a lot of real machine tests, good performance. Includes a variety of android devices 
 
 ## Documentation
 
