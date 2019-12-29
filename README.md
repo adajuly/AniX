@@ -1,4 +1,4 @@
-![logo](https://github.com/a-jie/AniX/blob/master/logo/logo.png?raw=true)
+![logo](https://github.com/drawcall/AniX/blob/master/logo/logo.png?raw=true)
 
 
 ### AniX - A super easy and lightweight javascript animation library.
@@ -10,9 +10,9 @@ It uses the native **css transition** attribute, better than js simulation anima
 
 AniX only less than **3k(gzip)** in size. It achieves almost the same effect as any other huge library of animations.
 
-View demo, please click [here](https://a-jie.github.io/AniX/).
+View demo, please click [here](https://drawcall.github.io/AniX/).
 
-![code](https://github.com/a-jie/AniX/blob/master/logo/code.png?raw=true)
+![code](https://github.com/drawcall/AniX/blob/master/logo/code.png?raw=true)
 
 ## Install and Include
 
@@ -25,13 +25,13 @@ $ npm install anix --save-dev
 import { AniX } from 'anix';
 ```
 
-#### Use the umd version [anix.umd.js](https://github.com/a-jie/AniX/blob/master/dist/umd/anix.umd.js). Check out the [UMD](https://github.com/umdjs/umd) repository for more details.
+#### Use the umd version [anix.umd.js](https://github.com/drawcall/AniX/blob/master/dist/umd/anix.umd.js). Check out the [UMD](https://github.com/umdjs/umd) repository for more details.
 
 ```html
 <script src="./js/anix.umd.ts" type="text/javascript"></script>
 ```
 
-#### Use jQuery plugin [anix.jq.js](https://github.com/a-jie/AniX/blob/master/dist/jq/anix.jq.js), that supports chain syntax.
+#### Use jQuery plugin [anix.jq.js](https://github.com/drawcall/AniX/blob/master/dist/jq/anix.jq.js), that supports chain syntax.
 
 ```html
 <script src="./js/jquery.min.js" type="text/javascript"></script>
@@ -65,7 +65,7 @@ AniX.to(dom, 1, {
 });
 ```
 
-#### jQuery plug-in usage [anix.jq.js](https://github.com/a-jie/AniX/blob/master/dist/jq/anix.jq.js)
+#### jQuery plug-in usage [anix.jq.js](https://github.com/drawcall/AniX/blob/master/dist/jq/anix.jq.js)
 
 ```js
 $('.demo').css({'left':'0px'}).to(.5, {
@@ -142,7 +142,7 @@ $.ease.easeOut
 
 #### install and build all task
 ```bash
-git clone git@github.com:a-jie/AniX.git
+git clone git@github.com:drawcall/AniX.git
 npm install
 npm run all
 ```
@@ -167,7 +167,7 @@ Then open [http://localhost:3000/](http://localhost:3000/)
 view the `./test/test.html`
 
 ## Other
-There are other versions here, of course, they are not necessary. [Angular version](https://github.com/a-jie/NgxAni), [React version](https://github.com/a-jie/react-anix) and [Vue version](https://github.com/GeoffZhu/vue-anix)...
+There are other versions here, of course, they are not necessary. [React version](https://github.com/drawcall/react-anix) and [Vue version](https://github.com/GeoffZhu/vue-anix)...
 
 ## License
 
