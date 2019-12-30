@@ -116,7 +116,7 @@ There are a lot of animation libraries Why use AniX?
 
 ## Documentation
 
-#### General documents please visit [https://a-jie.github.io/AniX/](https://a-jie.github.io/AniX/)
+#### General documents please visit [https://drawcall.github.io/AniX/](https://drawcall.github.io/AniX/)
 
 #### jQuery plug-in documents are as follows 
 

@@ -3,7 +3,7 @@ let prependFile = require('prepend-file');
 
 let banner = (name, v) => {
     return `/**
-* ${name} - VERSION(${v}) - https://github.com/a-jie/AniX
+* ${name} - VERSION(${v}) - https://github.com/drawcall/AniX
 */
 `
 };
