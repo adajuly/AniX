@@ -7,8 +7,8 @@
   <a href='https://www.npmjs.com/package/anix'>
     <img src='https://badge.fury.io/js/anix.svg' alt='npm version' height='18'>
   </a>
-  <a href='https://travis-ci.com/drawcall/Anix'>
-    <img src='https://travis-ci.com/drawcall/Anix.svg?branch=master' alt='travis' height='18'>
+  <a href='#'>
+    <img src='https://img.shields.io/github/last-commit/drawcall/Anix.svg' alt='last commit' height='18'>
   </a>
   <a href='https://github.com/drawcall/Anix/issues'>
     <img src='https://img.shields.io/github/issues/drawcall/Anix.svg' alt='issues open' height='18'>
@@ -18,9 +18,10 @@
   </a>
 </div>
 
-### AniX - A super easy and lightweight javascript animation library.
-
 ## Overview
+
+#### AniX - A super easy and lightweight javascript animation library.
+
 AniX is a lightweight and easy-to-use animation library with excellent performance and good compatibility for modern browsers.  
 
 It uses the native **css transition** attribute, better than js simulation animation performance. And you can also enable hardware acceleration with it.  
