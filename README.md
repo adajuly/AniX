@@ -1,5 +1,22 @@
-![logo](https://github.com/drawcall/AniX/blob/master/logo/logo.png?raw=true)
+<p align="center">
+  <img src="https://github.com/drawcall/AniX/blob/master/logo/logo.png?raw=true" />
+</p>
 
+---
+<div align="center">
+  <a href='https://www.npmjs.com/package/anix'>
+    <img src='https://badge.fury.io/js/anix.svg' alt='npm version' height='18'>
+  </a>
+  <a href='https://travis-ci.com/drawcall/Anix'>
+    <img src='https://travis-ci.com/drawcall/Anix.svg?branch=master' alt='travis' height='18'>
+  </a>
+  <a href='https://github.com/drawcall/Anix/issues'>
+    <img src='https://img.shields.io/github/issues/drawcall/Anix.svg' alt='issues open' height='18'>
+  </a>
+  <a href='#'>
+    <img src='https://img.shields.io/npm/l/anix.svg' alt='license:MIT' height='18'>
+  </a>
+</div>
 
 ### AniX - A super easy and lightweight javascript animation library.
 
