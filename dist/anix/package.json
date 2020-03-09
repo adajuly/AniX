@@ -1,0 +1,26 @@
+{
+  "name": "anix",
+  "version": "1.1.1",
+  "license": "BSD",
+  "keywords": [
+    "motion",
+    "animation",
+    "animate"
+  ],
+  "main": "index.js",
+  "types": "src/index.d.ts",
+  "homepage": "https://github.com/drawcall/AniX",
+  "dependencies": {},
+  "devDependencies": {
+    "@types/node": "^7.0.18",
+    "codelyzer": "^5.2.0",
+    "npm-run-all": "^4.0.2",
+    "prepend-file": "^1.3.1",
+    "shx": "^0.2.2",
+    "ts-loader": "^2.0.3",
+    "tslint": "^5.2.0",
+    "typescript": "^2.3.2",
+    "webpack": "^2.5.1"
+  },
+  "typings": "index.d.ts"
+}

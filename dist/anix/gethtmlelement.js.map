@@ -1,0 +1,1 @@
+{"version":3,"file":"gethtmlelement.js","sourceRoot":"","sources":["../../src/gethtmlelement.ts"],"names":[],"mappings":";;AAAA,IAAI,cAAc,GAAG,UAAC,GAKrB;IACG,IAAI,CAAC,GAAG;QAAE,MAAM,gCAAgC,CAAC;IAEjD,IAAI,GAAG,CAAC,QAAQ;QACZ,OAAO,GAAG,CAAC;SACV,IAAI,GAAG,CAAC,MAAM;QACf,OAAO,GAAG,CAAC,CAAC,CAAC,CAAC;;QAEd,OAAO,GAAG,CAAC,aAAa,CAAC;AACjC,CAAC,CAAA;AAEQ,wCAAc"}

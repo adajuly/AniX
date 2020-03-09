@@ -110,6 +110,13 @@ export class AniXClass {
         return getTransform(param);
     }
 
+    set(ele: any, args: {
+        className?: string;
+        [propName: string]: any;
+    }) {
+        this.setStyle(ele, args);
+    }
+
     private start(ele: any, transition: string, time: number, args: { nokill?: boolean;[propName: string]: any; }): string {
         ele = getHTMLElement(ele);
         let id = Dic.setId(ele);

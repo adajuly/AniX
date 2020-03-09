@@ -1,6 +1,5 @@
 node_modules
 build
-dist/anix
 dist/react
 npm-debug.log
 package-lock.json
