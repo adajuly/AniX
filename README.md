@@ -13,6 +13,9 @@
   <a href='https://github.com/drawcall/Anix/issues'>
     <img src='https://img.shields.io/github/issues/drawcall/Anix.svg' alt='issues open' height='18'>
   </a>
+  <a href="https://github.com/drawcall/AniX/pulls" target="_blank">
+    <img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg" alt="PRs"/>
+  </a>
   <a href='#'>
     <img src='https://img.shields.io/npm/l/anix.svg' alt='license:MIT' height='18'>
   </a>
