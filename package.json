@@ -18,6 +18,7 @@
     "clean_anix": "shx rm -rf ./dist/anix",
     "clean_jq": "shx rm -rf ./dist/jq",
     "clean_umd": "shx rm -rf ./dist/umd",
+    "travis": "npm run tslint",
     "anix": "npm-run-all clean_anix compile_anix",
     "umd": "npm-run-all clean_umd compile_umd",
     "jq": "npm-run-all clean_jq compile_jq",
