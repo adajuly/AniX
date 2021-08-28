@@ -1,8 +1,8 @@
 <p align="center">
   <img src="https://github.com/drawcall/AniX/blob/master/logo/logo.png?raw=true" />
-
-  AniX - A super easy and lightweight javascript animation library.
 </p>
+
+<p align="center"> A super easy and lightweight javascript animation library.</p>
 
 ---
 
