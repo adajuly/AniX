@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var CssXClass = /** @class */ (function () {
+var CssXClass = (function () {
     function CssXClass() {
         this.pfObj = {};
         this.div = document.createElement("div");

@@ -18,6 +18,6 @@ export declare class Dic {
         __nxid?: any;
         [propName: string]: any;
     }): void;
-    private static id;
+    private static id();
     private static map;
 }

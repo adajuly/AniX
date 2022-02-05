@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var gethtmlelement_1 = require("./gethtmlelement");
-var Dic = /** @class */ (function () {
+var Dic = (function () {
     function Dic() {
     }
     Dic.setId = function (ele) {
@@ -34,9 +34,9 @@ var Dic = /** @class */ (function () {
             return v.toString(16);
         });
     };
-    Dic.map = {};
     return Dic;
 }());
+Dic.map = {};
 exports.Dic = Dic;
 ;
 //# sourceMappingURL=dic.js.map

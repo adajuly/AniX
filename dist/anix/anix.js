@@ -29,7 +29,7 @@ var gettransform_1 = require("./gettransform");
 * @tiptext
 *
 */
-var AniXClass = /** @class */ (function () {
+var AniXClass = (function () {
     function AniXClass() {
         this.KEYWORDS = ['nokill', 'ease', 'delay', 'all', 'class', 'onStart', 'onUpdate', 'onComplete'];
         this.anis = {};

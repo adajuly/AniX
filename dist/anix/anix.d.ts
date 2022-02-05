@@ -51,30 +51,30 @@ export declare class AniXClass {
         className?: string;
         [propName: string]: any;
     }): void;
-    private start;
+    private start(ele, transition, time, args);
     /**
     * no animation
     */
-    private noAniStart;
+    private noAniStart(ele, transition, time, args);
     /**
     * Set the style set style or add class
     */
-    private setStyle;
+    private setStyle(ele, args);
     /**
     * add callbacks
     */
-    private addCallback;
+    private addCallback(ele, time, args);
     /**
     * get style key name
     */
-    private getPureStyleKeys;
+    private getPureStyleKeys(args);
     /**
     * get pure css2 style
     */
-    private getNormalStyles;
-    private notKeyWords;
-    private each;
-    private pretreatment;
+    private getNormalStyles(args);
+    private notKeyWords(key);
+    private each(args, func);
+    private pretreatment(args);
 }
 declare let AniX: AniXClass;
 export { AniX };

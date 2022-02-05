@@ -1,37 +1,59 @@
-![logo](https://github.com/drawcall/AniX/blob/master/logo/logo.png?raw=true)
+<p align="center">
+  <img src="https://github.com/aliaszz/AniX/blob/master/logo/logo.png?raw=true" />
+</p>
 
+<p align="center"> A super easy and lightweight javascript animation library. </p>
 
-### AniX - A super easy and lightweight javascript animation library.
+---
+
+<div align="center">
+  <a href='https://www.npmjs.com/package/anix'>
+    <img src='https://badge.fury.io/js/anix.svg' alt='npm version' height='18'>
+  </a>
+  <a href='#'>
+    <img src='https://img.shields.io/github/last-commit/aliaszz/Anix.svg' alt='last commit' height='18'>
+  </a>
+  <a href='https://github.com/aliaszz/Anix/issues'>
+    <img src='https://img.shields.io/github/issues/aliaszz/Anix.svg' alt='issues open' height='18'>
+  </a>
+  <a href="https://github.com/aliaszz/AniX/pulls" target="_blank">
+    <img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg" alt="PRs"/>
+  </a>
+  <a href='#'>
+    <img src='https://img.shields.io/npm/l/anix.svg' alt='license:MIT' height='18'>
+  </a>
+</div>
 
 ## Overview
-AniX is a lightweight and easy-to-use animation library with excellent performance and good compatibility for modern browsers.  
 
-It uses the native **css transition** attribute, better than js simulation animation performance. And you can also enable hardware acceleration with it.  
+AniX is a lightweight and easy-to-use animation library with excellent performance and good compatibility for modern browsers.
+
+It uses the native **css transition** attribute, better than js simulation animation performance. And you can also enable hardware acceleration with it.
 
 AniX only less than **3k(gzip)** in size. It achieves almost the same effect as any other huge library of animations.
 
-View demo, please click [here](https://drawcall.github.io/AniX/).
+View demo, please click [here](https://aliaszz.github.io/AniX/).
 
-![code](https://github.com/drawcall/AniX/blob/master/logo/code.png?raw=true)
+![code](https://raw.githubusercontent.com/aliaszz/AniX/master/logo/code.png)
 
 ## Install and Include
 
 #### Install and Import anix.
 
-```bash 
+```bash
 $ npm install anix --save-dev
 ...
 
 import { AniX } from 'anix';
 ```
 
-#### Use the umd version [anix.umd.js](https://github.com/drawcall/AniX/blob/master/dist/umd/anix.umd.js). Check out the [UMD](https://github.com/umdjs/umd) repository for more details.
+#### Use the umd version [anix.umd.js](https://github.com/aliaszz/AniX/blob/master/dist/umd/anix.umd.js). Check out the [UMD](https://github.com/umdjs/umd) repository for more details.
 
 ```html
 <script src="./js/anix.umd.ts" type="text/javascript"></script>
 ```
 
-#### Use jQuery plugin [anix.jq.js](https://github.com/drawcall/AniX/blob/master/dist/jq/anix.jq.js), that supports chain syntax.
+#### Use jQuery plugin [anix.jq.js](https://github.com/aliaszz/AniX/blob/master/dist/jq/anix.jq.js), that supports chain syntax.
 
 ```html
 <script src="./js/jquery.min.js" type="text/javascript"></script>
@@ -44,81 +66,84 @@ import { AniX } from 'anix';
 
 ```js
 AniX.to(dom, 1, {
-    x: 300,
-    y: 10,
-    scale: 2,
-    delay: 0.5,
-    onComplete: function(){
-      	alert("over");
-    }
+  x: 300,
+  y: 10,
+  scale: 2,
+  delay: 0.5,
+  onComplete: function() {
+    alert('over');
+  },
 });
 
-// or 
+// or
 AniX.to(dom, 1, {
-    "width": "200px",
-    "background-color": "#ffcc00",
-    "ease": AniX.ease.easeOutBack,
-    "onComplete": () => {
-        //STATE : COMPLETED!
-        console.log("STATE : COMPLETED!");
-    }
+  width: '200px',
+  'background-color': '#ffcc00',
+  ease: AniX.ease.easeOutBack,
+  onComplete: () => {
+    //STATE : COMPLETED!
+    console.log('STATE : COMPLETED!');
+  },
 });
 ```
 
-#### jQuery plug-in usage [anix.jq.js](https://github.com/drawcall/AniX/blob/master/dist/jq/anix.jq.js)
+#### jQuery plug-in usage [anix.jq.js](https://github.com/aliaszz/AniX/blob/master/dist/jq/anix.jq.js)
 
 ```js
-$('.demo').css({'left':'0px'}).to(.5, {
-    'left': '500px',
-    'background-color': '#ffcc00'
-});
+$('.demo')
+  .css({ left: '0px' })
+  .to(0.5, {
+    left: '500px',
+    'background-color': '#ffcc00',
+  });
 ```
 
 #### Use in react(v16+)
 
 ```js
 class MyComponent extends React.Component {
-    constructor(props) {
-        super(props);
-        this.myRef = React.createRef();
-        this.clickHandler = this.clickHandler.bind(this);
-    }
+  constructor(props) {
+    super(props);
+    this.myRef = React.createRef();
+    this.clickHandler = this.clickHandler.bind(this);
+  }
 
-    clickHandler(e) {
-        const node = this.myRef.current;
-        // animation
-        AniX.to(node, 1, {
-            x: 300,
-            y: 10,
-            scale: 2
-        });
-    }
+  clickHandler(e) {
+    const node = this.myRef.current;
+    // animation
+    AniX.to(node, 1, {
+      x: 300,
+      y: 10,
+      scale: 2,
+    });
+  }
 
-    render() {
-        return (
-            <div>
-                <div ref={this.myRef} />
-                <button onClick={this.clickHandler}></button>
-            </div>
-        );
-    }
+  render() {
+    return (
+      <div>
+        <div ref={this.myRef} />
+        <button onClick={this.clickHandler}></button>
+      </div>
+    );
+  }
 }
 ```
 
 ## Why?
+
 There are a lot of animation libraries Why use AniX?
 
-* First of all, it is very small and 3kb (gzip) is very suitable for use on the mobile page (because there is a requirement for size).
+- First of all, it is very small and 3kb (gzip) is very suitable for use on the mobile page (because there is a requirement for size).
 
-* Secondly, Anix directly uses native css animation properties, which is very high performance.
+- Secondly, Anix directly uses native css animation properties, which is very high performance.
 
-* Good compatibility, after a lot of real machine tests, good performance. Includes a variety of android devices 
+- Good compatibility, after a lot of real machine tests, good performance. Includes a variety of android devices
 
 ## Documentation
 
-#### General documents please visit [https://drawcall.github.io/AniX/](https://drawcall.github.io/AniX/)
+#### General documents please visit [https://aliaszz.github.io/AniX/](https://aliaszz.github.io/AniX/)
 
-#### jQuery plug-in documents are as follows 
+#### jQuery plug-in documents are as follows
 
 ```js
 //like AniX.to
@@ -137,17 +162,18 @@ $(..).getTransform(param: any)
 $.ease.easeOut
 ```
 
-
 ## Test and Build
 
 #### install and build all task
+
 ```bash
-git clone git@github.com:drawcall/AniX.git
+git clone git@github.com:aliaszz/AniX.git
 npm install
 npm run all
 ```
 
 #### build jquery or umd version
+
 ```bash
 npm run jq
 npm run umd
@@ -161,13 +187,16 @@ npm install
 npm start
 npm run build
 ```
+
 Then open [http://localhost:3000/](http://localhost:3000/)
 
 #### Use test cases
+
 view the `./test/test.html`
 
 ## Other
-There are other versions here, of course, they are not necessary. [React version](https://github.com/drawcall/react-anix) and [Vue version](https://github.com/GeoffZhu/vue-anix)...
+
+There are other versions here, of course, they are not necessary. [React version](https://github.com/aliaszz/react-anix) and [Vue version](https://github.com/GeoffZhu/vue-anix)...
 
 ## License
 
