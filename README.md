@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://github.com/aliaszz/AniX/blob/master/logo/logo.png?raw=true" />
+  <img src="https://github.com/adajuly/AniX/blob/master/logo/logo.png?raw=true" />
 </p>
 
 <p align="center"> A super easy and lightweight javascript animation library. </p>
@@ -11,12 +11,12 @@
     <img src='https://badge.fury.io/js/anix.svg' alt='npm version' height='18'>
   </a>
   <a href='#'>
-    <img src='https://img.shields.io/github/last-commit/aliaszz/Anix.svg' alt='last commit' height='18'>
+    <img src='https://img.shields.io/github/last-commit/adajuly/Anix.svg' alt='last commit' height='18'>
   </a>
-  <a href='https://github.com/aliaszz/Anix/issues'>
-    <img src='https://img.shields.io/github/issues/aliaszz/Anix.svg' alt='issues open' height='18'>
+  <a href='https://github.com/adajuly/Anix/issues'>
+    <img src='https://img.shields.io/github/issues/adajuly/Anix.svg' alt='issues open' height='18'>
   </a>
-  <a href="https://github.com/aliaszz/AniX/pulls" target="_blank">
+  <a href="https://github.com/adajuly/AniX/pulls" target="_blank">
     <img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg" alt="PRs"/>
   </a>
   <a href='#'>
@@ -32,9 +32,9 @@ It uses the native **css transition** attribute, better than js simulation anima
 
 AniX only less than **3k(gzip)** in size. It achieves almost the same effect as any other huge library of animations.
 
-View demo, please click [here](https://aliaszz.github.io/AniX/).
+View demo, please click [here](https://adajuly.github.io/AniX/).
 
-![code](https://raw.githubusercontent.com/aliaszz/AniX/master/logo/code.png)
+![code](https://raw.githubusercontent.com/adajuly/AniX/master/logo/code.png)
 
 ## Install and Include
 
@@ -47,13 +47,13 @@ $ npm install anix --save-dev
 import { AniX } from 'anix';
 ```
 
-#### Use the umd version [anix.umd.js](https://github.com/aliaszz/AniX/blob/master/dist/umd/anix.umd.js). Check out the [UMD](https://github.com/umdjs/umd) repository for more details.
+#### Use the umd version [anix.umd.js](https://github.com/adajuly/AniX/blob/master/dist/umd/anix.umd.js). Check out the [UMD](https://github.com/umdjs/umd) repository for more details.
 
 ```html
 <script src="./js/anix.umd.ts" type="text/javascript"></script>
 ```
 
-#### Use jQuery plugin [anix.jq.js](https://github.com/aliaszz/AniX/blob/master/dist/jq/anix.jq.js), that supports chain syntax.
+#### Use jQuery plugin [anix.jq.js](https://github.com/adajuly/AniX/blob/master/dist/jq/anix.jq.js), that supports chain syntax.
 
 ```html
 <script src="./js/jquery.min.js" type="text/javascript"></script>
@@ -87,7 +87,7 @@ AniX.to(dom, 1, {
 });
 ```
 
-#### jQuery plug-in usage [anix.jq.js](https://github.com/aliaszz/AniX/blob/master/dist/jq/anix.jq.js)
+#### jQuery plug-in usage [anix.jq.js](https://github.com/adajuly/AniX/blob/master/dist/jq/anix.jq.js)
 
 ```js
 $('.demo')
@@ -141,7 +141,7 @@ There are a lot of animation libraries Why use AniX?
 
 ## Documentation
 
-#### General documents please visit [https://aliaszz.github.io/AniX/](https://aliaszz.github.io/AniX/)
+#### General documents please visit [https://adajuly.github.io/AniX/](https://adajuly.github.io/AniX/)
 
 #### jQuery plug-in documents are as follows
 
@@ -167,7 +167,7 @@ $.ease.easeOut
 #### install and build all task
 
 ```bash
-git clone git@github.com:aliaszz/AniX.git
+git clone git@github.com:adajuly/AniX.git
 npm install
 npm run all
 ```
@@ -196,7 +196,7 @@ view the `./test/test.html`
 
 ## Other
 
-There are other versions here, of course, they are not necessary. [React version](https://github.com/aliaszz/react-anix) and [Vue version](https://github.com/GeoffZhu/vue-anix)...
+There are other versions here, of course, they are not necessary. [React version](https://github.com/adajuly/react-anix) and [Vue version](https://github.com/GeoffZhu/vue-anix)...
 
 ## License
 
